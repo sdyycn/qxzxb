@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript" src="template/images/admin.js"></script>
+<script type="text/javascript" src="template/images/form.js"></script>
+<script type="text/javascript">
+function show_url(n){
+$(n).show();
+}
+function hide_url(n){
+$(n).hide();
+}
+</script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 语言管理 > 添加语言</h2></div>
+ 
+</div><!--导航-->
+<div class="caozuo_nav">
+<ul>
+ <li class="<?php if($GLOBALS['action']=='add'){echo 'hover';}?>"><a href="?action=add">添加语言</a></li>
+ <li class="<?php if($GLOBALS['action']=='lang'){echo 'hover';}?>"><a href="?action=lang">管理语言</a></li>
+ <li class="<?php if($GLOBALS['action']=='cache_lang'){echo 'hover';}?>"><a href="?action=cache_lang">更新语言缓存</a></li>
+</ul>
+<div class="clear"></div>
+</div><!--小操作导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data" onsubmit="return form_check();" action="admin_lang.php" class="form">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th class="w1">参数说明</th><th class="w2">参数值</th><th class="w3">变量名</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+		  <td class="w1" style="text-align:center"><span title="区别其它语言，如：简体中文、English" class="help">语言名称:</span></td><td class="w2"><input type="text" name="lang_name" style="width:50%" class="is_empty" value="" title="语言名称" id="lang_name"/></td><td class="w3">$lang_name</td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">语言排序:</td><td class="w2"><input type="text" name="lang_order" style="width:30%" value="10"/></td><td class="w3">$lang_order</td>
+		</tr>	
+		<tr>
+		  <td class="w1" style="text-align:center"><span title="只能使用字母和下划线,提交后不可更改" class="help">语言标示:</span></td><td class="w2"><input type="text" name="lang_tag" style="width:30%" value="" id="lang_tag" class="is_empty" title="语言标示" onblur="javascript:ajax_check(this,'lang_tag');"/><span id="loading" style="display:none"></span></td><td class="w3">$lang_tag</td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">是否开启:</td><td class="w2"><input type="radio" value="1" name="lang_is_use[]" style="margin:0 5px; border:none" checked="checked"/>是<input style="margin:0 5px; border:none" type="radio" value="0" name="lang_is_use[]"/>否</td><td class="w3">$lang_is_use</td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">是否打开新窗口:</td><td class="w2"><input type="radio" value="1" name="lang_is_open[]" style="margin:0 5px; border:none"/>是<input style="margin:0 5px; border:none" type="radio" value="0" name="lang_is_open[]" checked="checked"/>否</td><td class="w3">$lang_is_open</td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center"><span title="开启外部链接将直接跳转链接不能使用后台功能" class="help">开启外部链接:</span></td><td class="w2"><input type="radio" value="1" name="lang_is_url[]" style="margin:0 5px; border:none" onclick="show_url('#show_url');"/>是<input style="margin:0 5px; border:none" type="radio" value="0" name="lang_is_url[]" onclick="hide_url('#show_url');" checked="checked"/>否</td><td class="w3">$lang_is_url</td>
+		</tr>
+		<tr id="show_url" style="display:none">
+		  <td class="w1" style="text-align:center"><span title="将会进入链接地址" class="help">外部链接地址:</span></td><td class="w2"><input type="text" name="lang_url" style="width:80%" value="http://"/></td><td class="w3">$lang_url</td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center"><span title="选择固定语言将不可删除" class="help">是否作为固定语言:</span></td><td class="w2"><input type="radio" value="1" name="lang_is_fix[]" style="margin:0 5px; border:none"/>是<input style="margin:0 5px; border:none" type="radio" value="0" name="lang_is_fix[]" checked="checked"/>否</td><td class="w3">$lang_is_fix</td>
+		</tr>
+	</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="add_save"/><input type="hidden" value="true" name="sb" />
+  <input type="submit" value="确定" name="submit" class="go"/><input type="reset" style="margin:0 10px;" class="go" value="重置" name="reset"/>
+ </div>
+</form>
+</body>
+</html>

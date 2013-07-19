@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript" src="template/images/form.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > <a href="admin_channel.php">模型管理</a> > <a href="admin_channel.php?action=fields&id=<?php echo $GLOBALS['id'];?>">字段管理</a> > 添加字段</h2></div>
+</div><!--导航-->
+
+<div class="caozuo_nav">
+<ul>
+<li class="<?php if($GLOBALS['action']=='fields'){ echo 'hover';}?>"><a href="admin_channel.php?action=fields&id=<?php echo $GLOBALS['id'];?>">管理字段</a></li>
+<li class="<?php if($GLOBALS['action']=='add_field'){ echo 'hover';}?>"><a href="admin_channel.php?action=add_field&id=<?php echo $GLOBALS['id'];?>">添加字段</a></li>
+<div class="clear"></div>
+</div><!--小操作导航-->
+
+<form name="maininfo" method="post" action="admin_channel.php" class="form">
+<div class="div_out" id="tb" style="margin-top:8px;">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:30%">参数说明</th><th style="width:70%">参数值</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="发布内容时显示的提示文字" class="help">提示文字：</span></td><td style="width:70%"><input name="use_name" value="" style="width:50%" class="is_empty" title="提示文字" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="存储数据使用，同一内容模型下不可重复,必须为英文,填写后不可更改" class="help">字段名称：</span></td><td style="width:70%"><input name="field_name" value="" style="width:50%" class="is_empty" title="字段名称" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1">字段类型：</td><td style="width:70%">
+		  <p><input style="margin:0 5px; border:none" type="radio" name="field_type" value="text" checked="checked"/>文本框</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="textarea" />多行文本</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="html" />html文本</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="upload_pic" />上传图片(单图)</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="upload_pic_more" />上传图片(多图)</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="upload_file" />上传附件</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="select" />option下拉</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="radio" />radio选项</p>
+		  <p><input type="radio" style="margin:0 5px; border:none" name="field_type" value="checkbox" />Checkbox多选</p>		  
+		  </td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="选择radion,option,checkbox字段使用,分割;如a,b,c" class="help">字段默认值：</span></td><td style="width:70%">
+		 <textarea name="field_value" style="width:50%; height:50px;"></textarea></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="说明将会出现在表单中，表单使用名下面" class="help">字段说明：</span></td><td style="width:70%">
+		 <textarea name="field_info" style="width:50%; height:50px;"></textarea></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="字段排序,按排序输出" class="help">字段排序：</span></td><td style="width:70%">
+		 <input name="field_order" value="10" style="width:20%" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="固定的字段不能单独删除" class="help">是否固定：</span></td><td style="width:70%"><input style="margin:0 5px; border:none" type="radio" name="is_del" value="0" checked="checked"/>否<input type="radio" style="margin:0 5px; border:none" name="is_del" value="1"  />是</td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1">是否禁用：</td><td style="width:70%"><input style="margin:0 5px; border:none" type="radio" name="is_disable" value="0" checked="checked"/>否<input type="radio" style="margin:0 5px; border:none" name="is_disable" value="1"  />是</td>
+		</tr>
+		
+	</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="save_field"/><input type="hidden" value="<?php echo $GLOBALS['id'];?>" name="id" />
+  <input type="submit" value="确定" name="submit" class="go"/><input type="reset" style="margin:0 10px;" class="go" value="重置" name="reset"/>
+ </div>
+</form>
+</body>
+</html>

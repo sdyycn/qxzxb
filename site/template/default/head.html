@@ -1,0 +1,105 @@
+<div class="head_login" id="user_login">
+	<form name="form1" action="{path cms/}member.php" method="post">
+		<label>{print $language['member_login_user']/}:</label>
+		<input type="text" id="ajax_user" name="user" style="width:100px" />
+		<label>{print $language['member_login_pass']/}:</label>
+		<input type="password" id="ajax_password" name="password" style="width:100px" />
+		<label>{print $language['member_login_code']/}:</label>
+		<input type="text" name="code" id="ajax_code" style="width:50px" />
+		<img src="{path plus/}/code.php" name="code" border="0" id="code" style="display:block; float:left;cursor:pointer; margin-left:5px; display:inline"/>
+		<input type="hidden" id="ajax_lang" value="{print $lang/}" name="lang" />
+		<input type="button" style="border:0; margin-left:5px; display:inline; padding:0" src="{path template/}/images/login_input2.gif" name="go" id="ajax_login" />
+		<label>
+			<a href="{path cms/}member.php?action=regist&lang={print $lang/}">{print $language['member_regist']/}</a>
+		</label>
+	</form>
+	
+	<div class="head_right">
+		<a href="#" onclick="javascript:window.external.AddFavorite('http://www.qxzxb.com','{print $webinfo['web_name']/}')" title="收藏本站到你的收藏夹">加入收藏</a>
+		{loop source=$langs}
+		<a href="{print $v['url']/}" {print $v['class']/} {print $v['target']/}>{print $v['lang_name']/}</a>
+		{/loop}
+	</div>
+	<div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#code').click(function(){
+	$(this).attr('src','{path plus/}/code.php?tag='+new Date().getTime());
+	});
+	$.ajax({
+			type:"POST",
+			url:"{path cms/}member.php",
+			data:"action=is_ajax_login&lang="+"{print $lang/}",
+			dataType:"json",
+			success:function(data){
+				if(data.login==1){
+					$('#user_login').html(data.info);
+				}
+			}	
+	});
+	$('#ajax_login').click(function(){
+		$.ajax({
+			type:"POST",
+			url:"{path cms/}member.php",
+			data:"action=ajax_login&lang="+$('#ajax_lang').val()+"&password="+$('#ajax_password').val()+"&user="+$('#ajax_user').val()+"&code="+$('#ajax_code').val(),
+			dataType:"json",
+			success:function(data){
+				if(data.login==1){
+					$('#user_login').html(data.info);
+				}else{
+					alert(data.info);
+				}
+			}
+		});
+	});
+	
+});
+</script>
+
+<div class="head">
+	<div class="head_left">
+		<div class="logo"><a href="{path index/}"><img src="{path template/}/images/logo.jpg" border="0" /></a></div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="head_nav"><!--head-->
+	<div class="nav_left">
+	<div class="nav_right">
+	<ul>
+		<li>
+		<div id ='nav_time'>
+		</div>
+		<script type="text/javascript">
+			nav_timer();
+			setInterval("nav_timer()", 1000);
+			function nav_timer(){
+				document.getElementById("nav_time").innerHTML=new Date().toLocaleString()+'&nbsp;&nbsp;'
+			}
+		</script>
+		</li>
+		<li><a href="{path index/}">{print $language['index']/}</a></li>
+		{loop source=$nav_middle item=$nav_child} 
+		<li class="{print $nav_child['class']/}">
+			<a href="{print $nav_child['url']/}" {print $nav_child['target']/}>{print $nav_child['cate_name']/}</a>
+			{if $nav_child['child']}
+			<p class="li_child" style="display:none">
+				{loop source=$nav_child['child']}
+				<a href="{print $v['url']/}" {print $v['target']/}>{print $v['cate_name']/}</a>
+				{/loop}	
+			</p>
+			{/if}
+		</li>
+		{/loop}
+	</ul>
+	</div>
+	</div>
+</div><!--head -->
+
+<div class="div_margin"></div>
+
+<div class="flash">
+{flash/}
+</div>

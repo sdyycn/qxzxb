@@ -1,0 +1,16 @@
+.htaccess Editor：htaccess在线生成器今天不聊天收藏版
+
+
+
+自己收藏的一个程序，支持英语以及中文，其他语言暂时不支持。谁喜欢可以自己去下载语言文件
+
+.htaccess Editor 是一个免费的在线工具，它能够为你的网站快速生成一个 .htaccess 文件。使用非常简单，在页面左侧选择类别，再按照提示在右侧输入相关信息。最后把生成的代码以“.htaccess”的文件名保存在网站根目录下即可。
+P.S.请确认你的虚拟主机支持 .htaccess。
+
+什么是 .htaccess？
+
+    Apache服务器的.htaccess是一个非常强大的分布式配置文件，尽管.htaccess只是一个文件，但它可以更改服务器的设置，允许你做许多不同的事情，最流行的功能是您可以创建自定义的“404 error”页面。.htaccess并不难于使用，归根结底，它只是在一个text文档中添加几条简单的指令而已。
+
+演示：http://taozui.com.cn/htaccess/
+
+鬼子官方站：http://www.htaccesseditor.com/

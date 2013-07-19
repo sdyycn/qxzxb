@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 模板修改</h2></div>
+</div><!--导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data" action="?" class="form">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:5%;">参数说明</th><th class="w2">参数值</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+		  <td style="width:5%;">模板地址:</td><td class="w2"><?php echo $file;?></td>
+		</tr>
+		<tr>
+		  <td style="width:5%;">修改:</td><td class="w2"><textarea style="width:100%; height:500px; font-size:12px;" name="template"><?php echo $str;?></textarea></td>
+		</tr>
+		
+	</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="save_template"/><input type="hidden" name="file" value="<?php echo $file;?>" />
+  <input type="submit" value="确定" class="go" name="submit"/>
+ </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>栏目管理</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#sl_all').click(function(){
+		$('table').find('#all').attr('checked','checked');
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+<div class="position">
+	<h2>当前位置 ><a href="?">链接管理</a> ></h2></div>
+	<div class="lang">
+		<span>当前的语言:</span>
+		<a href="?act=list&lang=<{$lang.id}>" class="hover' >"><{$lang.name}></a>
+	</div>
+</div><!--导航-->
+
+<div id="sys">
+<form name="content_list" id="content_list" method="post" action="admin_content.php" class="form" enctype="multipart/form-data">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:20%">网站名称</th><th style="width:15%">添加时间</th><th style="width:35%">网站说明</th><th style="width:10%">站长mail</th><th style="width:10%">排序</th><th style="width:10%">操作</th></tr>
+	</thead>
+	<tbody>
+		<{foreach from=$links item=link}>
+		<tr>
+			<td style="width:20%; text-align:center"><a href='', target="_blank"><{$link.name}></a></td>
+			<td style="width:15%; text-align:center"><{$link.addtime}></td>
+			<td style="width:35%;text-align:center"><{$link.info}></td>
+			<td style="width:10%;text-align:center"><{$link.mail}></td>
+			<td style="width:10%;text-align:center"><{$link.order}></td>
+			<td style="width:10%;text-align:center">
+				<a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?act=delete&lang=<{$lang}>&id=<{$link.id}>;}">删除</a>
+				|<a href="?act=edit&lang=<{$lang}>&id=<{$link.id}>">修改</a></td>
+		</tr>
+		<{/foreach}>
+		</tbody>
+ </table>
+ </div>
+</form>
+</div><!--内容切换-->
+
+<div class="page">
+ 	<ul>
+ 		<li><a href='adminlink.php?page=xx&query=xx&totoal=xx&topage=xx'>Prev Page</a></li>
+		<li><a href='adminlink.php?page=xx&query=xx&totoal=xx&topage=xx'>1</a></li>
+		<li><a href='adminlink.php?page=xx&query=xx&totoal=xx&topage=xx'>2</a></li>
+		<li><a href='adminlink.php?page=xx&query=xx&totoal=xx&topage=xx'>3</a></li>
+		<li><a href='adminlink.php?page=xx&query=xx&totoal=xx&topage=xx'>4</a></li>
+		<li><a href='adminlink.php?page=xx&query=xx&totoal=xx&topage=xx'>Next Page</a></li>
+	</ul>
+ </div>
+
+</body>
+</html>

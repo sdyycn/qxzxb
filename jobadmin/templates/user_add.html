@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<base href="<{$baseurl}>" />
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<script src="scripts/user.js?12345" type="text/javascript"></script>
+<title>Insert title here</title>
+</head>
+<body id="right" class="main1">
+<div class="ttitle">
+	<h1>管理员添加</h1>
+</div>           
+<table class="list-layout wd-500" >
+	<form  method="post" action="<{$adminroot}>/userpage.php?act=add" name="myform" id="myform">
+		<thead>
+			<tr>
+				<th  colspan="2" class="tc">管理员添加</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td width="141" class="a">用户名:</td>
+				<td width="347"><input name="username"  type="text" id="username" size="20" /></td>
+			</tr>
+			<tr>
+				<td width="141" class="a">密码：</td>
+				<td width="347"><input name="password"  type="password" id="password" size="20" /></td>
+			</tr>
+			<tr>
+				<td width="141" class="a">再次输入：</td>
+				<td width="347"><input name="repassword"  type="password" id="repassword" size="20" /></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td><input  type="submit" class="btn2"   name="submit" id="submit" value="添加" onClick="return checkform();"  /></td>
+			</tr>
+		</tbody>
+	</form>
+</table>
+</body>
+</html>

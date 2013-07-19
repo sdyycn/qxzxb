@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单页内容管理</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#show_list').find('tr').hover(function(){
+		$(this).find('td').css('background','#ccffcc');
+	},function(){
+		$(this).find('td').css('background','');
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 单页内容管理</h2></div>
+</div><!--导航-->
+
+
+ 
+
+<div id="sys">
+<form name="maininfo" method="post" action="" class="form">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:5%">选择</th><th style="width:20%">文章标题</th><th style="width:15%">添加时间</th><th style="width:5%">所属频道</th><th style="width:10%">所属栏目</th><th style="width:10%">所属语言</th><th style="width:10%">浏览权限</th><th style="width:5%">点击</th><th style="width:5%">状态</th><th style="width:5%">发布人</th><th style="width:10%">操作</th></tr>
+	</thead>
+	<tbody id="show_list">
+	<?php
+	
+			$table=DB_PRE.$c_arr['channel_table'];
+			$channel=$c_arr['channel_name'];
+	
+	if(empty($table)||empty($channel)){
+		msg('参数发生错误，不存在相关频道');
+	}
+	$maintb=DB_PRE."maintb";
+	$page=empty($page)?1:$page;
+	$pagesize=30;
+	$pagenum=($page-1)*$pagesize;
+	$filt="m.channel={$id}";
+	$query='&id='.$id.'&action=content_list';
+	if(!empty($cate)){
+		$filt.=" and m.category={$cate}";
+		$query.='&cate='.$cate;
+	}
+	$total_num=$GLOBALS['mysql']->fetch_rows("select m.id from {$maintb} as m where {$filt}");
+	$total_page=ceil($total_num/$pagesize);
+	$sql="select e.*,m.* from {$table} as e left join {$maintb} as m on e.id=m.id where {$filt}  order by m.id desc limit {$pagenum},{$pagesize}";
+	$rel=$GLOBALS['mysql']->fetch_asc($sql);
+	if(!empty($rel)){
+	foreach($rel as $key=>$value){
+	?>
+		<tr><td style="width:5%; text-align:center"><input type="checkbox" style="border:0" value="<?php echo $value['id'];?>" name="all[]" /></td><td style="width:20%"><?php echo "<a href=\"".CMS_SELF."show_list.php?id={$value['category']}\" target=\"_blank\">{$value['title']}</a>";?></td><td style="width:15%; text-align:center"><?php echo date('Y-m-d H:m:s',$value['addtime']);?></td><td style="width:5%; text-align:center"><?php echo $channel;?></td><td style="width:10%; text-align:center"><a href="?action=content_list&id=<?php echo $value['channel'];?>&cate=<?php echo $value['category'];?>&lang=<?php echo $lang;?>"><?php echo get_cate($value['category']);?></a></td><td style="width:10%; text-align:center"><?php 
+		if(!empty($lang_cache)){
+		 foreach($lang_cache as $k=>$v){
+		  if($v['lang_tag']==$value['lang']){echo "【".$v['lang_name']."】";}
+		 }
+		}
+		?></td><td style="width:10%; text-align:center"><?php echo get_verify($value['purview']);?></td><td style="width:5%; text-align:center"><?php echo $value['hits'];?></td><td style="width:5%; text-align:center"><?php if($value['verify']){echo "<span style=\"color:red\">未审核</span>";}else{echo "已审核";}?></td><td style="width:5%; text-align:center"><?php echo $value['author'];?></td><td style="width:10%; text-align:center"><a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?action=del&lang=<?php echo $value['lang'];?>&id=<?php echo $value['id'];?>&cate=<?php echo $value['category'];?>&channel_id=<?php echo $value['channel'];?>';}" style="padding:0 3px;">删除</a>|<a href="?action=edit_content&lang=<?php echo $value['lang'];?>&id=<?php echo $value['id'];?>&channel_id=<?php echo $value['channel'];?>&cate=<?php echo $value['category'];?>" style="padding:0 3px;">修改</a></td></tr>
+		<?php }
+		}?>
+		</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:8px; text-align:left;">
+<input type="hidden" value="<?php echo $id;?>" name="id" /><input type="hidden" value="<?php echo $lang;?>" name="lang" />
+ <input type="button" onclick="javascript:this.form.action='?action=verify&step=2&lang=<?php echo $lang;?>';this.form.submit();" value="审核" name="verify" style="margin:0 10px 0 0;" class="go" /><input type="button" onclick="javascript:location.href='?';" value="添加内容" name="add" style="margin:0 10px 0 0;" class="go"/>
+ </div>
+</form>
+</div><!--内容切换-->
+
+<div class="page">
+ 	<ul>
+		<?php echo page('admin_content_alone.php',$page,$query,$total_num,$total_page);?>
+	</ul>
+ </div>
+
+</body>
+</html>

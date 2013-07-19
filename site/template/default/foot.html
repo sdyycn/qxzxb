@@ -1,0 +1,13 @@
+<div class="contain foot">
+ <div class="foot_nav">
+  {loop source=$nav_bottom}
+  <a href="{print $v['url']/}" title="{print $v['cate_name']/}">{print $v['cate_name']/}</a>{if !$v['last']}|{/if}
+  {/loop}
+ </div>
+ <p>{print $webinfo['powerby']/}</p>
+<!-- <p>备案号：{print $webinfo['beian']/}</p> -->
+<!-- <p>powerd by <a href="http://www.beescms.com" target="_blank">BEESCMS</a></p>-->
+</div><!--页脚-->
+{print $webinfo['yinxiao']/}
+{include kefu/}
+

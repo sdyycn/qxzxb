@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>栏目管理</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript" src="template/images/form.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#ex').click(function(){
+		$expt=$(this).find('#expt');
+		$val=$expt.text();
+		if($val=='展开'){
+			$('#tb2').show();
+			$expt.text('收起');
+		}else{
+			$('#tb2').hide();
+			$expt.text('展开');
+		}
+	});
+	
+});
+
+function ck_show_url(n,id){
+	$ck=$(n).attr('checked');
+	if($ck){
+		$(id).show();
+	}else{
+		$(id).hide();
+	}
+}
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > <a href="#">修改标示内容</a></h2></div>
+</div><!--导航-->
+
+<div class="caozuo_nav">
+<p style="line-height:24px;">标示内容只包含内容，内容形式如:首页简介,联系方式等页面部分需要手工修改的部分信息</p>
+<pstyle="line-height:24px;">标示内容调用为:{block source=tag name='标示名称'/}</p>
+<div class="clear"></div>
+</div><!--小操作导航-->
+
+
+ 
+<div id="sys">
+<form name="maininfo" method="post" action="?" class="form" enctype="multipart/form-data">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:20%">参数说明</th><th style="width:80%">参数值</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+		  <td style="width:20%;text-align:center" class="w1">标示名称：</span></td><td style="width:80%"><?php echo $arr[0]['tag'];?></td>
+		</tr>
+		<tr>
+		  <td style="width:20%;text-align:center" class="w1">标示内容：</td><td style="width:80%">
+		  <?php
+		   $fck=new FCKeditor("content");
+	 		$fck->BasePath=FCK_PATH;
+	 		$fck->Width='100%';
+	 		$fck->Height='500';
+	 		$fck->ToolbarSet	= "Default" ;
+	 		$fck->Value=$arr[0]['content'];
+	 		$fck->Create();
+		  ?>
+		  </td>
+		</tr>
+
+		
+		
+		</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="save_edit"/><input type="hidden" value="<?php echo $arr[0]['id'];?>" name="id" />
+  <input type="submit" value="确定" class="go" name="submit"/><input type="reset" style="margin:0 10px;" class="go" value="重置" name="reset"/>
+ </div>
+</form>
+</div><!--内容切换-->
+
+
+
+
+</body>
+</html>

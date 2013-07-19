@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="<{$baseurl}>">
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<title>news add</title>
+<script type="text/javascript" src="/configs/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+<br />
+<table class="list-layout wd-800" >
+  <form  method="post" action="<{$adminroot}>/newspage.php?act=news_view" name="form_news" id="myform" enctype="multipart/form-data"/>
+  <thead>
+    <tr>
+      <th  colspan="2" class="tc"><h2>资讯浏览</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="190" class="a">标题:</td>
+      <td width="896"><input name="title" type="text" id="title" size="100" maxlength="100" value='<{$news.title}>' /></td>
+    </tr>
+    <tr>
+      <td  class="a">图片:</td>
+      <td ><input name="pic" type="file"  id="pic" size="20" value='<{$news.pic}>' /></td>
+    </tr>
+    <tr>
+      <td  class="a">类别:</td>
+      <td>
+      <select name="type" id="classid" >
+      		<{html_options values=$id selected=$select_id output=$typename}>
+       </select>
+       <font color="red">*</font>
+       </td>
+    </tr>
+    <tr>
+      <td width="190" class="a">作者：</td>
+      <td width="896"><input name="author"   type="text" id="author" size="20" maxlength="20" value='<{$news.author}>' /></td>
+    </tr>
+    <tr>
+      <td width="190" class="a">来源：</td>
+      <td width="896"><input name="source"   type="text" id="source" size="60" maxlength="60" value='<{$news.source}>' /></td>
+    </tr>
+    <tr>
+      <td width="190" class="a">正文：</td>
+      <td width="896">
+      <textarea id="ntext" name="content" style="display:none;"><{$news.content}></textarea>
+      	<script type="text/javascript">
+			var newsContent = CKEDITOR.replace('content',
+			{
+				height	:	'200',
+				width	:	'99%',
+				skin	:	'kama',
+			});
+		</script>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><a href="<{$adminroot}>/newspage.php">返  回</a></td>
+   <!--   <td><input type="button" name="edit" id="edit" value="编  辑" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="submit" class="btn2"   name="submit" id="submit" value="保  存" /></td> -->
+    </tr>
+  </tbody>
+  </form>
+  
+</table>
+</body>
+</html>

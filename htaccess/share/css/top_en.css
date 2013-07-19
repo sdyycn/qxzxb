@@ -1,0 +1,339 @@
+@import "basic.css";
+
+
+#top .bnr {
+	float: left;
+	width: 290px;
+	padding: 0 0 15px 20px;
+}
+
+#top .bnr li {
+	margin: 0 0 5px 0;
+}
+
+#top .bnr li img {
+	vertical-align: middle;
+}
+
+#top form {
+	width: 760px;
+}
+
+#top form #inputForm {
+	width: 760px;
+	height: 280px;
+	margin: 0 0 20px 0;
+	position: relative;
+}
+
+#top form #itemColumn {
+	width: 210px;
+	height: 280px;
+	background: url(../images/top/background_side_navi.gif) 185px 0 repeat-y;
+}
+
+#top form #itemColumn ul {
+	padding: 10px 0 0 0;
+}
+
+#top form #itemColumn ul li {
+	width: 200px;
+	margin: 0;
+}
+
+#top form #itemColumn ul li a {
+	display: block;
+	width: 174px;
+	padding: 6px 5px 6px 21px;
+	background: url(../images/top/arrow_navi_off.gif)  6px 7px no-repeat;
+}
+
+#top form #itemColumn ul li a.open {
+	padding: 5px 5px 5px 20px;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	background: #f2f2f2 url(../images/top/arrow_navi.gif)  5px 6px no-repeat;
+}
+
+#top form #itemColumn p.btn {
+	width: 200px;
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+#top form #itemColumn p.btn img {
+	vertical-align: bottom;
+}
+
+
+/*------入力欄汎用スタイル-------*/
+
+#top form #inputColumn {
+	float: left;
+	width: 540px;
+	position: absolute;
+	top: 0;
+	left: 220px;
+}
+
+#top form #inputColumn #wrapper {
+	width: 540px;
+	height: 280px;
+	overflow: auto;
+}
+
+#top form #inputColumn #wrapper .stretcher {
+	width: 500px;
+	margin: 0;
+}
+
+#top form #inputColumn #wrapper .stretcher .leftColumn {
+	float: left;
+	width: 250px;
+	margin: 0;
+}
+
+#top form #inputColumn #wrapper .stretcher .rightColumn {
+	float: left;
+	width: 250px;
+	margin: 0;
+}
+
+#top form #inputColumn #wrapper .stretcher .item {
+	margin: 0 0 15px 0;
+}
+
+#top form #inputColumn #wrapper .stretcher h3 {
+	font-size: 100%;
+	margin: 0 0 5px 0;
+}
+
+#top form #inputColumn #wrapper .stretcher p {
+	font-size: 100%;
+	margin: 5px 0;
+}
+
+/*------basic認証-------*/
+
+#top form #inputColumn #wrapper #basic {
+	width: 500px;
+}
+
+#top form #inputColumn #wrapper #basic table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#top form #inputColumn #wrapper #basic table th {
+	width: 80px;
+	padding: 2px 0 2px 5px;
+	text-align: left;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+#top form #inputColumn #wrapper #basic table td {
+	width: 420px;
+	padding: 2px 0 2px 5px;
+}
+
+#top form #inputColumn #wrapper #basic table .line th,
+#top form #inputColumn #wrapper #basic table .line td {
+	background: #ececec;
+}
+
+#top form #inputColumn #wrapper #basic p.btn {
+	margin: 0;
+	text-align: center;
+}
+
+#top form #inputColumn #wrapper #basic .shortMiddle {
+	width: 120px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #inputColumn #wrapper #basic input.btn {
+	background: #F4D00B;
+}
+
+#top form #inputColumn #wrapper #basic input.randomBtn {
+	padding: 0;
+	background: #F4D00B;
+}
+
+#top form #inputColumn #wrapper #basic .step1 {
+	width: 500px;
+	margin: 0 0 20px 0;
+}
+
+/*------エラーページ-------*/
+
+#top form #inputColumn #wrapper #errorPage {
+	width: 500px;
+}
+
+#top form #inputColumn #wrapper #errorPage table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#top form #inputColumn #wrapper #errorPage table td {
+	padding: 2px 0 2px 5px;
+}
+
+#top form #inputColumn #wrapper #errorPage table .line td {
+	background: #ececec;
+}
+
+#top form #inputColumn #wrapper #errorPage table td.code {
+}
+
+#top form #inputColumn #wrapper #errorPage table td.description {
+}
+
+#top form #inputColumn #wrapper #errorPage table td.page {
+}
+
+/*------リダイレクト-------*/
+
+#top form #inputColumn #wrapper #redirect {
+	width: 500px;
+}
+
+#top form #inputColumn #wrapper #redirect ul li {
+	margin: 0;
+	padding: 2px 0 2px 5px;
+}
+
+#top form #inputColumn #wrapper #redirect ul li.line {
+	background: #ececec;
+}
+
+/*------アクセス制限-------*/
+
+#top form #inputColumn #wrapper #access {
+	width: 500px;
+}
+
+#top form #inputColumn #wrapper #access ul {
+	margin: 0;
+	padding: 0;
+}
+
+#top form #inputColumn #wrapper #access ul li {
+	margin: 0;
+	padding: 2px 0 2px 5px;
+}
+
+#top form #inputColumn #wrapper #access ul li.line {
+	background: #ececec;
+}
+
+/*------MIME-------*/
+
+#top form #inputColumn #wrapper #MIME {
+	width: 500px;
+}
+
+#top form #inputColumn #wrapper #MIME table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#top form #inputColumn #wrapper #MIME table td {
+	padding: 2px 0 2px 5px;
+}
+
+#top form #inputColumn #wrapper #MIME table .line td {
+	background: #ececec;
+}
+
+#top form #inputColumn #wrapper #MIME table td.check {
+	width: 30px;
+}
+
+#top form #inputColumn #wrapper #MIME table td.ext {
+	width: 50px;
+}
+
+#top form #inputColumn #wrapper #MIME table td.mimeType {
+	width: 520px;
+}
+
+
+/*------フォーム部品-------*/
+
+#top form #inputColumn #wrapper img,
+#top form #inputColumn #wrapper input,
+#top form #inputColumn #wrapper select,
+#top form #inputColumn #wrapper textarea {
+	margin: 0 5px 2px 0;
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+#top form #inputColumn #wrapper .short {
+	width: 65px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #inputColumn #wrapper .shortMiddle {
+	width: 150px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #inputColumn #wrapper .middle {
+	width: 180px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #inputColumn #wrapper .longIcon {
+	width: 260px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #inputColumn #wrapper .longIconRedirect {
+	width: 160px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #inputColumn #wrapper .long {
+	width: 300px;
+	padding: 1px;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+}
+
+#top form #outputArea textarea {
+	width: 748px;
+	height: 150px;
+	padding: 5px;
+	margin: 0 auto;
+	border: 1px solid #7F9DB9;
+	background: #fff;
+	font-size: 100%;
+}
+
+#google div {
+	clear: both;
+	width: 760px;
+}
+
+#google div ul {
+	width: 760px;
+}

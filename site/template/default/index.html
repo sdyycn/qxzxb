@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="{print $webinfo['description']/}" />
+		<meta name="keywords" content="{print $webinfo['keywords']/}" />
+		<title>{print $webinfo['webname']/}</title>
+		<link href="{path template/}/images/style.css" rel="stylesheet"
+			type="text/css" />
+		<script type="text/javascript" src="{path template/}/images/jquery.js"></script>
+		<script type="text/javascript"
+			src="{path template/}/images/jCarouselLite.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			$(function() {
+				$(".mouse .pic_contain").jCarouselLite({
+	  			visible: 6,
+	  			mouseWheel: true,
+	  			onMouse: true,
+	  			auto: true,
+				speed: 4000
+				});
+			});
+		});
+		</script>
+	</head>
+
+	{include head/}
+	<div class="div_margin"></div>
+	<div class="contain c_margin">
+		<div class="contain_left">
+			<div class="box left_width">
+				<div class="box_left"></div>
+				<div class="box_right"></div>
+				<div class="box_title"><h2>{print $language['contact']/}</h2></div>
+				<div class="box_in">
+					<div class="contact" style="height: 190px;">{block source=$link_us/}</div>
+				</div>
+			</div> <!-- box left_width end -->
+		</div> <!-- contain_left end -->
+		
+		<div class="contain_right">
+			<div class="contain_right_top">
+				<div class="jianjie">
+					<div class="box">
+						<div class="box_left"></div>
+						<div class="box_right"></div>
+						<div class="box_title"><h2>{print $language['index_company']/}</h2></div>
+						<div class="box_in">
+							<div class="j_content">{block source=$company/}</div>
+						</div>
+					</div> <!-- box end -->
+				</div> <!-- jianjie end -->
+				<div class="news">
+					<div class="box">
+						<div class="box_left"></div>
+						<div class="box_right"></div>
+						<div class="box_title">
+							<h2>{print $language['index_news']/}</h2>
+						</div>
+						<div class="box_in">
+							<div class="news_list">
+								{loop source=$article}
+								<div class="index_news_tj">
+									<a href="{print $v['url']/}">
+										<img height="90" width="120" src="{print $v['tbpic']/}" />
+									</a>
+									<p class="title2">
+										<a href="{print $v['url']/}" {print $v['target']/} title="{print $v['title']/}">
+											{print $v['style_title']/}
+										</a>
+									</p>
+									<p class="info">{print cn_substr($v['info'],140)/}</p>
+								</div>
+								{/loop}
+								<ul>
+									{loop source=$article2}
+									<li>
+										<a title="{print $v['title']/}" href="{print $v['url']/}"{print $v['target']/}>
+											{print cn_substr($v['title'],50)/}
+										</a>
+										{print date('Y-m-d',$v['updatetime'])/}
+									</li>
+									{/loop}
+								</ul>
+							</div>
+						</div> <!-- box_in end -->
+					</div> <!-- box end -->
+				</div> <!-- news end -->
+				<div class="clear"></div>
+			</div>
+		</div> <!-- contain_right end -->
+
+		<!----------------------------------------------------->
+		<div class="clear"></div>
+		<div class="div_margin"></div>
+		<div class="pr">
+			<div class="box">
+				<div class="box_left"></div>		<!-- make top left corner  -->
+				<div class="box_right"></div>		<!-- make top right corner -->
+				<div class="box_title"><h2>{print $language['products']/}</h2></div>
+				<div class="pr_box_in mouse">
+					<div class="pic_contain">
+						<ul class="pr_list">
+							{loop source=$article_pr}
+							<li>
+								<a href="{print $v['url']/}">
+									<img src="{print $v['tbpic']/}" border="0" width="120" height="120" />
+								</a>
+								<p><a href="{print $v['url']/}">{print $v['style_title']/}</a></p>
+								<p class="look"><a href="{print $v['url']/}">{print $language['tpl_look']/}></a></p>
+							</li>
+							{/loop}
+						</ul>
+					</div> <!-- pic_contain end -->
+					<div class="clear"></div>
+				</div> <!-- box_in end -->
+			</div> <!--box end -->
+		</div>  <!-- product end -->
+
+		<!----------------------------------------------------->
+		<div class="clear"></div>
+		<div class="div_margin"></div>
+		<div class="web_link">
+			<div class="box">
+				<div class="box_left"></div>
+				<div class="box_right"></div>
+				<div class="box_title"><h2>{print $language['links']/}</h2></div>
+				<div class="box_in">
+					<ul>
+						{loop source=$weblink}
+						<li><a href="{print $v['link_url']/}">{print $v['link_name']/}</a></li>
+						{/loop}
+					</ul>
+					<div class="clear"></div>
+				</div> <!-- box_in end -->
+			</div> <!-- box end -->
+		</div>
+	</div>
+	{include foot/}
+
+	</body>
+</html>

@@ -1,0 +1,12 @@
+错误事件：SQL语句有误
+错误原因：[1054]Unknown column 'limiadmin' in 'where clause'
+SQL语句：select * from ejob_admin where username = limiadmin
+客户端IP：127.0.0.1
+记录时间：2013-06-19 08:55:39
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='2013-06-19 09:32:28',lastloginip = '127.0.0.1',loginquantity = loginquantity +' at line 1
+SQL语句：update ejob_admin set ='2013-06-19 09:32:28',lastloginip = '127.0.0.1',loginquantity = loginquantity + 1 where username = 'limiadmin'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 09:32:29
+

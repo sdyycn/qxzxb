@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript" src="template/images/admin.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 表单模型管理</h2></div>
+</div><!--导航-->
+
+<div class="caozuo_nav">
+<ul>
+<li class="<?php if($GLOBALS['action']=='form'){ echo 'hover';}?>"><a href="admin_form.php">表单模型管理</a></li>
+<li class="<?php if($GLOBALS['action']=='add'){ echo 'hover';}?>"><a href="admin_form.php?action=add">添加表单模型</a></li>
+<li class="<?php if($GLOBALS['action']=='cache'){ echo 'hover';}?>"><a href="admin_form.php?action=cache">更新模型缓存</a></li>
+<div class="clear"></div>
+</div><!--小操作导航-->
+
+
+<div class="div_out" id="tb" style="margin-top:8px;">
+<form name="maininfo" method="post" enctype="multipart/form-data" action="?" class="form">
+<div class="clear"></div>
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:10%">模型ID</th><th style="width:20%">模型名称</th><th style="width:30%">调用标签</th><th style="width:10%">状态</th><th style="width:30%">操作</th></tr>
+	</thead>
+	<tbody style="text-align:center">
+	<?php
+	if(!empty($form)){
+	foreach($form as $key=>$value){
+	?>
+		<tr>
+		<td style="width:10%;text-align:center"><?php echo $value['id'];?></td><td style="width:20%;text-align:center"><?php echo $value['form_name'];?></td><td style="width:30%;text-align:center">{form source=form id=<?php echo $value['id'];?>/}</td><td style="width:10%;text-align:center"><p ><span onclick="click_show(this,'<?php echo $value['is_disable'];?>','<?php echo $value['id'];?>','form','is_disable','<?php echo $GLOBALS['lang'];?>','id');" <?php if(!$value['is_disable']){?>class="qi_yes" title="开启"<?php }else{?>class="qi_no" title="关闭"<?php }?>>&nbsp;</span></p></td><td style="width:30%;text-align:center"><a href="admin_form.php?action=fields&id=<?php echo $value['id'];?>">管理字段</a>|<a href="?action=form_xg&id=<?php echo $value['id'];?>" style="padding:0 2px;">修改</a>|<a href="javascript:if(confirm('确定要删除么？删除后不可恢复')){location.href='admin_form.php?action=del_form&id=<?php echo $value['id'];?>';}" style="padding:0 2px;">删除</a></td>
+		</tr>
+		<?php
+		}
+		}
+		?>
+	</tbody>
+ </table>
+
+</form>
+<p>
+<span id="loading" style="display:none"></span>
+ </p>
+ </div>
+</body>
+</html>

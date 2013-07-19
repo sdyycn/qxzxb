@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单管理</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#sl_all').click(function(){
+		$('table').find('#all').attr('checked','checked');
+	});
+	$('#show_list').find('tr').hover(function(){
+		$(this).find('td').css('background','#ccffcc');
+	},function(){
+		$(this).find('td').css('background','');
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > <a href="?">表单管理</a> ></h2></div>
+</div><!--导航-->
+
+<div class="caozuo_nav">
+<ul>
+<?php
+if(empty($form)){msg('没有表单模型,请先添加表单模型');}
+ foreach($form as $key=>$value){
+ ?>
+  <li class="<?php if($value['id']==$GLOBALS['id']){$form_name=$value['form_name'];echo 'hover';}?>"><a href="?action=form_list&id=<?php echo $value['id'];?>" ><?php echo $value['form_name'];?></a></li>
+  <?php }?>
+
+</ul>
+<div class="clear"></div>
+</div><!--小操作导航-->
+ 
+
+<div id="sys">
+<form name="content_list" id="content_list" method="post" action="?" class="form" enctype="multipart/form-data">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:10%">选择</th><th style="width:30%">表单名称</th><th style="width:15%">添加时间</th><th style="10%">来源页面</th><th style="15%">添加者</th><th style="width:10%">操作IP</th><th style="width:10%">查看</th><th style="width:10%">操作</th></tr>
+	</thead>
+	<tbody id="show_list">
+	<?php
+	if(file_exists(DATA_PATH.'cache_form/field.php')){include(DATA_PATH.'cache_form/field.php');}
+	if(!empty($field)){
+	foreach($field as $k=>$v){
+		if($id==$v['form_id']){
+			$field_info=$v;
+		}
+	}
+	}
+	$maintb=DB_PRE."formlist";
+	$page=empty($page)?1:$page;
+	$pagesize=30;
+	$pagenum=($page-1)*$pagesize;
+	$filt="m.form_id={$id}";
+	$query='&id='.$id.'&action=form_list';
+	$total_num=$GLOBALS['mysql']->fetch_rows("select m.id from {$maintb} as m where {$filt}");
+	$total_page=intval($total_num/$pagesize);
+	$total_page=($total_page==0)?1:$total_page;
+	$sql="select m.* from {$maintb} as m  where {$filt}  order by m.form_time desc limit {$pagenum},{$pagesize}";
+	$rel=$GLOBALS['mysql']->fetch_asc($sql);
+	if(!empty($rel)){
+	foreach($rel as $key=>$value){
+	$member='';
+	if($value['member_id']){
+		$member=$GLOBALS['mysql']->get_row("select member_user from ".DB_PRE."member where id=".$value['member_id']);
+	}
+	?>
+		<tr><td style="width:10%;text-align:center"><input type="checkbox" style="border:0" id="all" value="<?php echo $value['id'];?>" name="all[]" /></td><td style="width:30%"><?php echo "<b>{$form_name}</b>第{$value['id']}条信息";echo ($value['is_read'])?"<span style=\"color:green;padding-left:5px\">已经阅读</span>":"<span style=\"color:red;padding-left:5px\">未阅读</span>";?></td><td style="width:15%; text-align:center"><?php echo date('Y-m-d H:m:s',$value['form_time']);?></td><td style="10%;text-align:center"><?php
+		echo (!$value['arc_id'])?'<span style="color:#ccc">未知</span>':'<a href="'.CMS_SELF.'show_content.php?id='.$value['arc_id'].'" target="_blank">查看</a>';
+		?></td><td style="15%; text-align:center">
+		<?php
+		echo empty($member)?"游客":'<a href="admin_member.php?action=show&id='.$value['member_id'].'" target="_blank">'.$member.'</a>';
+		?></td><td style="width:10%;text-align:center"><?php echo $value['form_ip'];?></td><td style="width:10%;text-align:center"><a href="?action=show_form&id=<?php echo $value['id'];?>&form_id=<?php echo $id;?>">查看详细内容</a></td><td style="width:10%;text-align:center"><a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?action=del_list&form_id=<?php echo $id;?>&id=<?php echo $value['id'];?>';}">删除</a></td></tr>
+		<?php }
+		}?>
+		</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:8px; text-align:left;">
+  <input type="button" name="all" value="全选" id="sl_all" style="margin:0 10px 0 0;" class="go" /><input type="reset" style="margin:0 10px 0 0;" class="go" value="重置" name="reset"/>
+ </div>
+</form>
+</div><!--内容切换-->
+
+<div class="page">
+ 	<ul>
+		<?php echo page('admin_form.php',$page,$query,$total_num,$total_page);?>
+	</ul>
+ </div>
+
+</body>
+</html>

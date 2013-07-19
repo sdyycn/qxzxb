@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理员</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('tbody').find('tr').hover(function(){
+		//$(this).css('background','#ccc');
+	},function(){
+		//$(this).css('background','none');
+	});
+	
+});
+
+function all_sl(str){
+		$ck=$('#'+str).attr('checked');
+		if($ck){
+			$('td#'+str).find('input').attr('checked','checked');
+		}else{
+			$('td#'+str).find('input').attr('checked','');
+		}
+	}
+
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 恢复数据 </h2></div>
+  <div class="lang">
+  <span style="color:#FF0000">请先将需要还原的数据上传到data/backup文件下</span>
+ </div>
+</div><!--导航-->
+
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:40%">文件名</th><th style="width:20%">时间</th><th style="width:20%">大小</th><th style="width:20%;">操作</th></tr>
+	</thead>
+
+	<tbody>
+	<form name="maininfo" method="post" action="?action=content_htm" class="form">	
+	<?php
+		$handler=@opendir(DATA_PATH.'backup/');
+	if($handler){
+		readdir($handler);
+		readdir($handler);
+		while(false!==($file=readdir($handler))){
+	?>
+		<tr>
+			<td style="width:40%; text-align:center"><?php echo $file;?></td><td style="width:20%; text-align:center"><?php echo date('Y-m-d H:m:s',(filemtime(DATA_PATH.'backup/'.$file)));?></td><td style="width:20%; text-align:center"><?php echo (filesize(DATA_PATH.'backup/'.$file)/1000).'k';?></td><td style="width:20%; text-align:center"><a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?action=del&fl=<?php echo $file;?>';}" style="padding:0 5px;">删除</a>|<a href="javascript:if(confirm('确定要还原么!')){location.href='?action=save_import&fl=<?php echo $file;?>';}" style="padding:0 5px;">还原数据</a></td>
+		</tr>	
+	<?php
+		}
+	}
+	?>
+	</form>
+	</tbody>
+	
+	
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+
+ </div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>系统首页</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{ margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.q').find('ul li').click(function(){
+		$index=$('.q').find('ul li').index(this);
+		$('#tb').find('div').eq($index).show().siblings().hide();
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 系统首页</h2></div>
+</div><!--导航-->
+<div class="div_out" id="tb" style="border:none">
+	<p class="main_title">统计信息</p>
+	<ul class="main_ul">
+		<li><div style="float:left; width:100%">
+			<span><{$channel_name}>:</span><{$num}>篇&nbsp;累计浏览量:<{$sum}>次
+		</div></li>
+		<li>
+			<span><{$form_name}>:</span>有<{$num}>条表单信息&nbsp;<label><{$num2}>条未阅读</label>
+			&nbsp;<a href="admin_form.php?action=form_list&id=<{$id}>" target="main">阅读信息</a>
+		</li>
+	</ul>
+	<div class="clear"></div>
+	<p class="main_title">缓存信息</p>
+	<ul class="main_ul">
+		<li><span>语言缓存:</span><{$cache_language}></li>
+		<li><span>栏目缓存:</span><{$cache_category}></li>
+		<li><span>模块缓存:</span><{$cache_channel}></li>
+	</ul>
+	<div class="clear"></div>
+	<p class="main_title">系统信息</p>
+	<ul class="main_ul">
+		<li><span>【操作系统】</span><{$OS}></li>
+		<li><span>【web服务器】</span><{$software}></li>
+		<li><span>【GD】</span><{$gdinfo}></li>
+		<li><span>【安全模式】</span><{$safe_mode}></li>
+		<li><span>【上传文件最大值(服务器)】</span><{$upload_max_filesize}></li>
+		<li><span>【安装日期】</span><{$installdate}></li>
+		<li><span>【编码】</span>UTF-8(唯一)</li>
+		<li><span>【CMS版本】</span><{$version}><a href="" style="padding-left:10px;" target="_blank">查看是否有更新</a></li>
+	</ul>
+</div>
+
+</body>
+</html>

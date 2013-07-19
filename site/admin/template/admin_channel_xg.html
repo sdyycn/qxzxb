@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript" src="template/images/form.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > <a href="admin_channel.php">模型管理</a> > 修改模型</h2></div>
+</div><!--导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data" action="admin_channel.php" class="form">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:30%">参数说明</th><th style="width:70%">参数值</th></tr>
+	</thead>
+	<tbody>
+	<?php
+		if(empty($arr[0])){
+			msg('没有相关模型，请重新操作','admin_channel.php');
+		}
+	?>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="模型的中文名称，在后台管理，前台发布等均使用此名字" class="help">模型名称：</span></td><td style="width:70%"><input name="channel_name" value="<?php echo $arr[0]['channel_name'];?>" style="width:50%" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="不可重复,用于操作模型，必须为小写英文和数字,填写后不可更改" class="help">模型标识:</span></td><td style="width:70%"><input name="channel_mark" value="<?php echo $arr[0]['channel_mark'];?>" disabled="disabled" style="width:20%" id="bs" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="不可重复,必须为小写英文、数字或_" class="help">模型数据表:</span></td><td style="width:70%"><?php echo DB_PRE;?><input id="table" name="channel_table" disabled="disabled" value="<?php echo $arr[0]['channel_table'];?>" style="width:15%" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="只能使用数字,数字越大排在越前" class="help">模型排序:</span></td><td style="width:70%"><input name="channel_order" value="<?php echo $arr[0]['channel_order'];?>" style="width:20%" /></td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="会员是否可以使用该模型发布内容" class="help">是否支持会员投稿：</span></td><td style="width:70%"><input style="margin:0 5px; border:none" type="radio" name="is_member" value="0" <?php if(!$arr[0]['is_member']){?>checked="checked"<?php }?>/>否<input type="radio" style="margin:0 5px; border:none" name="is_member" value="1" <?php if($arr[0]['is_member']){?>checked="checked"<?php }?>//>是</td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1">发布内容是否审核：</td><td style="width:70%"><input style="margin:0 5px; border:none" type="radio" name="is_verify" value="0" <?php if(!$arr[0]['is_verify']){?>checked="checked"<?php }?> />否<input type="radio" style="margin:0 5px; border:none" name="is_verify" value="1"  <?php if($arr[0]['is_verify']){?>checked="checked"<?php }?> />是</td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1">是否开启：</td><td style="width:70%"><input style="margin:0 5px; border:none" type="radio" name="is_disable" value="1" <?php if($arr[0]['is_disable']){?>checked="checked"<?php }?> />否<input type="radio" style="margin:0 5px; border:none" name="is_disable" value="0" <?php if(!$arr[0]['is_disable']){?>checked="checked"<?php }?> />是</td>
+		</tr>
+		<tr>
+		  <td style="width:30%;text-align:center" class="w1"><span title="固定的模型不能删除" class="help">是否固定：</span></td><td style="width:70%"><input style="margin:0 5px; border:none" type="radio" name="is_del" value="0" <?php if($arr[0]['is_del']){echo"disabled=\"disabled\"";}elseif(!$arr[0]['is_del']){?>checked="checked"<?php }?>/>否<input type="radio" style="margin:0 5px; border:none" name="is_del" value="1"  <?php if($arr[0]['is_del']){?>disabled="disabled" checked="checked"<?php }?>/>是</td>
+		</tr>
+	</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="save_xg_channel"/><input type="hidden" name="id" value="<?php echo $GLOBALS['id'];?>" /><input type="hidden" name="channel_table_ago" value="<?php echo $arr[0]['channel_table'];?>" />
+  <input type="submit" value="确定" name="submit" class="go"/><input type="reset" style="margin:0 10px;" class="go" value="重置" name="reset"/>
+ </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[01-Mar-2012 20:02:56] PHP Fatal error:  Using $this when not in object context in /home/qxzxbcom/public_html/data/cache_tpl/foot_cn_compile.php on line 16
+[01-Mar-2012 22:30:03] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/head_cn_compile.php on line 2
+[02-Mar-2012 10:15:18] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/kefu_cn_compile.php on line 5
+[02-Mar-2012 16:30:57] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/index_cn_compile.php on line 8
+[03-Mar-2012 16:28:31] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/sitemap_cn_compile.php on line 7
+[04-Mar-2012 16:21:14] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/list_down_cn_compile.php on line 7
+[04-Mar-2012 19:13:56] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/list_alone_cn_compile.php on line 7
+[05-Mar-2012 02:24:04] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/list_article_cn_compile.php on line 7
+[05-Mar-2012 05:16:43] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/down_content_cn_compile.php on line 7
+[05-Mar-2012 09:00:46] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/list_product_cn_compile.php on line 7
+[05-Mar-2012 16:23:52] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/product_content_cn_compile.php on line 7
+[06-Mar-2012 04:53:52] PHP Fatal error:  Call to undefined function  cmspath() in /home/qxzxbcom/public_html/data/cache_tpl/article_content_cn_compile.php on line 7

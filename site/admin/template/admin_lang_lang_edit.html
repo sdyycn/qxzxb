@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 修改语言包语言 </h2></div>
+</div><!--导航-->
+<div class="caozuo_nav">
+<ul>
+<li class="<?php if($GLOBALS['action']=='edit'){echo 'hover';}?>"><a href="?action=edit&lang=<?php echo $lang;?>">管理语言包语言</a></li>
+ <li class="<?php if($GLOBALS['action']=='add_lang'){echo 'hover';}?>"><a href="?action=add_lang&lang=<?php echo $lang;?>">添加语言包语言</a></li>
+ <li class="<?php if($GLOBALS['action']=='lang_cate'){echo 'hover';}?>"><a href="?action=lang_cate&lang=<?php echo $lang;?>">添加语言包分类</a></li>
+ <li class="<?php if($GLOBALS['action']=='lang_cate_list'){echo 'hover';}?>"><a href="?action=lang_cate_list&lang=<?php echo $lang;?>">管理语言包分类</a></li>
+</ul>
+<div class="clear"></div>
+</div><!--小操作导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data" action="admin_lang.php" class="form">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th class="w1">说明</th><th class="w2">参数值</th><th class="w3">变量名</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+		  <td class="w1" style="text-align:center">修改的语言标示:</td><td class="w2"><?php echo $lang;?></td><td class="w3"></td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">选择分类:</td><td class="w2"><select name="lang_cate">
+		  <option value="">请选择分类</option>
+		  <?php
+		  if(!empty($cate_rel)){
+		  	foreach($cate_rel as $k=>$v){
+				$sl=($v['id']==$rel[0]['lang_cate'])?'selected="selected"':'';
+				echo "<option value=\"{$v['id']}\" {$sl}>{$v['lang_cate']}</option>";
+			}
+		  }
+		  ?>
+		  </select></td><td class="w3"></td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">语言变量:</td><td class="w2"><?php echo $rel[0]['lang_tag'];?></td><td class="w3">不能重复，提交后不能更改</td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">语言变量值:</td><td class="w2"><input type="text" name="lang_value" style="width:80%" value="<?php echo $rel[0]['lang_value'];?>"/></td><td class="w3"></td>
+		</tr>
+	</tbody>
+ </table>
+ </div>
+ <div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="save_lang_lang_edit"/><input type="hidden" value="<?php echo $GLOBALS['lang'];?>" name="lang" /><input type="hidden" value="<?php echo $rel[0]['id'];?>"  name="id"/>
+  <input type="submit" value="确定" name="submit" style="width:15%"/><input type="reset" style="margin:0 10px; width:15%" value="重置" name="reset"/>
+ </div>
+</form>
+</body>
+</html>

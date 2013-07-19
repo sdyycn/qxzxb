@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单信息</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{ margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.q').find('ul li').click(function(){
+		$index=$('.q').find('ul li').index(this);
+		$('#tb').find('div').eq($index).show().siblings().hide();
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 表单信息</h2></div>
+</div><!--导航-->
+<div class="caozuo_nav">
+<p style="line-height:24px; font-size:14px;"><span style="font-weight:bold; color:red; padding:0 20px;"><?php echo $form_info['form_name'];?></span><span style="padding:0 10px;">添加时间:<?php echo date('Y-m-d H:m:s',$rel2[0]['form_time']);?></span><span style="padding:0 10px;">IP:<?php echo $rel2[0]['form_ip']; unset($rel2);?></span></p>
+<div class="clear"></div>
+</div><!--小操作导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data" class="form">
+<div class="div_out" id="tb">
+<div id="sys1">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:20%">参数说明</th><th style="width:80%">参数值</th></tr>
+	</thead>
+	<tbody>
+	<?php
+	unset($rel_arr['id']);
+	if(!empty($rel_arr)){
+	foreach($rel_arr as $key=>$value){
+	$f_name="<span style=\"clear:red\">不存在该说明</span>";
+	if(!empty($field)){
+		foreach($field as $k=>$v){
+			if($v['field_name']==$key){
+			$f_name=$v['use_name'];
+			}
+		}
+	}
+	?>
+		<tr>
+		  <td style="width:20%; text-align:center"><?php echo $f_name;?></td><td style="width:80%"><?php echo $value;?></td>
+		</tr>
+	<?php 
+	}
+	$GLOBALS['mysql']->query("update ".DB_PRE."formlist set is_read=1 where id={$id}");
+	}
+	?>	
+		
+	</tbody>
+ </table>
+ </div>
+ 
+</div>
+<div class="btn" style="margin-top:10px">
+ </div>
+</form>
+</body>
+</html>

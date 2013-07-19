@@ -1,0 +1,42 @@
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:50:42
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:50:45
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:50:48
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:50:51
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:50:54
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:50:58
+
+错误事件：SQL语句有误
+错误原因：[1064]You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+SQL语句：select * from ejob_siteconfig where configid = 1'
+客户端IP：127.0.0.1
+记录时间：2013-06-19 15:51:01
+

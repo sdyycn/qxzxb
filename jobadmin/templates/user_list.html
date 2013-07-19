@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<base href="<{$baseurl}>" />
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<title>Insert title here</title>
+</head>
+<body id="right" class="main1">
+<div class="ttitle">
+	<h1>用户管理</h1>
+</div>
+<table class="list-layout wd-500" >
+  <thead>
+    <tr>
+      <th>用户名</th>
+      <th width="145">用户组</th>
+      <th width="145">状态</th>
+      <th width="145">操作</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <{foreach from=$users item=user}>
+    <tr>
+      <td width="351"><{$user.name}></td>
+       <td width="351"><{$user.type}></td>
+       <td>ok</td>
+      <td width="145"><a href="<{$adminroot}>/userpage.php?act=delete&id=<{$user.id}>"  onclick="return confirm('确认删除？')" class="btn2">删除</a></td>
+    </tr>
+    <{/foreach}>
+  </tbody>
+</table>
+</body>
+</html>

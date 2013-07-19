@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="<{$baseurl}>" />
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="scripts/news.js?123"></script>
+<style type="text/css">
+.col0{width:130px;};
+.col1{width:339px};
+.col2{width:96px};
+.col3{width:101px};
+</style>
+<title>资讯类别</title>
+</head>
+<body>
+<h2>资讯类别</h2>
+<table id="t_type" class="list-layout wd-700" border="1" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>类别名称</th>
+ <!--     <th>显示顺序</th> -->
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id = "tbody_type_display">
+  <{foreach from=$newstype item=type}>
+    <tr id = "row_<{$type.id}>">
+        <td class = "col0"><{$type.id}></td>
+        <td class = "col1"><input type="text" id="<{$type.id}>" size="30"  value="<{$type.name}>"/></td>
+        <td class = "col2"><input type="button" class="btn2" onclick="type_edit(<{$type.id}>)" value="修  改"  /></td>
+        <td class = "col3"><input type="button" class="btn2" onclick="type_delete(<{$type.id}>, '<{$type.name}>')" value="删  除" /></td>
+    </tr>
+    <{/foreach}>
+  </tbody>
+</table>
+
+<br />
+<form name="form_typename" method="post" action="" >
+<table class="list-layout wd-700" border="1" >
+    <thead>
+      <tr>
+        <th  colspan="3" class="tc">类别添加</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td width="133" class="a">名称:</td>
+        <td width="341"><input id="add_typename" type="text"  size="30"  value="" />
+        <span class="warning" style="color:#F00; font-size: 24px;">*</span>
+        </td>
+        <td width="204"><input type="button" class="btn2" id="add" value="添  加"  onclick="type_add()"/></td>
+      </tr>
+    </tbody>
+</table>
+</form>
+</body>
+</html>

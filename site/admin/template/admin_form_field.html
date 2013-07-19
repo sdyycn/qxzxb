@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>字段管理</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > <a href="admin_form.php">模型管理</a> > 字段管理</h2></div>
+</div><!--导航-->
+
+<div class="caozuo_nav">
+<ul>
+<li class="<?php if($GLOBALS['action']=='fields'){ echo 'hover';}?>"><a href="admin_form.php?action=fields&id=<?php echo $GLOBALS['id'];?>">管理字段</a></li>
+<li class="<?php if($GLOBALS['action']=='add_field'){ echo 'hover';}?>"><a href="admin_form.php?action=add_field&id=<?php echo $GLOBALS['id'];?>">添加字段</a></li>
+<div class="clear"></div>
+</div><!--小操作导航-->
+
+<form name="maininfo" method="post" enctype="multipart/form-data" action="?" class="form">
+<div class="div_out" id="tb" style="margin-top:8px;">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:20%">提示文字</th><th style="width:20%">字段名</th><th style="width:10%">数据类型</th><th style="width:10%">状态</th><th style="width:30%">操作</th></tr>
+	</thead>
+	<tbody style="text-align:center">
+	<?php
+		if(!empty($field)){
+			foreach($field as $key=>$value){
+				if($value['form_id']==$GLOBALS['id']){
+	?>
+		<tr>
+		<td style="width:20%;text-align:center"><?php echo $value['use_name'];?></td><td style="width:20%;text-align:center"><?php echo $value['field_name'];?></td><td style="width:20%;text-align:center"><?php echo $value['field_type'];?></td><td style="width:10%;text-align:center"><p><span <?php if(!$value['is_disable']){?>class="qi_yes" title="开启"<?php }else{?>class="qi_no" title="关闭"<?php }?>>&nbsp;</span></p></td><td style="width:30%;text-align:center"><a href="admin_form.php?action=xg_field&id=<?php echo $value['id'];?>">修改</a>|<a href="javascript:if(confirm('确定要删除么？删除后不可恢复!')){location.href='admin_form.php?action=del_field&id=<?php echo $value['id'];?>&form_id=<?php echo $value['form_id'];?>';}">删除</a></td>
+		</tr>
+	<?php
+				}
+			}
+		}
+	?>	
+	</tbody>
+ </table>
+ </div>
+</form>
+</body>
+</html>

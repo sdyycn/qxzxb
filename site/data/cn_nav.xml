@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<nav name="企业介绍" url="/htm/test/index_cn.html">
+</nav>
+<nav name="产品展示" url="/htm/cnprodoct">
+</nav>
+<nav name="新闻中心" url="/htm/cnnews">
+</nav>
+<nav name="联系我们" url="/htm/cncontract/index_cn.html">
+</nav>
+</root>

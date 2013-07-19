@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站配置</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{ margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.q').find('ul li').click(function(){
+		$index=$('.q').find('ul li').index(this);
+		$('#tb').find('div').eq($index).show().siblings().hide();
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > 增加客服</h2></div>
+
+<div class="caozuo_nav" style="margin-top:8px;">
+<ul>
+ <li class="<?php if($GLOBALS['action']=='add'){echo 'hover';}?>"><a href="?action=add&lang=<?php echo $lang;?>">添加客服</a></li>
+ <li class=""><a href="?lang=<?php echo $lang;?>">管理客服</a></li>
+</ul>
+<div class="clear"></div>
+</div><!--小操作导航-->
+<form name="maininfo" method="post" action="?" class="form">
+<div class="div_out" id="tb">
+<div id="sys1">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th class="w1">参数说明</th><th class="w2">参数值</th><th class="w3 r">变量名</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+		  <td class="w1" style="text-align:center">客服名称:</td><td class="w2"><input type="text" name="market_name" style="width:50%" value=""/></td><td class="w3"></td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">客服类型:</td><td class="w2">
+		  <select name="market_type">
+		  	<option value="">请选择客服类型</option>
+			<option value="1">QQ客服</option>
+			<option value="2">淘宝(阿里)客服</option>
+			<option value="3">MSN客服</option>
+			<option value="4">Skype客服</option>
+			<option value="5">联系电话</option>
+			<option value="6">联系手机</option>
+		  </select>
+		  </td><td class="w3"></td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">客服号码:</td><td class="w2"><input type="text" name="market_num" style="width:50%" value=""/></td><td class="w3"></td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">排序:</td><td class="w2"><input type="text" name="market_order" style="width:10%" value="10"/></td><td class="w3"></td>
+		</tr>
+		<tr>
+		  <td class="w1" style="text-align:center">开启:</td><td class="w2"><input type="radio" name="market_is" value="1" checked="checked"/>是<input type="radio" name="market_is" value="0" />否</td><td class="w3"></td>
+		</tr>
+	</tbody>
+ </table>
+ </div>
+ 
+</div>
+<div class="btn" style="margin-top:10px">
+<input type="hidden" name="action" value="save_add"/><input type="hidden" name="lang" value="<?php echo $lang;?>"/>
+  <input type="submit" value="确定" name="submit" class="go"/><input type="reset" style="margin:0 10px;" class="go" value="重置" name="reset"/>
+ </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print $content['info']/}">
+<meta name="keywords" content="{print $content['keywords']/}">
+<title>{print $content['title']/}_{print $cateinfo['catename']/}_{print $webinfo['web_name']/}</title>
+<link href="{path template/}/images/style.css" rel="stylesheet" type="text/css">
+<link href="{path template/}/images/MagicZoom.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{path template/}/images/mz-packed.js"></script>
+<script type="text/javascript" src="{path template/}/images/jquery.js"></script>
+<script type="text/javascript" src="{path template/}/images/nav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.q_body ul li').click(function(){
+		$index=$('.q_body ul li').index(this);
+		$(this).addClass('focus').siblings().removeClass('focus');
+		$('.show_q_body').find('#body').eq($index).show().siblings().hide();
+	});
+});
+</script>
+</head>
+<body>
+{include head/}
+<div class="div_margin"></div>
+<div class="contain">
+	<div class="contain_left">
+		<div class="box left_width">
+		<div class="box_left"></div>
+		<div class="box_right"></div>
+			<div class="box_title"><h2>{print $language['products_nav']/}</h2></div>
+			<div class="box_in">
+				<ul class="nav_list">
+				{loop source=$content_pr_nav tpl=产品内容页产品导航 tpl_id=content_pr_nav}
+					<li class="{print $v['class']/}"><a href="{print $v['url']/}" {print $v['target']/} title="{print $v['cate_name']/}">{print $v['cate_name']/}</a></li>
+				{/loop}
+				</ul>
+			</div>
+		</div><!--容器结束-->
+		<div class="div_margin"></div>
+			<div class="box">
+			<div class="box_left"></div>
+			<div class="box_right"></div>
+			<div class="box_title"><h2>{print $language['contact']/}</h2></div>
+			<div class="box_in">
+				<div class="contact">
+				{block source=$content_pr_link tpl=产品内容页联系方式 tpl_id=content_pr_link/}
+				</div>
+			</div>
+		</div><!--容器结束-->
+		<div class="div_margin"></div>
+			<div class="box">
+			<div class="box_left"></div>
+			<div class="box_right"></div>
+			<div class="box_title"><h2>{print $language['hot_content']/}</h2></div>
+			<div class="box_in">
+				<div class="list_news">
+					<ul>
+					{loop source=$content_pr_article tpl=产品内容页热点内容 info=排序使用点击排序 tpl_id=content_pr_article}
+       					 <li><a title="{print $v['title']/}" {print $v['target']/} href="{print $v['url']/}">{print $v['style_title']/}</a></li>
+					{/loop}
+	   				</ul>  
+				</div>
+			</div>
+		</div><!--容器结束-->
+		<div class="div_margin"></div>
+			<div class="box">
+			<div class="box_left"></div>
+			<div class="box_right"></div>
+			<div class="box_title"><h2>{print $language['rec_content']/}</h2></div>
+			<div class="box_in">
+				<div class="list_product">
+					<ul>
+					 {loop source=$content_pr_product tpl=产品内容页推荐产品 info=发布产品时勾选'标志'勾选推荐才能显示 tpl_id=content_pr_product}
+       					 <li><a title="{print $v['title']/}" {print $v['target']/} href="{print $v['url']/}"><img src="{print $v['tbpic']/}" alt="{print $v['title']/}" border="0" /><p><span class="title">{print $v['style_title']/}</span><span>{print cn_substr($v['info'],50)/}</span></p></a></li>
+					{/loop}
+	   				</ul>  
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div><!--容器结束-->
+		
+	</div><!--左边内容-->
+	<div class="contain_right">
+		
+		<div class="box">
+			<div class="box_left"></div>
+			<div class="box_right"></div>
+			<div class="box_title"><h2 class="position"><span>{print $language['location']/}:{position source=$position/} > {print $content['style_title']/}</span></h2></div>
+			<div class="box_in">
+				<p class="title">{print $content['style_title']/}</p>
+  <p class="info"><span>{print $language['content_hits']/}:<script language="javascript" src="{path includes/}/hits.php?id={print $content['id']/}"></script></span><span>{print $language['content_pubdate']/}:{print $content['updatetime']/}</span><span><a href="javascript:window.print()">【{print $language['print']/}】</a></span><span><a href="javascript:self.close()">【{print $language['close']/}】</a></span></p>
+ 
+  <div class="show_product">
+  <div class="show_left">
+   <div class="img">
+    {loop source=$album}
+	{if $v['first']}
+   <a href="{print $v['url']/}" class="MagicZoom MagicThumb" id="zoom">
+    <img src="{print $v['url']/}"  width="400" height="300" title="pic"/>
+   </a>
+   {/if}
+   {/loop}
+   </div>
+   <div class="img_go">
+    <span onmouseover="moveLeft()" onmousedown="clickLeft()" onmouseup="moveLeft()" onmouseout="scrollStop()"></span>
+      <div class="gallery">
+        <div id="demo">
+          <div id="demo1" style="float:left">
+            <ul>
+            {loop source=$album}<li><a rel="zoom" href="{print $v['url']/}" rev="{print $v['url']/}"><img src="{print $v['url']/}" alt="" class="B_blue" /></a></li>{/loop}
+            </ul>
+          </div>
+          <div id="demo2" style="display:inline; overflow:visible;"></div>
+        </div>
+      </div>
+      <span onmouseover="moveRight()" onmousedown="clickRight()" onmouseup="moveRight()" onmouseout="scrollStop()" class="spanR"></span>
+	  <div class="clear"></div>
+      <script>
+      function $gg(id){  
+        return (document.getElementById) ? document.getElementById(id): document.all[id]
+      }
+      
+      var boxwidth=53;//跟图片的实际尺寸相符
+      
+      var box=$gg("demo");
+      var obox=$gg("demo1");
+      var dulbox=$gg("demo2");
+      obox.style.width=obox.getElementsByTagName("li").length*boxwidth+'px';
+      dulbox.style.width=obox.getElementsByTagName("li").length*boxwidth+'px';
+      box.style.width=obox.getElementsByTagName("li").length*boxwidth*3+'px';
+      var canroll = false;
+      if (obox.getElementsByTagName("li").length >= 4) {
+        canroll = true;
+        dulbox.innerHTML=obox.innerHTML;
+      }
+      var step=5;temp=1;speed=50;
+      var awidth=obox.offsetWidth;
+      var mData=0;
+      var isStop = 1;
+      var dir = 1;
+      
+      function s(){
+        if (!canroll) return;
+        if (dir) {
+      if((awidth+mData)>=0)
+      {
+      mData=mData-step;
+      }
+      else
+      {
+      mData=-step;
+      }
+      } else {
+        if(mData>=0)
+        {
+        mData=-awidth;
+        }
+        else
+        {
+        mData+=step;
+        }
+      }
+      
+      obox.style.marginLeft=mData+"px";
+      
+      if (isStop) return;
+      
+      setTimeout(s,speed)
+      }
+      
+      
+      function moveLeft() {
+          var wasStop = isStop;
+          dir = 1;
+          speed = 50;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      
+      function moveRight() {
+          var wasStop = isStop;
+          dir = 0;
+          speed = 50;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      
+      function scrollStop() {
+        isStop=1;
+      }
+      
+      function clickLeft() {
+          var wasStop = isStop;
+          dir = 1;
+          speed = 25;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      
+      function clickRight() {
+          var wasStop = isStop;
+          dir = 0;
+          speed = 25;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      </script> 
+   </div><!--滚动-->
+  </div><!--相册500px-->
+  <div class="show_right">
+   <ul>
+    <li><span>{print $language['tpl_spec']/}:</span>{print $content['spec']/}</li>
+	<li><span>{print $language['tpl_marketprice']/}:</span>{print $content['marketprice']/}</li>
+	<li><span>{print $language['tpl_model']/}:</span>{print $content['model']/}</li>
+   </ul>
+  </div><!--详细-->
+  <div class="clear"></div>
+  </div><!--产品展示-->
+  
+  <div class="arc_body">
+  
+   <div class="q_body">
+		<ul>
+		 <li class="focus"><span>{print $language['tpl_content']/}</span></li>
+		 <li><span>{print $language['tpl_pfsm']/}</span></li>
+		 <li><span>{print $language['tpl_yfsm']/}</span></li>
+		 <li><span>{print $language['tpl_jyfs']/}</span></li>
+		 <li><span>{print $language['contact']/}</span></li>
+		 <li><span>{print $language['tpl_fkxx']/}</span></li>
+		</ul>
+	</div>
+  <div class="show_q_body">	
+	<div id="body">
+{print $content['content']/}
+   <div class="list_page" style="float:none;margin-left:300px;">
+   <ul>
+   {print $body_pages/}
+   </ul>
+   
+   <div class="clear"></div>
+  </div>
+  </div>
+  <div id="body" style="display:none">
+  	{print $content['wholesale']/}
+  </div>
+  <div id="body" style="display:none">
+  	{print $content['shipping']/}
+  </div>
+  <div id="body" style="display:none">
+  	{print $content['trading']/}
+  </div>
+  <div id="body" style="display:none">
+  	{print $content['contact']/}<br />
+                <div class="con">
+                    <h2 class="title">在线联系</h2>
+                    <ul>
+					{loop source=$market}
+					{if $v['market_type']=='1'}
+                        <li>
+						<span class="lf">
+                           <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={print $v['market_num']/}&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:{print $v['market_num']/}:4" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+						   </span>
+						   <span class="lf">{print $v['market_name']/}</span>
+                        </li>
+					{/if}
+						{if $v['market_type']=='2'}
+						 <li>
+						<span class="lf">
+                        <a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&uid={print $v['market_num']/}&s=2" ><img border="0" src="http://amos1.taobao.com/online.ww?v=2&uid=wet101&s=2" alt="点击这里给我发消息" /></a>
+						   </span>
+						   <span class="lf">{print $v['market_name']/}</span>
+                        </li><!--alww-->
+						{/if}
+						{/loop}
+                    </ul>
+					
+                </div>
+				
+  </div>
+  <div id="body" style="display:none">
+  	{form source=$form tpl=产品内容页表单 tpl_id=pr_form/}
+  </div>
+  </div>
+  
+  </div>
+  
+ <div class="arc_link" style="clear:both"><span>{print $content['prev']/}</span><span>{print $content['next']/}</span></div>
+ </div><!--右边-->
+ <div class="clear"></div>
+				
+			</div>
+		</div><!--容器结束-->
+	</div>
+	<div class="clear"></div>
+</div>
+
+{include foot/}
+</body>
+</html>

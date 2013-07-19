@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>栏目管理</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<style type="text/css">
+body{margin:20px;}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#sl_all').click(function(){
+		$('table').find('#all').attr('checked','checked');
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<div class="div_out">
+ <div class="position"><h2>当前位置 > <a href="?">链接管理</a> ></h2></div>
+ <div class="lang"><span>当前的语言:</span>
+ <?php
+ $cache_file=DATA_PATH."cache/lang_cache.php";
+ $cache_arr=read_cache($cache_file,'lang_cache');
+ if(!empty($cache_arr)){
+ foreach($cache_arr as $k=>$v){
+  if(!$v['lang_is_use']){continue;}
+ ?>
+ <a href="?action=link_list&lang=<?php echo $v['lang_tag'];?>" class="<?php if($GLOBALS['lang']==$v['lang_tag']){echo 'hover';}?>"><?php echo $v['lang_name'];?></a>
+ <?php
+ }
+ }
+ ?>
+</div>
+</div><!--导航-->
+
+<div id="sys">
+<form name="content_list" id="content_list" method="post" action="admin_content.php" class="form" enctype="multipart/form-data">
+<div class="div_out" id="tb">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ 	<thead>
+		<tr><th style="width:20%">网站名称</th><th style="width:15%">添加时间</th><th style="width:35%">网站说明</th><th style="width:10%">站长mail</th><th style="width:10%">排序</th><th style="width:10%">操作</th></tr>
+	</thead>
+	<tbody>
+	<?php
+	$maintb=DB_PRE."link";
+	$page=empty($page)?1:$page;
+	$pagesize=30;
+	$pagenum=($page-1)*$pagesize;
+	$filt="m.lang='{$lang}'";
+	$query='&lang='.$lang.'&action=link_list';
+	$total_num=$GLOBALS['mysql']->fetch_rows("select m.id from {$maintb} as m where {$filt}");
+	$total_page=ceil($total_num/$pagesize);
+	$sql="select m.* from {$maintb} as m where {$filt} order by m.id desc limit {$pagenum},{$pagesize}";
+	$rel=$GLOBALS['mysql']->fetch_asc($sql);
+	if(!empty($rel)){
+	foreach($rel as $key=>$value){
+	?>
+		<tr><td style="width:20%; text-align:center"><?php echo "<a href=\"{$value['link_url']}\" target=\"_blank\">{$value['link_name']}</a>";?></td><td style="width:15%; text-align:center"><?php echo empty($value['addtime'])?'':date('Y-m-d H:m:s',$value['addtime']);?></td><td style="width:35%;text-align:center"><?php echo $value['link_info'];?></td><td style="width:10%;text-align:center"><?php echo $value['link_mail'];?></td><td style="width:10%;text-align:center"><?php echo $value['link_order'];?></td><td style="width:10%;text-align:center"><a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?action=del&lang=<?php echo $lang;?>&id=<?php echo $value['id'];?>';}">删除</a>|<a href="?action=edit_link&lang=<?php echo $lang;?>&id=<?php echo $value['id'];?>">修改</a></td></tr>
+		<?php }
+		}?>
+		</tbody>
+ </table>
+ </div>
+</form>
+</div><!--内容切换-->
+
+<div class="page">
+ 	<ul>
+		<?php echo page('admin_link.php',$page,$query,$total_num,$total_page);?>
+	</ul>
+ </div>
+
+</body>
+</html>

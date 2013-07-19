@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<base href="<{$baseurl}>" />
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/menu.js"></script>
+<title>Insert title here</title>
+</head>
+<body id="left">
+<div class="ttitle">
+  <h1>控制菜单</h1>
+</div>
+<dl>
+  <dt onclick="javascript:show(this);">基本信息配置</dt>
+  <dd><a href="<{$adminroot}>/config/webconfig.php" target="mainFrame">网站信息配置</a></dd>
+  <dd><a href="<{$adminroot}>/config/industry.php" target="mainFrame">行业类别管理</a></dd>
+  <dd><a href="<{$adminroot}>/config/industryadd.php" target="mainFrame">行业类别添加</a></dd>
+  <dd><a href="<{$adminroot}>/config/jobsort.php" target="mainFrame">职位类别管理</a></dd>
+  <dd><a href="<{$adminroot}>/config/jobsortadd.php" target="mainFrame">职位类别添加</a></dd>
+  <dd><a href="<{$adminroot}>/config/majorsort.php" target="mainFrame">专业类别管理</a></dd>
+  <dd><a href="<{$adminroot}>/config/majorsortadd.php" target="mainFrame">专业类别添加</a></dd>
+</dl>
+<dl>
+  <dt onclick="javascript:show(this);">账户管理</dt>
+  <dd><a href="<{$adminroot}>/user/userpage.php?page=list" target="mainFrame">用户管理</a></dd>
+  <dd><a href="<{$adminroot}>/user/userpage.php?page=add" target="mainFrame">用户添加</a></dd>
+  <dd><a href="<{$adminroot}>/user/userpage.php?page=pwd" target="mainFrame">密码修改</a></dd>
+</dl>
+<dl>
+  <dt onclick="javascript:show(this);">会员管理</dt>
+  <dd><a href="<{$adminroot}>/job/jobpost.php" target="mainFrame">个人会员管理</a></dd>
+  <dd><a href="<{$adminroot}>/job/joblist.php" target="mainFrame">企业会员管理</a></dd>
+</dl>
+<dl>
+  <dt onclick="javascript:show(this);">资讯管理</dt>
+  <dd><a href="<{$adminroot}>/news/newspage.php?page=type" target="mainFrame">资讯类别</a></dd>
+  <dd><a href="<{$adminroot}>/news/newspage.php?page=list" target="mainFrame">资讯管理</a></dd>
+  <dd><a href="<{$adminroot}>/news/newspage.php?page=add" target="mainFrame">资讯添加</a></dd>
+</dl>
+<dl>
+  <dt onclick="javascript:show(this);">广告管理</dt>
+  <dd><a href="<{$adminroot}>/ad/messagelist.php" target="mainFrame">广告管理</a></dd>
+  <dd><a href="<{$adminroot}>/ad/messagelist.php" target="mainFrame">广告添加</a></dd>
+</dl>
+</body>
+</html>

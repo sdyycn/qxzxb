@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="<{$baseurl}>" />
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="scripts/news.js?12345"></script>
+<title>无标题文档</title>
+</head>
+<body>
+<h2>资讯管理</h2>
+<div>
+<form>
+<table class="list-layout wd-800" border="1" >
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>标题</th>
+        <th width="90">作者</th>
+        <th width="126">添加时间</th>
+        <th width="145" colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+    	<{foreach from=$allnews item=news}>
+          <tr id = "row_<{$news.id}>" >
+            <td width="64"><{$news.id}></td>
+            <td width="351"><{$news.title}></td>
+            <td width="90"><{$news.author}></td>
+            <td width="126"><{$news.addtime}></td>
+            <td><input type="button" class="btn2" onclick="news_edit(<{$news.id}>)" value="编  辑" /></td>
+            <td><input type="button" class="btn2" onclick="news_view(<{$news.id}>)" value="查  看" /></td>                
+            <td><input type="button" class="btn2" onclick="news_delete(<{$news.id}>, '<{$news.title}>')" value="删  除" /></td>
+          </tr>
+      <{/foreach}>
+      <tr>
+        <td colspan="7">
+        <{$subPages}>
+        <!--
+            <a href="<{$adminroot}>/news.php?act=news_view&page=0" class="btn2">首页</a>
+            <a href="<{$adminroot}>/news.php?act=news_view&page=0" class="btn2">上一页</a>
+            <a href="<{$adminroot}>/news.php?act=news_view&page=0" class="btn2">下一页</a>
+            <a href="<{$adminroot}>/news.php?act=news_view&page=-1" class="btn2">尾页</a> -->
+        </td>
+      </tr>
+    </tbody>
+</table>
+ </form>
+</div>
+</body>
+</html>

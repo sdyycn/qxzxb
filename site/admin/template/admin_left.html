@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理栏目</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('h2').click(function(){
+		$rel=$(this).attr('rel');
+		$('ul').slideUp('fast');
+		$('#'+$rel).slideDown('fast');
+	});
+});
+</script>
+<style type="text/css">
+body{background:#a8d0f2}
+</style>
+</head>
+
+<body>
+<div class="left_contain">
+ <div class="left_top">
+ 	<p><a href="admin_main.php" target="main" style="padding-right:8px; color:#FFFFFF">系统首页</a><a href="../index.php" target="_blank" style="padding-right:8px; color:#FFFFFF">网站主页</a></p>
+ </div>
+ <h2 rel="id1_ul"><p><span>网站设置</span></p></h2>
+ <ul id="id1_ul" style="display:none">
+  <li><a href="admin_info.php" target="main">站点设置</a></li>
+  <li><a href="admin_sys.php" target="main">系统设置</a></li>
+  <li><a href="admin_lang.php" target="main">语言设置</a></li>
+  <li><a href="admin_index.php" target="main">首页设置</a></li>
+  <li><a href="admin_market.php" target="main">营销工具</a></li>
+  <li><a href="admin_keywords.php" target="main">关键词设置</a></li>
+  <li><a href="admin_flash_ad.php" target="main">首页主广告管理</a></li>
+  <li><a href="admin_flash_ad_info.php" target="main">首页主广告设置</a></li>
+  <li><a href="admin_info_cache.php?step=lang" target="main">更新配置缓存</a></li>
+ </ul>
+ <h2 rel="id2_ul"><p><span>内容管理</span></p></h2>
+ <ul id="id2_ul" >
+  <li><a href="admin_catagory.php" target="main">栏目管理</a></li>
+  <li><a href="admin_content.php?action=add" target="main">添加内容</a></li>
+  <li><a href="admin_content_alone.php" target="main">添加单页内容</a></li>
+  <li><a href="admin_content_tag.php" target="main">添加标示内容</a></li>
+  <li><a href="admin_content.php?action=content_list" target="main">内容管理</a></li>
+  <li><a href="admin_content_alone.php?action=content_list" target="main">单页内容管理</a></li>
+  <li><a href="admin_content_tag.php?action=content_list" target="main">标示内容管理</a></li>
+  <li><a href="admin_file.php" target="main">上传附件管理</a></li>
+ </ul>
+ <h2 rel="id3_ul"><p><span>模型管理</span></p></h2>
+ <ul id="id3_ul" style="display:none">
+  <li><a href="admin_channel.php?action=add&lang=cn" target="main">添加模型</a></li>
+  <li><a href="admin_channel.php" target="main">管理模型</a></li>
+  <li><a href="admin_channel.php?action=cache" target="main">更新模型缓存</a></li>
+ </ul>
+ <h2 rel="id4_ul"><p><span>用户管理</span></p></h2>
+ <ul id="id4_ul" style="display:none">
+  <li><a href="admin_admin.php" target="main">管理员管理</a></li>
+  <li><a href="admin_admin.php?action=admin_group" target="main">管理员分组</a></li>
+  <li><a href="admin_member.php" target="main">会员管理</a></li>
+  <li><a href="admin_member.php?action=member_group" target="main">会员分组</a></li>
+ </ul>
+ <h2 rel="id5_ul"><p><span>模板生成管理</span></p></h2>
+ <ul id="id5_ul" style="display:none">
+ <li><a href="admin_template_out.php" target="main">输出配置</a></li>
+  <li><a href="admin_template.php" target="main">模板管理</a></li>
+  <li><a href="admin_htm.php" target="main">生成首页</a></li>
+  <li><a href="admin_htm.php?action=cate" target="main">生成栏目页</a></li>
+  <li><a href="admin_htm.php?action=content" target="main">生成内容页</a></li>
+  <li><a href="admin_htm.php?action=alone" target="main">生成单页内容</a></li>
+  <li><a href="admin_htm.php?action=map" target="main">生成网站地图</a></li>
+ </ul>
+ <h2 rel="id6_ul"><p><span>表单管理</span></p></h2>
+ <ul id="id6_ul" style="display:none">
+  <li><a href="admin_form.php?action=add" target="main">添加表单模型</a></li>
+  <li><a href="admin_form.php" target="main">管理表单模型</a></li>
+  <li><a href="admin_form.php?action=form_list" target="main">管理表单</a></li>
+ </ul>
+ <h2 rel="id7_ul"><p><span>咨询管理</span></p></h2>
+ <ul id="id7_ul" style="display:none">
+  <li><a href="admin_ask.php" target="main">咨询管理</a></li>
+ </ul>
+ <h2 rel="id8_ul"><p><span>友情链接</span></p></h2>
+ <ul id="id8_ul" style="display:none">
+  <li><a href="admin_link.php?action=add" target="main">添加链接</a></li>
+  <li><a href="admin_link.php?action=link_list" target="main">管理链接</a></li>
+ </ul>
+ <h2 rel="id9_ul"><p><span>数据管理</span></p></h2>
+ <ul id="id9_ul" style="display:none">
+  <li><a href="admin_db.php" target="main">备份数据</a></li>
+  <li><a href="admin_db.php?action=import" target="main">恢复数据</a></li>
+ </ul>
+ <h2 rel="id10_ul"><p><span>留言管理</span></p></h2>
+ <ul id="id10_ul" style="display:none">
+  <li><a href="admin_book.php?action=made" target="main">设置</a></li>
+  <li><a href="admin_book.php" target="main">管理留言</a></li>
+ </ul>
+ <div class="left_top" style="height:100px;border-bottom:1px solid #aaa;">
+ 	<p style=" height:98px;">power by <a href="http://www.beescms.com" target="_blank">BEESCMS</a></p>
+ </div>
+</div>
+</body>
+</html>

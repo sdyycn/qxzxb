@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加语言包</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css" />
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript" src="template/images/admin.js"></script>
+<style type="text/css">
+body {
+	margin: 20px;
+}
+</style>
+</head>
+
+<body>
+<div class="div_out">
+	<div class="position">
+		<h2>当前位置 > 语言管理</h2>
+	</div>
+</div>
+<!--导航-->
+
+<div class="caozuo_nav">
+<ul>
+	<li class="<{$class_add}>"><a href="?action=add">添加语言</a></li>
+	<li class="<{$class_lang}>"><a href="?action=lang">管理语言</a></li>
+	<li class="<{$class_cache_lang}>"><a href="?action=cache_lang">更新语言缓存</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<!--小操作导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data" class="form">
+<div class="div_out" id="tb">
+<p><span id="loading" style="display: none"></span></p>
+<table cellpadding="0" cellspacing="0" width="100%"
+	style="text-align: center">
+	<thead>
+		<tr>
+			<th style="width: 10%;"><span title="鼠标点击数字进行排序" class="help"></span>排序</th>
+			<th style="width: 20%;">语言名称</th>
+			<th style="width: 20%;">标示</th>
+			<th style="width: 10%">是否开启</th>
+			<th style="width: 20%;">是否外部链接</th>
+			<th style="width: 20%">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+	if(empty($lang_cache)){
+	echo "还没有添加语言";
+	exit;
+	}
+	foreach($lang_cache as $key =>$value){
+	?>
+		<tr>
+			<td style="width: 10%;">
+				<span title="鼠标点击修改" style="padding: 0 8px" id="click_ajax"
+				onclick="javascript:click_ajax(this,'<?php echo $value['id'];?>','lang','lang_order','');"><?php echo $value['lang_order'];?></span>
+			</td>
+			<td style="width: 20%; text-align: left">
+				<input type="radio"	style="border: 0" name="lang_id[]" value="<?php echo $value['id'];?>"<?php
+				if($value['lang_main']){ echo 'checked=checked';}?>/><?php echo $value['lang_name'];?><?php if($value['lang_main']){echo "(默认)";}?>
+			</td>
+			
+			<td style="width: 20%; text-align: center"><?php echo $value['lang_tag'];?></td>
+			<td style="width: 10%; text-align: center"><?php if($value['lang_is_use']){ echo "是";}else{ echo "<span style=\"color:red\">否</span>";}?></td>
+			<td style="width: 20%; text-align: center"><?php if($value['lang_is_url']){ echo "是";}else{ echo "否";}?></td>
+			<td style="width: 20%; text-align: center">
+				<a style="padding: 0 5px;" href="admin_lang.php?action=lang_edit&lang=<?php echo $value['lang_tag'];?>">修改</a>|<?php if(!$value['lang_is_fix']){?>
+				<a href="javascript:if(confirm('确定要删除么,删除后不可恢复!')){location.href='admin_lang.php?action=lang_dl&lang=<?php echo $value['lang_tag'];?>';}"
+					style="padding: 0 5px;">删除</a>|<?php }?>
+				<a href="admin_lang.php?action=edit&lang=<?php echo $value['lang_tag'];?>">管理语言包变量</a>
+			</td>
+		</tr>
+		<?php
+	}
+	?>
+	</tbody>
+</table>
+</div>
+	<div class="btn" style="margin-top: 8px; text-align: left;">
+		<input type="hidden" name="action" value="lang_main" />
+		<input type="submit" value="设置默认语言" style="margin: 0 10px 0 0;" class="go" />
+	</div>
+</form>
+</body>
+</html>

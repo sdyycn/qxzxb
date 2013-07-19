@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="<{$baseurl}>" />
+<link href="common/style.css" rel="stylesheet" type="text/css" />
+<title>news add</title>
+<script type="text/javascript" src="/configs/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="scripts/news.js"></script>
+</head>
+<body>
+<form  method="post" action="<{$adminroot}>/newspage.php?act=news_add" name="form_news" id="newsaddform" enctype="multipart/form-data" >
+<table class="list-layout wd-800" >
+  <thead>
+    <tr>
+      <th  colspan="2" class="tc"><h2>资讯添加</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="190" class="a">标题:</td>
+      <td width="896"><input type="hidden" name="MAX_FILE_SIZE" value="5000" /><input name="title" type="text" id="title" size="100" maxlength="100"/><font color="red">*</font></td>
+    </tr>
+    <tr>
+      <td  class="a">图片:</td>
+      <td ><input name="pic" type="file"  id="pic" size="20" /></td>
+    </tr>
+    <tr>
+      <td  class="a">类别:</td>
+      <td>
+      <select id="typeid" name="type">
+      		<{html_options values=$id selected=$select_id output=$typename}>
+       </select>
+       <font color="red">*</font>
+       </td>
+    </tr>
+    <tr>
+      <td width="190" class="a">作者:</td>
+      <td width="896"><input name="author"   type="text" id="author" size="20" maxlength="20" /><font color="red">*</font></td>
+    </tr>
+    <tr>
+      <td width="190" class="a">来源:</td>
+      <td width="896"><input name="source"   type="text" id="source" size="60" maxlength="60"  /></td>
+    </tr>
+    <tr>
+      <td width="190" class="a">正文:</td>
+      <td width="896">
+      <textarea id="content" name="content" style="display:none;"></textarea>
+      	<script type="text/javascript">
+			var newsContent = CKEDITOR.replace('content',
+			{
+				height	:	'300',
+				width	:	'99%',
+				skin	:	'kama',
+			});
+		</script>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+     	<input type="button" class="btn2" name="newsadd" id="newsadd" value="添  加" onclick="news_add()" /> 
+	  </td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</body>
+</html>

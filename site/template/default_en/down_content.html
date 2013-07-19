@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print $content['info']/}">
+<meta name="keywords" content="{print $content['keywords']/}">
+<title>{print $content['title']/}_{print $cateinfo['catename']/}_{print $webinfo['webname']/}</title>
+<link href="{path template/}/images/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{path template/}/images/jquery.js"></script>
+</head>
+<body>
+{include head/}
+<div class="contain" style="margin-top:8px;">
+ <div class="main_left">
+  <h2 class="title"><span class="pr_icon">{print $language['products_nav']/}</span></h2>
+  <ul class="pr_nav">
+  {loop source=$content_down_nav tpl=下载内容页产品导航 tpl_id=content_down_nav}
+   <li class="{print $v['class']/}"><a href="{print $v['url']/}" {print $v['target']/} title="{print $v['cate_name']/}">{print $v['cate_name']/}</a></li>
+   {/loop}
+  </ul>
+  <h2 class="title" style="margin-top:15px;"><span class="link_icon">{print $language['contact']/}</span></h2>
+  <div class="link">
+ {block source=$content_down_link tpl=下载内容页联系方式 tpl_id=content_down_link/}
+  </div>
+ </div><!--左边-->
+ <div class="main_right">
+  <h2 class="title2"><span>{print $language['location']/}:{position source=position/}</span></h2>
+  <p class="title">{print $content['style_title']/}</p>
+  <p class="info"><span>{print $language['content_hits']/}:<script language="javascript" src="{path includes/}/hits.php?id={print $content['id']/}"></script></span><span>{print $language['content_pubdate']/}:{print $content['updatetime']/}</span><span><a href="javascript:window.print()">【{print $language['print']/}】</a></span><span><a href="javascript:self.close()">【{print $language['close']/}】</a></span></p>
+ <ul class="soft_info">
+  <li><span>{print $language['tpl_file_type']/}:</span>{print $content['filetype']/}</li>
+  <li><span>{print $language['tpl_file_size']/}:</span>{print $content['filesize']/}</li>
+ </ul><!--下载信息-->
+ <p style="border-bottom:1px solid #ccc; padding-left:18px; font-weight:bold; color:#999999">Content</p>
+  <div class="arc_body">
+    <table width='100%'>
+	<tr><td>{print $content['content']/}</td></tr>
+  </table>
+  </div>
+  <div class="list_page" style="float:none;margin-left:300px;">
+   <ul>
+    {print $body_pages/}
+   </ul>
+   <div class="clear"></div>
+  </div>
+  <p style="border-bottom:1px solid #ccc; padding:3px 0; padding-left:18px; font-weight:bold;color:#999999">{print $language['tpl_down_add']/}</p>
+  <div class="soft_down">
+   <a href="{print $content['down']/}" target="_blank">{print $language['tpl_down']/}</a>
+  </div><!--下载地址-->
+ <div class="arc_link" style="clear:both"><span>{print $content['prev']/}</span><span>{print $content['next']/}</span></div>
+ </div><!--右边-->
+ <div class="clear"></div>
+</div><!--主体-->
+{include foot/}
+</body>
+</html>
