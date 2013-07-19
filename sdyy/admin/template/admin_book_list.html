@@ -3,91 +3,97 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>内容管理</title>
-<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<link rel="stylesheet" type="text/css" href="template/admin.css" />
 <script type="text/javascript" src="template/images/jquery.js"></script>
 <style type="text/css">
-body{margin:20px;}
+body {
+	margin: 20px;
+}
 </style>
 <script type="text/javascript">
-$(document).ready(function(){
-	$('#sl_all').click(function(){
-		$('table').find('#all').attr('checked','checked');
+	$(document).ready(function() {
+		$('#sl_all').click(function() {
+			$('table').find('#all').attr('checked', 'checked');
+		});
+		$('#show_list').find('tr').hover(function() {
+			$(this).find('td').css('background', '#ccffcc');
+		}, function() {
+			$(this).find('td').css('background', '');
+		});
 	});
-	$('#show_list').find('tr').hover(function(){
-		$(this).find('td').css('background','#ccffcc');
-	},function(){
-		$(this).find('td').css('background','');
-	});
-});
-function set_act(){
-alert($('#form1').find('#all').val());
-}
+	function set_act() {
+		alert($('#form1').find('#all').val());
+	}
 </script>
 </head>
 
 <body>
 <div class="div_out">
- <div class="position"><h2>当前位置 > <a href="?">内容管理</a></h2></div>
- <div class="lang"><span>当前的语言:</span>
- <?php
- $cache_file=DATA_PATH."cache/lang_cache.php";
- $cache_arr=read_cache($cache_file,'lang_cache');
- if(!empty($cache_arr)){
- foreach($cache_arr as $k=>$v){
-  if(!$v['lang_is_use']){continue;}
- ?>
- <a href="admin_book.php?action=book_list&lang=<?php echo $v['lang_tag'];?>" class="<?php if($GLOBALS['lang']==$v['lang_tag']){echo 'hover';}?>"><?php echo $v['lang_name'];?></a>
- <?php
- }
- }
- ?>
+<div class="position">
+<h2>当前位置 > <a href="?">内容管理</a></h2>
 </div>
-</div><!--导航-->
+<div class="lang">
+	<span>当前的语言:</span>
+	<a href="guestbook.php?act=list&lang=<{$lang.id}>" class="hover"><{$lang.name}></a>
+</div>
+</div>
+<!--导航-->
 
 <div id="sys">
 <form name="form" id="form1" method="post" action="" class="form">
 <div class="div_out" id="tb">
- <table cellpadding="0" cellspacing="0" width="100%">
- 	<thead>
-		<tr><th style="width:5%">选择</th><th style="width:25%">留言标题</th><th style="width:15%">添加时间</th><th style="width:10%">回复</th><th style="width:30%">留言内容</th><th style="width:5%">审核</th><th style="width:10%">操作</th></tr>
+<table cellpadding="0" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 5%">选择</th>
+			<th style="width: 25%">留言标题</th>
+			<th style="width: 15%">添加时间</th>
+			<th style="width: 10%">回复</th>
+			<th style="width: 30%">留言内容</th>
+			<th style="width: 5%">审核</th>
+			<th style="width: 10%">操作</th>
+		</tr>
 	</thead>
 	<tbody id="show_list">
-	<?php
-	
-	$maintb=DB_PRE."book";
-	$page=empty($page)?1:$page;
-	$pagesize=30;
-	$pagenum=($page-1)*$pagesize;
-	$filt="m.lang='{$lang}'";
-	$query='&lang='.$lang.'&verify='.$verify;
-	$filt.=empty($verify)?'':' and m.verify='.$verify;
-	$order="order by addtime desc";
-	$total_num=$GLOBALS['mysql']->fetch_rows("select m.id from {$maintb} as m where {$filt}");
-	$total_page=ceil($total_num/$pagesize);
-	$sql="select m.* from {$maintb} as m where {$filt} {$order} limit {$pagenum},{$pagesize}";
-	$rel=$GLOBALS['mysql']->fetch_asc($sql);
-	if(!empty($rel)){
-	foreach($rel as $key=>$value){
-	?>
-		<tr><td style="width:5%;text-align:center"><input type="checkbox" id="all" style="border:0" value="<?php echo $value['id'];?>" name="all[]" /></td><td style="width:25%"><?php echo "({$value['id']})<a href=\"?action=reply&id={$value['id']}\">{$value['book_title']}</a>";?></td><td style="width:15%; text-align:center"><?php echo date('Y-m-d H:m:s',$value['addtime']);?></td><td style="width:10%;text-align:center"><?php if($value['reply']){echo "<span style=\"color:green\">已回复</span>";}else{echo "<span style=\"color:red\">未回复</span>";}?></td><td style="width:30%;text-align:center"><?php echo cn_substr($value['book_content'],100);?></td><td style="width:5%;text-align:center"><?php if(!$value['verify']){echo "<span style=\"color:red\">未审核</span>";}else{echo "<font style=\"color:green\">已审核</span>";}?></td><td style="width:10%;text-align:center"><a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?action=del&lang=<?php echo $lang;?>&id=<?php echo $value['id'];?>';}" style="padding:0 3px;">删除</a>|<a href="?action=reply&lang=<?php echo $lang;?>&id=<?php echo $value['id'];?>" style="padding:0 3px;">回复</a><a href="?action=show&id=<?php echo $value['id'];?>"></a></td></tr>
-		<?php }
-		}
-		?>
-		</tbody>
- </table>
- </div>
- <div class="btn" style="margin-top:8px; text-align:left;">
-<input type="hidden" value="<?php echo $id;?>" name="id" /><input type="hidden" value="<?php echo $lang;?>" name="lang" />
-  <input type="button" name="all" value="全选" id="sl_all" style="margin:0 10px 0 0;" class="go" /><input type="reset" style="margin:0 10px 0 0;" class="go" value="重置" name="reset"/><input type="button" onclick="javascript:this.form.action='?action=verify&lang=<?php echo $lang;?>';this.form.submit();" value="审核" name="verify" style="margin:0 10px 0 0;" class="go" /><input type="button" onclick="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){this.form.action='admin_book.php?action=del_all&lang=<?php echo $lang;?>';this.form.submit();}" value="删除" name="button" style="margin:0 10px 0 0;" class="go"/>
- </div>
+		<{foreach from=$notes item=note}>
+		<tr>
+			<td style="width: 5%; text-align: center"><input type="checkbox" id="all" style="border: 0" value="<{$note.id}>" name="all[]" /></td>
+			<td style="width: 25%"><{$note.id}><a href="?act=reply&id=<{$note.id}>"><{$note.title}></a></td>
+			<td style="width: 15%; text-align: center"><{$note.addtime}></td>
+			<td style="width: 10%; text-align: center"><{$note.replay}></td>
+			<td style="width: 30%; text-align: center"><{$note.content}></td>
+			<td style="width: 5%; text-align: center"><{$note.verify}></td>
+			<td style="width: 10%; text-align: center">
+				<a href="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){location.href='?act=delete&lang=<{$lang}>&id=<{$note.id}>'"	style="padding: 0 3px;">删除</a>
+				|<a	href="?act=reply&lang=<{$lang}>&id=<{$note.id}>" style="padding: 0 3px;">回复</a>
+				|<a href="?act=show&id=<{$note.id}>">查看</a>
+			</td>
+		</tr>
+		<{/foreach}>
+	</tbody>
+</table>
+</div>
+<div class="btn" style="margin-top: 8px; text-align: left;">
+	<input type="hidden" value="<?php echo $id;?>" name="id" />
+	<input type="hidden" value="<?php echo $lang;?>" name="lang" />
+	<input type="button" name="all" value="全选" id="sl_all" style="margin: 0 10px 0 0;" class="go" />
+	<input type="reset"	style="margin: 0 10px 0 0;" class="go" value="重置" name="reset" />
+	<input type="button" onclick="javascript:this.form.action='?action=verify&lang=<?php echo $lang;?>';this.form.submit();" value="审核" name="verify" style="margin: 0 10px 0 0;" class="go" />
+	<input type="button" onclick="javascript:if(confirm('确定要删除么,删除后将不可恢复!')){this.form.action='admin_book.php?action=del_all&lang=<?php echo $lang;?>';this.form.submit();}"value="删除" name="button" style="margin: 0 10px 0 0;" class="go" />
+</div>
 </form>
-</div><!--内容切换-->
+</div>
+<!--内容切换-->
 
 <div class="page">
- 	<ul>
-		<?php echo page('admin_book.php',$page,$query,$total_num,$total_page);?>
-	</ul>
- </div>
+<ul>
+	<li><a href="guestbook.php?page=list&query=xxx&num=xxx&total=xxx">1</a></li>
+	<li><a href="guestbook.php?page=list&query=xxx&num=xxx&total=xxx">2</a></li>
+	<li><a href="guestbook.php?page=list&query=xxx&num=xxx&total=xxx">3</a></li>
+	<li><a href="guestbook.php?page=list&query=xxx&num=xxx&total=xxx">4</a></li>
+	<li><a href="guestbook.php?page=list&query=xxx&num=xxx&total=xxx">5</a></li>
+</ul>
+</div>
 
 </body>
 </html>

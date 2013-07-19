@@ -1,8 +1,8 @@
 <?php
 chdir(dirname(__FILE__));
-require_once('../configs/path.inc.php');
-require_once('configs/config.db.php');
-require_once('include/Page.class.php');
+include_once('../configs/path.inc.php');
+include_once('configs/config.db.php');
+include_once('include/Page.class.php');
 include('inc/AdminSite.class.php');
 
 
@@ -29,8 +29,11 @@ class AdminSitePage extends AdminPage{
 			case 'keywords':
 				$page = new AdminKeywordsPage;
 				break;
-			case 'flash':
-				$page = new AdminFlashPage;
+			case 'flashconfig':
+				$page = new AdminFlashConfigPage;
+				break;
+			case 'flashmanage':
+				$page = new AdminFlashManagePage;
 				break;
 			default:
 				break;

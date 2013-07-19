@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2013-07-19 08:21:47
+<?php /* Smarty version Smarty-3.1.12, created on 2013-07-19 16:02:04
          compiled from "E:\workspace\etherjobs\sdyy\admin\template\admin_ask.html" */ ?>
-<?php /*%%SmartyHeaderCode:2316951e8869b421dc5-70025214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2315451e8f27c171808-53158737%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2316951e8869b421dc5-70025214',
+  'nocache_hash' => '2315451e8f27c171808-53158737',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_51e8869b475a02_12890688',
+  'unifunc' => 'content_51e8f27c1c8d61_76931823',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51e8869b475a02_12890688')) {function content_51e8869b475a02_12890688($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_51e8f27c1c8d61_76931823')) {function content_51e8f27c1c8d61_76931823($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

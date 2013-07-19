@@ -1,6 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
-require_once('include/Page.class.php');
+include_once('../../configs/path.inc.php');
+include_once('include/Page.class.php');
 
 class AdminLink{
 	function add(){

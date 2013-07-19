@@ -3,40 +3,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>设置留言本</title>
-<link rel="stylesheet" type="text/css" href="template/admin.css"/>
+<link rel="stylesheet" type="text/css" href="template/admin.css" />
 <script type="text/javascript" src="template/images/jquery.js"></script>
 <style type="text/css">
-body{margin:20px;}
+body {
+	margin: 20px;
+}
 </style>
 </head>
 
 <body>
 <div class="div_out">
- <div class="position"><h2>当前位置 > 设置留言本</h2></div>
-</div><!--导航-->
-<form name="maininfo" method="post" enctype="multipart/form-data" action="?" class="form">
+<div class="position">
+<h2>当前位置 > 设置留言本</h2>
+</div>
+</div>
+<!--导航-->
+<form name="maininfo" method="post" enctype="multipart/form-data"
+	action="?" class="form">
 <div class="div_out" id="tb">
- <table cellpadding="0" cellspacing="0" width="100%">
- 	<thead>
-		<tr><th class="w1">参数说明</th><th class="w2">参数值</th><th class="w3">变量名</th></tr>
+<table cellpadding="0" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th class="w1">参数说明</th>
+			<th class="w2">参数值</th>
+			<th class="w3">变量名</th>
+		</tr>
 	</thead>
 	<tbody>
 		<tr>
-		  <td class="w1">开启留言本:</td><td class="w2"><input type="radio" value="1" name="is_book" style="margin:0 5px; border:none" <?php if($rel[0]['is_book']){?>checked="checked"<?php }?>/>是<input style="margin:0 5px; border:none" type="radio" value="0" name="is_book" <?php if(!$rel[0]['is_book']){?>checked="checked"<?php }?>/>否</td><td class="w3"></td>
+			<td class="w1">开启留言本:</td>
+			<td class="w2">
+				<input type="radio" value="1" name="is_book" style="margin: 0 5px; border: none" checked="<{$radio_is_book1}>" />是
+			 	<input type="radio" value="0" name="is_book" style="margin: 0 5px; border: none" checked="<{$radio_is_book2}>" />否
+			 </td>
+			<td class="w3"></td>
 		</tr>
 		<tr>
-		  <td class="w1">设置位置:</td><td class="w2"><input type="checkbox" value="1" name="book_pos[]" style="margin:0 5px; border:none" <?php if(in_array('1',$book_pos)){?>checked="checked"<?php }?>/>顶部导航<input style="margin:0 5px; border:none" type="checkbox" value="2" name="book_pos[]" <?php if(in_array('2',$book_pos)){?>checked="checked"<?php }?>/>底部导航</td><td class="w3"></td>
+			<td class="w1">设置位置:</td>
+			<td class="w2">
+				<input type="checkbox" value="1" name="book_pos[]" style="margin: 0 5px; border: none" checked="<{$radio_book_pos1}>" />顶部导航
+				<input type="checkbox" value="2" name="book_pos[]" style="margin: 0 5px; border: none" checked="<{$radio_book_pos0}>" />底部导航
+			</td>
+			<td class="w3"></td>
 		</tr>
 		<tr>
-		  <td class="w1">留言审核:</td><td class="w2"><input type="radio" value="1" name="book_verify" style="margin:0 5px; border:none" <?php if($rel[0]['book_verify']){?>checked="checked"<?php }?>/>是<input style="margin:0 5px; border:none" type="radio" value="0" name="book_verify" <?php if(!$rel[0]['book_verify']){?>checked="checked"<?php }?>/>否</td><td class="w3"></td>
+			<td class="w1">留言审核:</td>
+			<td class="w2">
+				<input type="radio" value="1" name="book_verify" style="margin: 0 5px; border: none" checked="<{$radio_book_verify1}>" />是
+				<input type="radio" value="0" name="book_verify" style="margin: 0 5px; border: none" checked="<{$radio_book_verify0}>" />否
+			</td>
+			<td class="w3"></td>
 		</tr>
 	</tbody>
- </table>
- </div>
- <div class="btn" style="margin-top:10px">
-<input type="hidden" name="action" value="save_book_info"/>
-  <input type="submit" value="确定" class="go" name="submit"/><input type="reset" style="margin:0 10px;" class="go" value="重置" name="reset"/>
- </div>
+</table>
+</div>
+
+<div class="btn" style="margin-top: 10px">
+	<input type="hidden" name="action" value="save_book_info" />
+	<input type="submit" value="确定" class="go" name="submit" />
+	<input type="reset" style="margin: 0 10px;"	class="go" value="重置" name="reset" />
+</div>
 </form>
 </body>
 </html>

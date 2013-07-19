@@ -1,7 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
-require_once('configs/config.db.php');
-require_once('include/Page.class.php');
+include_once('../../configs/path.inc.php');
+include_once('include/Page.class.php');
 
 class AdminInfoPage extends AdminPage{
 	function __construct(){
@@ -269,9 +269,18 @@ class AdminKeywordsPage extends AdminPage{
 	}
 }
 
-class AdminFlashPage extends AdminPage{
+class AdminFlashConfigPage extends AdminPage{
 	function __construct(){
 		parent::__construct('admin_flash_ad_info.html');
+	}
+	function display(){
+		parent::display();
+	}
+}
+
+class AdminFlashManagePage extends AdminPage{
+	function __construct(){
+		parent::__construct('admin_flash_ad.html');
 	}
 	function display(){
 		parent::display();
