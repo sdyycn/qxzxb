@@ -14,7 +14,7 @@ $table['ejob_newssort'] = "ejob_newssort";		// 资讯类别
 $table['ejob_news'] 	= "ejob_news";			// 资讯信息
 $table['ejob_admin'] 	= "ejob_admin";			// 系统管理员账户
 
-class JobsPDO extends PDO {
+class JobsPDO extends MPDO{
 /*/
  * 
  * my_setting.ini:
@@ -38,7 +38,25 @@ class JobsPDO extends PDO {
         parent::__construct($dns, $settings['database']['username'], $settings['database']['password']);
     }
 //*/
-	
+	public function __construct(){
+		// next we can read the dsn info from file: config.ini
+		$dbms = 'mysql';
+		$host = '192.168.10.86';
+		$dbName = 'limijobs';
+		$dsn = "$dbms:host=$host;dbname=$dbName";
+
+		parent::__construct($dsn, 'limijobs', '123456');
+//			$this->setAttribute(PDO::ATTR_PERSISTENT, true);					// 设置数据库连接为持久连接
+//			$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		// 设置抛出错误
+//			$this->setAttribute(PDO::ATTR_ORACLE_NULLS, true);					// 设置当字符串为空转换为SQL的NULL
+//			$this->setAttribute(PDO::ATTR_CASE, PDO::CASE_UPPER);				// 列名大小写或原样(CASE_NATURAL),CASE_LOWER
+//			$this->query("SET NAMES utf8");										// 设置数据库编码
+//			$this->exec("SET CHARACTER SET GBK");								// 设置数据库编码 (同上)
+	}
+}
+
+class MPDO extends PDO {
+
 	public $count = 0;
 	// 内存缓存
 	public $cache = null;
@@ -48,30 +66,8 @@ class JobsPDO extends PDO {
 	}
 	
 	public function __construct($dsn=null, $username=null, $password=null){
-		// next we can read the dsn info from file: config.ini
-		if ($dsn == null){
-			$dbms = 'mysql';
-			$host = '192.168.10.86';
-			$dbName = 'limijobs';
-//			$username = 'limijobs';
-//			$password = '123456';
-			$dsn = "$dbms:host=$host;dbname=$dbName";
-		}
-		if ($username == null){
-			$username = 'limijobs';
-		}
-		if ($password == null){
-			$password = '123456';
-		}
-		
 		set_exception_handler(array(__CLASS__, 'exception_handler'));
 		parent::__construct($dsn, $username, $password);
-//			$this->setAttribute(PDO::ATTR_PERSISTENT, true);					// 设置数据库连接为持久连接
-//			$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		// 设置抛出错误
-//			$this->setAttribute(PDO::ATTR_ORACLE_NULLS, true);					// 设置当字符串为空转换为SQL的NULL
-//			$this->setAttribute(PDO::ATTR_CASE, PDO::CASE_UPPER);				// 列名大小写或原样(CASE_NATURAL),CASE_LOWER
-//			$this->query("SET NAMES utf8");										// 设置数据库编码
-//			$this->exec("SET CHARACTER SET GBK");								// 设置数据库编码 (同上)
 		restore_exception_handler();
 	}
 	

@@ -10,7 +10,7 @@ if (!session_id()){
 
 if (empty($_SESSION['username'])){
 	header("Content-type: text/html; charset=utf-8");
-	echo $config['adminroot'];
+//	echo $config['adminroot'];
 	alert("请先登录", $config['adminroot']."/login.php");
 	exit;
 }
