@@ -1,0 +1,2 @@
+ [127.0.0.1] [2013-08-05 11:47:23] : PageController::display 
+ [127.0.0.1] [2013-08-05 11:47:30] : PageController::display 

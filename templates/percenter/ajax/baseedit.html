@@ -1,0 +1,69 @@
+<h2 class="tit-0"><span>
+  <input type="submit" class="btn btn-base" value="编辑"/>
+  </span>基本信息</h2>
+<h1>
+  <input type="text" class="txtresume" name="realname" id="realname" value="" size="60" />
+</h1>
+<script language="javascript" type="text/javascript">$(document).ready(function() {getSelectitems("#political",political_a);getSelectitems("#workstate",workstate_a);getSelectitems("#marriage",marry_a);})</script>
+<div class="avatar"><img src="../images/tx2.jpg" /></div>
+<div class="list-info">
+  <table class="list-table">
+    <tr>
+      <td class="a">出生日期：</td>
+      <td class="b"><input type="text" class="txtresume" name="birth" id="birth" value="" size="20" /></td>
+      <td class="a">性别:</td>
+      <td class="b"><input type="radio" name="sex" value="0" checked />
+        男
+        <input type="radio" value="1" name="sex" />
+        女</td>
+    </tr>
+    <tr>
+      <td class="a">政治面貌：</td>
+      <td><select name="political" id="political" class="txtselect">
+        </select></td>
+      <td class="a"> 婚姻状况： </td>
+      <td><select name="marriage" id="marriage" class="txtselect">
+        </select></td>
+    </tr>
+    <tr>
+      <td class="a">现居住地</td>
+      <td><input id="btn_residency" type="button" value="请选择居住地" onclick="residencySelect()" />
+        <input id="residency" type="hidden" name="residency" value="" /></td>
+      <td class="a">户口所在地</td>
+      <td><input id="btn_hukou" type="button" value="户口所在地" onclick="hukouSelect()" />
+        <input id="hukou" type="hidden" name="hukou" value="" /></td>
+    </tr>
+    <tr>
+      <td class="a">联系地址</td>
+      <td colspan="3"><input type="text" class="txtresume" name="address" id="address" value="" size="60" /></td>
+    </tr>
+    <tr>
+      <td class="a">固定电话:</td>
+      <td><input type="text" class="txtresume" name="tel" id="tel" value="" size="20" /></td>
+      <td class="a">手机号码:</td>
+      <td><input type="text" class="txtresume" name="mobile" id="mobile" value="" size="20" /></td>
+    </tr>
+    <tr>
+      <td class="a">Email:</td>
+      <td><input type="text" class="txtresume" name="email" id="email" value="" size="20" /></td>
+      <td class="a">目前年薪:</td>
+      <td><input type="text" class="txtresume" name="yearsalary" id="yearsalary" value="" size="20" /></td>
+    </tr>
+    <tr>
+      <td class="a">求职状态:</td>
+      <td colspan="3"><select name="workstate" id="workstate" class="txtselect">
+        </select></td>
+    </tr>
+    <tr>
+      <td class="a"></td>
+      <td colspan="4" class="btn-wrapper"><input type="button" class="btn btnbasesave"  value="保存"/></td>
+    </tr>
+  </table>
+</div>
+<div id="maskLayer" style="display:none">
+  <div id="drag">
+    <h3 id="drag_h"></h3>
+    <div id="drag_con"></div>
+  </div>
+</div>
+<div id="sublist" style="display:none"></div>

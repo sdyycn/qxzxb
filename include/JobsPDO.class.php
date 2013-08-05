@@ -14,6 +14,29 @@ $table['ejob_newssort'] = "ejob_newssort";		// 资讯类别
 $table['ejob_news'] 	= "ejob_news";			// 资讯信息
 $table['ejob_admin'] 	= "ejob_admin";			// 系统管理员账户
 
+
+$table['eth_ucenter']	= 'eth_ucenter';		// ucenter.eth_ucenter;
+
+$table['ejob_perinterview']	= 'ejob_perinterview';
+$table['ejob_ucompany']	= 'ejob_ucompany';
+$table['ejob_recruit']	= 'ejob_recruit';
+$table['ejob_perapply']	= 'ejob_perapply';
+$table['ejob_perfavorite']	= 'ejob_perfavorite';
+$table['ejob_comapplyer']	= 'ejob_comapplyer';
+
+
+class UCPDO extends MPDO{
+	public function __construct(){
+		// next we can read the dsn info from file: config.ini
+		$dbms = 'mysql';
+		$host = '192.168.10.86';
+		$dbName = 'ucenter';
+		$dsn = "$dbms:host=$host;dbname=$dbName";
+
+		parent::__construct($dsn, 'limijobs', '123456');
+	}
+}
+
 class JobsPDO extends MPDO{
 /*/
  * 

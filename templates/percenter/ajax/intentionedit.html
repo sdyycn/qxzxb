@@ -1,0 +1,47 @@
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+getSelectitems("#jobtype",employtype_a);						   
+})
+</script>
+<table class="list-intention">
+  <tbody>
+    <tr>
+      <td  class="a time">工作性质</td>
+      <td  class="jobtype"><select name="jobtype" id="jobtype" class="txtselect">
+        </select></td>
+    </tr>
+    <tr>
+      <td  class="a time">地区</td>
+      <td  class="jobworkplace"><input id="btn_jobArea" type="button" value="请选择地区" onclick="jobAreaSelect()" />
+        <input id="jobAreaID" type="hidden" name="jobAreaID" value="" />
+        </td>
+    </tr>
+    <tr>
+      <td  class="a time">行业</td>
+      <td  class="jobindustry"><input id="btn_IndustryID" type="button" value="请选择行业" onclick="IndustrySelect()" />
+        <input id="IndustryID" type="hidden" name="IndustryID" value="" />
+        </td>
+    </tr>
+    <tr>
+      <td  class="a time">职能</td>
+      <td  class="jobsort"><input id="btn_FuntypeID" type="button" value="请选择职能类别" onclick="funtypeSelect()" />
+        <input id="FuntypeID" type="hidden" name="FuntypeID" value="" />
+        </td>
+    </tr>
+    <tr>
+      <td  class="a time">期望薪水</td>
+      <td  class="salary"><input  type="text"  class="txtresume" name="salary"  id="salary" value="" /></td>
+    </tr>
+        <tr>
+      <td class="a"></td>
+      <td colspan="4" class="btn-wrapper"><input type="button" class="btn intentsave"  value="保存"/></td>
+    </tr>
+  </tbody>
+</table>
+<div id="maskLayer" style="display:none">
+  <div id="drag">
+    <h3 id="drag_h"></h3>
+    <div id="drag_con"></div>
+  </div>
+</div>
+<div id="sublist" style="display:none"></div>

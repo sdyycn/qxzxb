@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="<{$baseurl}>" />
+<title>人事经理来信</title>
+<meta name="keywords" content="以太乔布斯" />
+<meta name="description" content="以太乔布斯" />
+<meta name="Copyright" content="以太乔布斯" />
+<meta name="author" content="以太乔布斯" />
+<link href="./css/globalLayout.css"  rel="stylesheet" type="text/css" />
+<link href="./css/globalStyle.css" rel="stylesheet" type="text/css" />
+<link href="./css/pager.css" rel="stylesheet" type="text/css" />
+<link href="./css/person.css" rel="stylesheet" type="text/css" />
+<script language="javaScript" type="text/javascript" src="./scripts/jquery.js"></script>
+<script language="javaScript" type="text/javascript" src="./scripts/per-letter.js"></script>
+<meta content="all" name="robots" />
+</head>
+<body>
+<!--头部开始-->
+<div class="header">
+  <div class="wrapper">
+    <div class="row-1">
+      <div class="logo"><img src="./images/logo.jpg" /></div>
+      <div class="search-bar">
+        <div class="global-search-input"><span class="select"></span>
+          <input type="text"  class="keyword" name="keyword" id="keyword" />
+        </div>
+        <div class="global-btn">
+          <input  class="btn-search" type="submit" value="" />
+          高级搜索</div>
+        <div class="icon-nav"><a href="#"><img src="./images/email.jpg" /></a><a href="#"><img src="./images/flag.jpg" /></a><a href="#"><img src="./images/user.jpg" /></a><a href="#"><img src="./images/user2.jpg" /></a></div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="main-nav"> <a href="#">Myjobs</a> <a href="#">简历中心</a> <a href="#">职位收藏夹</a> <a href="#">申请与反馈</a> <a href="#">账户管理</a> </div>
+    </div>
+  </div>
+</div>
+<!--头部结束-->
+<!--信件主体内容开始-->
+<div class="wrapper">
+  <div class="main-body clearfix">
+    <h2 class="tit">人事经理来信</h2>
+    <div class="body-content-wrapper">
+      <div class="list-tit wd-800">
+        <div  class="col-1"><span class="current">站内信息</span></div>
+        <div class="col-2"><img  src="./images/viewletter.jpg"  /><a href="#">&nbsp;查看工作申请记录!</a></div>
+      </div>
+      <div class="body-content wd-800">
+        <table class="list-record">
+          <thead>
+            <tr>
+              <th>公司</th>
+              <th>主题</th>
+              <th>发送时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="letter-body">
+            <{foreach from=$interviews item=i}>
+            <tr>
+              <td><span class="letterid"><{$i.id}></span><{$i.company}></td>
+              <td><{$i.title}></td>
+              <td><{$i.date}></td>
+              <td><a class="btn-view">查看</a>&nbsp;<a  class="btn-del">删除</a></td>
+            </tr>
+            <{/foreach}>
+           <tr>
+              <td colspan="4" class="txt-right"><div id="pager">
+                  <ul class="pages">
+                    <li class="pgNext">首页</li>
+                    <li class="pgNext">上一页</li>
+                    <li class="page-number">1</li>
+                    <li class="page-number">2</li>
+                    <li class="page-number">3</li>
+                    <li class="pgNext">下一页</li>
+                    <li class="pgNext">尾页</li>
+                    <li class="total">共3页</li>
+                  </ul>
+                </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--信件弹出框开始-->
+    <div id="pop-letter">
+      <div class="tit"><span id="close">×</span>信件详情</div>
+      <div class="content">
+        <table class="layout">
+          <tr>
+            <td class="a"> 信件主题：</td>
+            <td class='title'>前端开发工程师面试邀请</td>
+          </tr>
+          <tr>
+            <td class="a">发信者：</td>
+            <td class='company'>绍兴极限子软件有限公司</td>
+          </tr>
+          <tr>
+            <td class="a">岗位：</td>
+            <td class='jobname'>前端开发工程师</td>
+          </tr>
+          <tr>
+            <td class="a">发送时间：</td>
+            <td class='date'>2013-7-30</td>
+          </tr>
+          <tr class="last">
+            <td class="a">信件内容：</td>
+            <td><div class="letter-content">八一建军节到来之际，中共中央总书记、国家主席、中央军委主席习近平来到北京军区机关视察，代表党中央、中央军委向军区部队官兵致以诚挚的问候，并向全军指战员、武警部队官兵、民兵预备役人员致以节日的祝贺。他强调，要紧紧围绕实现党在新形势下的强军目标，聚焦能打仗、打胜仗，全面加强部队建设，不断提高履行使命任务能力，坚决完成党和人民赋予的各项任务。</div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--信件弹出框结束-->
+  </div>
+</div>
+<!--信件主体内容结束-->
+<div class="footer">
+  <div class="wrapper">
+    <div class="foot-logo"><img src="./images/footlogo.jpg" /></div>
+    <div class="foot-copyright"> Powered by Limiton Inc 保留所有权利。 Email:limi@limiton.cn   contact us<br />
+      浙ICP:12030668 备2 </div>
+  </div>
+</div>
+<!--版权结束-->
+</body>
+</html>

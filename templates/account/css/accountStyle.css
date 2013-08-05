@@ -1,0 +1,107 @@
+﻿ /*
+项目名称：EtherJobs 
+作者：宋佳杰
+时间：2013-07-09
+*/
+/*
+登陆注册样
+式*/
+/*头部样式*/
+#top {
+	border-bottom: 3px solid #066;
+}
+#logoDiv {
+	background:url(../../images/logo.png) no-repeat center;
+	_background:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo.png");
+}
+#helpTel {
+	display: table-cell;
+}
+#helpTel #icons * {
+    vertical-align: middle;
+}
+#iconHelp {
+	display: inline-block;
+	background: url(../images/iconHelp.jpg) no-repeat 0px 0px;
+}
+#iconTel {
+    display: inline-block;
+	background: url(../images/iconTel.jpg) no-repeat 0px 0px;
+}
+#hotTel {
+	font-size: 18px;
+	font-weight: bold;
+	color: #f90;
+}
+/*主体样式*/
+#bigBox {
+	border-bottom: 3px solid #066;
+}
+#midBox {
+	background: url(../images/mid.jpg) no-repeat 0px 0px;
+}
+/*注册模块各部件样式*/
+/*#midBox input[type*="text"] {
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 20px;
+}*/
+.styleFir {
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 17px;
+	color: #999;
+}
+.styleSec {
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 17px;
+	color: #000;
+}
+.styleThi {
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 17px;
+	color: #C00;
+}
+/*登录模块各部件样式*/
+form * {
+    vertical-align: middle;
+}
+#siVeCd {
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 17px;
+	color: #999;
+}
+/*找回密码模块DIV样式*/ 
+#fetPsWd {
+	border: 1px solid #CCC;
+}
+#fetPsWd1 {
+	background: url(../images/fetch1.jpg) no-repeat 0px 0px;
+}
+#fetPsWd2 {
+	background: url(../images/fetch2.jpg) no-repeat 0px 0px;
+}
+#fetPsWd3 {
+	background: url(../images/fetch3.jpg) no-repeat 0px 0px;
+}
+#fetPsWd4 {
+	background: url(../images/fetch4.jpg) no-repeat 0px 0px;
+}
+/*找回密码模块各部件样式*/
+#feVeCd {
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 17px;
+	color: #999;
+}
+#AEMsg {
+	font-family: "Helvetica", serif;
+	font-size: 21px;
+	color: #00F;
+}
+#setEmail {	
+	font-family: "隶书", "Helvetica", serif;
+	font-size: 21px;
+	border: 1px solid #666;
+	background-color: #0C0;
+	color: #fff;
+}
+

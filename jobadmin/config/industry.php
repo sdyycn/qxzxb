@@ -106,7 +106,7 @@ for ($i=0; $i<=count($bigsort,COUNT_NORMAL)-1; $i++)
             <div  class="side-nav-tit"><span></span><a href="industry.php?sortid=<?php echo $bigsort[$i]["industryid"] ?>&xh=<?php echo $bigsort[$i]["industryid"]?>"  ><?php echo $bigsort[$i]["sortname"]?></a></div>
             <div class="side-nav-body">
               <ul>
-                <?php 
+<?php 
 $smallsort = array();
 $smallsort = getSmallsort($db,$bigsort[$i]["industryid"]);
 for ($j=0; $j<=count($smallsort,COUNT_NORMAL)-1; $j++)

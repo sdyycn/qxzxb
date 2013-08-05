@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+项目名称：EtherJobs
+作者：宋佳杰
+时间：2013-07-09
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="<{$baseurl}>" />
+<title>User Account</title>
+<meta name="keywords" content="EtherJobs,Registration,Sign In,Fetch Password" />
+<meta name="description" content="It is used to achive the registration, sign in, fetching Password of the EtherJobs' account" />
+<meta name="Copyright" content="Limiton" />
+<meta name="author" content="Song Jiajie" />
+<link rel="stylesheet" media="all" type="text/css" href="account/css/accountLayout.css" />
+<link rel="stylesheet" media="all" type="text/css" href="account/css/accountStyle.css" />
+<link rel="stylesheet" media="all" type="text/css" href="css/globalLayouts.css" />
+<link rel="stylesheet" media="all" type="text/css" href="css/globalStyles.css" />
+</head>
+<body onload="document.execCommand('BackgroundImageCache',false,true)">
+<!--头部-->
+<div id="top">
+  <div id="logoDiv"></div>
+  <div id="helpTel">
+    <div id="icons"><span id="iconHelp"></span><a href="../help/help.html" target="_blank">帮助中心</a>|<span id="iconTel"></span><a>热线对话:</a><span id="hotTel">0575-85678838</span></div>
+  </div>
+  <div id="topLine"></div>
+</div>
+<div id="bigBox">
+  <div id="midBox"> 
+    <!--注册模块-->
+    <div id="regis" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);">
+      <div id="regisIn" style="display:block;">
+        <div id="regRole">
+          <input type="radio" name="reRole" value="jobHunter" checked="checked"/>
+          <input type="radio" id="rRole" name="reRole" value="employer"/>
+        </div>
+        <div id="regWay" onclick="rAcotCheck(document.getElementById('reAcot'));">
+          <input type="radio" name="reWay" value="email" checked="checked"/>
+          <input type="radio" id="rWay1" name="reWay" value="phone"/>
+          <input type="radio" id="rWay2" name="reWay" value="ss"/>
+        </div>
+        <div id="regAcot">
+          <input type="text" name="reAcot" id="reAcot" class="styleFir" value="请在此处输入您的邮箱/手机/SS号" onfocus="focused(this);" onblur="rAcotCheck(this);"/>
+        </div>
+        <div id="regName">
+          <input type="text" name="reName" id="reName" class="styleFir" value="请在此处输入您的用户名" onfocus="focused(this);" onblur="nameCheck(this);"/>
+        </div>
+        <div id="regPsWd">
+          <input type="text" name="rePsWd" id="rePsWd" class="styleFir" value="请在此处输入您的密码" onfocus="focused(this);" onblur="psWdCheck(this);"/>
+        </div>
+        <div id="regRePW">
+          <input type="text" name="reRePW" id="reRePW" class="styleFir" value="请在此处确认您的密码" onfocus="focused(this);" onblur="rePWCheck(this);"/>
+        </div>
+        <div id="regEro">
+          <label id="reEro" class="styleThi"></label>
+        </div>
+        <div id="regMsg">
+          <button id="regMB" onclick="switched(this);"></button>
+        </div>
+        <div id="regSub">
+          <button id="regSB" onclick="regSubmit();"></button>
+        </div>
+      </div>
+    </div>
+    <!--中间空白区域-->
+    <div id="mid">
+      <div id="mid1" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);"></div>
+      <div id="mid2" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);"></div>
+      <div id="mid3" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);"></div>
+      <div id="mid4" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);"></div>
+      <div id="mid5" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);"></div>
+      <div id="mid6" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);"></div>
+    </div>
+    <!--登录模块-->
+    <div id="sign" onmouseover="hLight(this);" onmouseout="lLight(this);" onclick="switched(this);">
+      <div id="signIn" style="display:none;">
+        <div id="sigAcot">
+          <input type="text" name="siAcot" id="siAcot" class="styleFir" value="请在此处输入您的邮箱/手机/SS号/用户名" onfocus="focused(this);" onblur="acotCheck(this);"/>
+        </div>
+        <div id="sigPsWd">
+          <input type="text" name="siPsWd" id="siPsWd" class="styleFir" value="请在此处输入您的密码" onfocus="focused(this);" onblur="psWdCheck(this);"/>
+        </div>
+        <div id="sigVeCd">
+          <input type="text" name="siVeCd" id="siVeCd" value="请输入验证码" onfocus="focused(this);"/>
+        </div>
+        <div id="sigAto">
+          <form>
+            <input type="checkbox" name="atoSign" id="atoSign"/>
+            <button id="fetchPsWd" onclick="fetchPswd(); return false;"></button>
+          </form>
+        </div>
+        <div id="sigSub">
+          <button id="sigSB" onclick="sigSubmit();"></button>
+        </div>
+        <div id="sigMsg">
+          <button id="sigRe" onclick="switched(this);"></button>
+        </div>
+      </div>
+      <!--找回密码模块-->
+      <div id="fetPsWd" style="display:none;">
+        <div id="fetPsWd1"  style="display:block;">
+          <div id="fetAcot">
+            <input type="text" name="feAcot" id="feAcot" class="styleFir" value="请在此处输入您的用户名" onfocus="focused(this);" onblur="acotCheck(this);"/>
+          </div>
+          <div id="fetVeCd">
+            <input type="text" name="feVeCd" id="feVeCd" value="请输入验证码" onfocus="focused(this);"/>
+          </div>
+          <div id="nextSt">
+            <button id="nextBut" onclick="nextStep();"></button>
+          </div>
+        </div>
+        <div id="fetPsWd2" style="display:none;">
+          <div id="aEmail">
+            <label id="AEMsg" onclick="emailLink();">9577***@qq.com</label>
+          </div>
+          <div id="sEmail">
+            <input type="submit" id="setEmail" value="重发验证信" onclick="resetEmail();">
+            </button>
+          </div>
+          <div id="gotoEmail">
+            <button id="gEmail" onclick="goEmail();"></button>
+          </div>
+        </div>
+        <div id="fetPsWd3" style="display:none;">
+          <div id="fPsWd">
+            <input type="text" name="fePsWd" id="fePsWd" class="styleFir" value="请在此处输入您的新密码" onfocus="focused(this);" onblur="pWdCheck(this);"/>
+          </div>
+          <div id="fRePW">
+            <input type="text" name="feRePW" id="feRePW" class="styleFir" value="请在此处确认您的新密码" onfocus="focused(this);" onblur="rPWCheck(this);"/>
+          </div>
+          <div id="fetSub">
+            <button id="fetSB" onclick="subNPW();"></button>
+          </div>
+        </div>
+        <div id="fetPsWd4" style="display:none;">
+          <div id="fetGo">
+            <button id="goCen" onclick="goCentre();"></button>
+            <button id="goHome" onclick="goHomepage();"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="scripts/jquery.js"></script>
+<script src="account/scripts/account.js"></script> 
+<script src="scripts/formCheck.js"></script> 
+<script src="scripts/onlyGetten.js"></script>
+</body>
+</html>

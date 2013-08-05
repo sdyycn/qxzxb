@@ -1,0 +1,144 @@
+﻿/*
+项目名称：EtherJobs
+作者：宋佳杰
+时间：2013-07-09
+*/
+/*
+公共布局
+*/
+body {
+	margin: 0px auto;
+}
+#top {
+	margin: 0px auto;
+	width: 1300px;
+	height: 110px;
+}
+#logoDiv {
+	float: left;
+	padding-top: 30px;
+	padding-left: 80px;
+	width: 252px;
+	height: 110px;
+}
+.wrapper{
+	clear:both;
+	margin:0px auto;
+	width:1300px;
+	}
+/*顶部布局*/
+.header{
+	clear:both;
+	height:80px;
+	}
+.header,.header a:link,.header a:visited,.header a:hover,.header a:active{
+	color:#fff;
+	}
+.header .row-1{
+	clear:both;
+	height:45px;
+	}
+.header .logo{
+	float:left;
+	width:280px;
+	}
+.header .search-bar{
+	float:right;
+	width:1010px;
+	}
+.header .row-2{
+	clear:both;
+	height:35px;
+	line-height:35px;
+	}
+.header .row-2 a{
+	margin:0px 5px;
+	}
+.header .row-2 .main-nav{
+	float:left;
+	width:800px;
+	}
+.header .row-2 .tips{
+	padding-left:45px;
+	}
+.header .row-2 .icon-nav{
+	float:left;
+	width:800px;
+	}
+.global-search-input{
+	float:left;
+	width:445px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	margin-top:5px;
+	}
+.global-search-input *{
+	vertical-align:middle;
+	}
+.global-search-input .select{
+	display:inline-block;
+	width:107px;
+	height:30px;
+	}
+.global-search-input .keyword{
+	display:inline-block;
+	margin-left:5px;
+	margin-top:2px;
+	width:330px;
+	height:28px;
+	line-height:28px;
+	border:0px;
+	color:#868686;
+	}
+.global-btn{
+	float:left;
+	width:180px;
+	height:28px;
+	padding-left:12px;
+	line-height:28px;
+	margin-top:10px;
+	}
+.header .row-1 .icon-nav{
+	float:right;
+	width:240px;
+	height:30px;
+	line-height:30px;
+	padding-top:15px;
+	}
+.header .row-1 .icon-nav a{
+	margin:0px 5px;
+	}
+/*底部版权*/
+.footer{
+	clear:both;
+	height:160px;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:25px;
+	}
+.footer,.footer a:link,.footer a:visited,.footer a:hover,.footer a:active{
+	color:#fff;
+	}
+.footer .foot-logo{
+	float:left;
+	width:350px;
+	height:160px;
+	}
+.footer .foot-copyright{
+	float:right;
+	width:940px;
+	height:145px;
+	text-align:left;
+	line-height:28px;
+	padding-top:15px;
+	}
+/*用户中心左右布局*/
+.left-container{
+	float:left;
+	width:850px;
+	}
+.sub-col{
+	float:right;
+	width:420px;
+	background:#ff;
+	}

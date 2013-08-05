@@ -1,0 +1,17 @@
+.d_err *,.d_ok *.d_normal *{
+	vertical-align:middle;
+	}
+.d_err {
+	background:url(../images/error.png) no-repeat 0px 14px;
+	padding-left:20px;
+	color:#ff6600;
+}
+.d_ok {
+	background:url(../images/correct.png) no-repeat 0px 14px;
+	padding-left:20px;
+	color:#006600;
+}
+.d_normal {
+	background:url(../images/normal.png) no-repeat 0px 14px;
+	padding-left:20px;
+}

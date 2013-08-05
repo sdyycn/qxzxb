@@ -1,0 +1,285 @@
+/*
+项目名称：EtherJobs
+作者：宋佳杰
+时间：2013-07-09
+*/
+/*
+登陆注册布局
+*/
+/*头部布局*/
+#top {
+	margin: 0px auto;
+	width: 1300px;
+	height: 110px;
+}
+#logoDiv {
+	float: left;
+	padding-top: 30px;
+	padding-left: 80px;
+	width: 252px;
+	height: 110px;
+}
+#helpTel {
+	float: right;
+	width: 360px;
+	height: 110px;
+	padding-top: 55px;
+}
+#helpTel a {
+	color: #069;
+	margin-right: 5px;
+}
+#iconTel, #iconHelp {
+	width: 24px;
+	height: 25px;
+}
+/*主体布局*/
+#bigBox {
+    margin: 0px auto;
+	width: 1230px;
+	height: 670px;	
+	padding-top: 70px;
+	padding-left: 70px;
+}
+#midBox {
+	width: 1160px;
+	height: 570px;
+}
+/*注册模块DIV布局*/
+#regis {
+	float: left;
+	width: 458px;
+	height: 570px;
+	display: block;
+}
+#regRole {
+	width: 428px;
+	height: 34px;
+	padding-top: 136px;
+	padding-left: 30px;
+}
+#regWay {
+	width: 308px;
+	height: 25px;
+	padding-top: 6px;
+	padding-left: 150px;
+}
+#regAcot, #regName, #regPsWd, #regRePW {
+	width: 363px;
+	height: 45px;
+	padding-top: 17px;
+	padding-left: 95px;
+}
+#regEro {
+	width: 363px;
+	height: 30px;
+	padding-top: 8px;
+	padding-left: 95px;
+}
+#regMsg{
+	float: left;
+	width: 126px;
+	height: 66px;
+	padding-top: 13px;
+	padding-left: 200px;
+}
+#regSub {
+	float: left;
+	width: 132px;
+	height: 79px;
+}
+/*注册模块各部件布局*/
+#rRole{
+	margin-left: 77px;
+}
+#rWay1{
+	margin-left: 57px;
+}
+#rWay2{
+	margin-left: 71px;
+}
+.styleFir, .styleSec, .styleThi {
+	width: 330px;
+	height: 30px;
+}
+#regMB {
+	width: 35px;
+	height: 19px;
+}
+#regSB {
+	width: 103px;
+	height: 40px;
+}
+/*中间空白模块DIV布局*/
+#mid {
+	float: left;
+	width: 115px;
+	height: 570px; 
+}
+#mid1, #mid6{
+	float: left;
+	width: 115px;
+	height: 100px;
+}
+#mid2, #mid5 {
+	float: left;
+	width: 35px;
+	height: 185px;
+}
+#mid3, #mid4 {
+	float: left;
+	width: 80px;
+	height: 185px;
+}
+/*登录模块DIV布局*/
+#sign {
+	float: right;
+	width: 586px;
+	height: 570px;
+}
+#sigAcot {
+	width: 456px;
+	height: 50px;
+	padding-top: 157px;
+	padding-left: 130px;
+}
+#sigPsWd, #sigVeCd{
+	width: 456px;
+	height: 47px;
+	padding-top: 10px;
+	padding-left: 130px;
+}
+#sigAto {
+	width: 456px;
+	height: 23px;
+	padding-top: 17px;
+	padding-left: 130px;
+}
+#sigSub {
+	width: 228px;
+	height: 80px;
+	padding-top: 30px;
+	padding-left: 358px;
+}
+#sigMsg {
+	width: 356px;
+	height: 99px;
+	padding-left: 230px;
+}
+/*登录模块各部件布局*/
+#fetchPsWd {
+	background: none;
+	margin-left: 72px;
+	width: 70px;
+	height: 20px;
+}
+#sigSB {
+	background: none;
+	width: 106px;
+	height: 40px;
+}
+#sigRe {
+	background: none;
+	width: 72px;
+	height: 22px;
+}
+#siVeCd {
+	width: 150px;
+	height: 30px;
+}
+/*找回密码模块DIV布局*/ 
+#fetPsWd, #fetPsWd1, #fetPsWd2, #fetPsWd3, #fetPsWd4{
+	width: 540px;
+	height: 250px;
+}
+#fetPsWd {
+	position: absolute;
+	top: 300px;
+}
+#fetAcot, #fPsWd {
+	width: 390px;
+	height: 0px;
+	padding-top: 73px;
+	padding-left: 150px;
+}
+#fetVeCd, #fRePW {
+	width: 390px;
+	height: 0px;
+	padding-top: 48px;
+	padding-left: 150px;
+}
+#nextSt {
+	width: 157px;
+	height: 46px;
+	padding-top: 83px;
+	padding-left: 383px;
+}
+#aEmail {
+	width: 225px;
+	height: 0px;
+	padding-top: 68px;
+	padding-left: 315px;
+}
+#sEmail {
+	width: 507px;
+	height: 0px;
+	padding-top: 67px;
+	padding-left: 33px;
+}
+#gotoEmail {
+	width: 153px;
+	height: 57px;
+	padding-top: 58px;
+	padding-left: 387px;
+}
+#fetSub {
+	width: 157px;
+	height: 46px;
+	padding-top: 83px;
+	padding-left: 383px;
+}
+#fetGo {
+	width: 319px;
+	height: 60px;
+	padding-top: 190px;
+	padding-left: 221px;
+}
+/*找回密码模块各部件布局*/
+#feVeCd {
+	width: 150px;
+	height: 30px;
+}
+#nextBut {	
+    width: 105px;
+	height: 35px;
+}
+#setEmail {	
+    width: 120px;
+	height: 30px;
+}
+#gEmail {	
+    width: 105px;
+	height: 35px;
+	background: none;
+}
+#fetSB {	
+    width: 105px;
+	height: 35px;
+}
+#goCen {	
+    width: 130px;
+	height: 42px;
+}
+#goHome {	
+    width: 130px;
+	height: 42px;
+	margin-left: 16px;
+}
+
+
+
+
+
+
+
+
