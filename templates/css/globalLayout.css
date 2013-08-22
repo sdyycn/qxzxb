@@ -72,21 +72,45 @@ body {
 	line-height:30px;
 	overflow:hidden;
 	margin-top:5px;
+	color:#666;
 	}
+.global-search-input .pos-abs{
+	position:absolute;
+	}
+.global-search-input .downselect{
+	width:104px;
+	border:1px solid  #d4d4d4;
+	border-top:0px;
+	height:auto;
+	background:#f4f4f4;
+	position:absolute;
+	left:0px;
+	top:28px;
+	text-align:center;
+	display:none;
+	}
+.global-search-input .downselect .hoverbg{
+	background:#2571ad;
+	color:#fff;
+	}	
+
 .global-search-input *{
 	vertical-align:middle;
 	}
 .global-search-input .select{
 	display:inline-block;
-	width:107px;
+	width:97px;
 	height:30px;
+	line-height:30px;
+	color:#333;
+	text-align:center;
 	}
 .global-search-input .keyword{
 	display:inline-block;
 	margin-left:5px;
 	margin-top:2px;
 	width:330px;
-	height:28px;
+	height:26px;
 	line-height:28px;
 	border:0px;
 	color:#868686;
@@ -137,8 +161,48 @@ body {
 	float:left;
 	width:850px;
 	}
+.left-container .content{
+	background:#fff;
+	}
 .sub-col{
 	float:right;
 	width:420px;
 	background:#ff;
 	}
+.sub-content {
+	background:#fff;
+	padding:10px;
+}
+.sub-content .sub-tit {
+	height:35px;
+	line-height:35px;
+	border-bottom:2px solid #9dc2cf;
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:15px;
+	padding-left:10px;
+	width:auto;
+}
+/*管理中心菜单导航*/
+.menu-nav {
+	clear:both;
+	height:32px;
+	line-height:32px;
+	margin-bottom:20px;
+	background:url(../images/globalstyle.gif) repeat-x 0px -242px;
+	font-size:14px;
+}
+.menu-nav * {
+	vertical-align:middle;
+}
+.menu-nav a {
+	display:inline-block;
+	padding:0px 10px;
+	background:url(../images/line2.jpg) 0px right;
+}
+.menu-nav .line {
+	display:inline-block;
+	width:2px;
+	height:28px;
+	background:url(../images/line2.jpg) no-repeat;
+}

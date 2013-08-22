@@ -18,8 +18,6 @@ $("#letter-body .btn-view").click(function(){
 			$('#pop-letter .date').text(result.date);
 			$('#pop-letter .jobname').text(result.jobname);
 			$('#pop-letter .letter-content').text(result.content);
-			
-			
 			//=============================弹出框定位
 //				var offset = $(this).offset();
 			$("#pop-letter").css("top", offset.top -50);
@@ -40,7 +38,6 @@ $("#letter-body .btn-del").click(function(){
 	var index = $("#letter-body .btn-view").index($(this));
 	//获取当前索引项的信件ID
 	var id = $(".letterid").eq(index).html();
-
 	$.getJSON("/percenter/letter.php?act=delete&id="+id, function(result){
 		if (result.status == false){
 			alert(result.msg);

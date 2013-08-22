@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>岗位发布-<{$webtitle}></title>
+<meta name="keywords" content="<{$webkeywords}>" />
+<meta name="description" content="<{$webdesp}>" />
+<meta name="Copyright" content="<{$copyright}>" />
+<meta name="author" content="<{$author}>" />
+<link rel="stylesheet" type="text/css" href="/templates/css/globalLayout.css"/>
+<link rel="stylesheet" type="text/css" href="/templates/css/globalStyle.css"/>
+<link rel="stylesheet" type="text/css" href="/templates/css/company.css"/>
+<link rel="stylesheet" type="text/css" href="/templates/css/validation.css" />
+<link rel="stylesheet" type="text/css" href="/templates/css/popselect.css" />
+<script language="javaScript" type="text/javascript" src="/templates/scripts/jquery.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/calendar.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/globalsearch.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/config_arr.js" ></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/drag.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/city_arr.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/city_func.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/funtype_arr.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/funtype_func.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/formcheck.js"></script>
+<script language="javaScript" type="text/javascript" src="/configs/ckeditor/ckeditor.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/com-addpost.js"></script>
+<meta content="all" name="robots" />
+</head>
+<body>
+<!--头部开始-->
+<{include file="header.html" name="header"}>
+<!--头部结束-->
+<!--职位发布开始-->
+<div class="wrapper position-item">
+<{include file="mainnav.html" name="mainnav"}>
+  <h2 class="title">发布职位</h2>
+  <form  id="postjob" method="post">
+    <div class="main">
+      <div class="sub-tit">
+        <h4 class="sub-title">职位描述</h4>
+      </div>
+      <div class="content">
+        <table  class="table-addjob">
+          <tr>
+            <td class="a"><span class="cred">*</span>职位名称:</td>
+            <td colspan="3"><input  type="text" name="jobname"  id="jobname"  class="txtpostbox"  size="60" />
+              <em id="d_jobname"></em></td>
+          </tr>
+          <tr>
+            <td class="a">招聘人数:</td>
+            <td class"b"><input  type="text" name="quantity"  id="quantity"  class="txtpostbox" value="0" />
+              <em id="d_quantity">填写0表示招聘若干人数</em></td>
+            <td class="a">工作地区：</td>
+            <td class="d"><script type="text/javascript">
+// 是否在数组内
+function in_array(needle, haystack) {
+	if(typeof needle == 'string' || typeof needle == 'number') {
+		for(var i in haystack) {
+			if(haystack[i] == needle) {
+					return true;
+			}
+		}
+	}
+	return false;
+}
+</script>
+              <input id="btn_jobArea" type="button" value="请选择地区" onclick="jobAreaSelect()" />
+              <input id="jobAreaID" type="hidden" name="jobAreaID" value="" />
+              <em id="d_workplace"></em></td>
+          </tr>
+          <tr>
+            <td class="a">职位类别:</td>
+            <td ><input id="btn_FuntypeID" type="button" value="请选择职能类别" onclick="funtypeSelect()" />
+              <input id="FuntypeID" type="hidden" name="FuntypeID" value="" />
+              <em id="d_jobsort"></em></td>
+            <td class="a">工作性质：</td>
+            <td><input name="jobtype"  type="radio" value="全职" checked="checked" />
+              全职
+              <input name="jobtype" type="radio" value="兼职" />
+              兼职
+              <input name="jobtype" type="radio" value="实习" />
+              实习</td>
+          </tr>
+          <tr>
+            <td class="a"><span class="cred">*</span>岗位职责:</td>
+            <td colspan="3" class="edit"><textarea id="jobnote" name="jobnote" style="display:none;"></textarea>
+              <script type="text/javascript">
+			var newsContent = CKEDITOR.replace('jobnote',
+			{
+				height	:	'300',
+				width	:	'99%',
+				skin	:	'kama',
+			});
+		</script></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="3"><em id="d_jobnote"></em></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="main">
+      <div class="sub-tit">
+        <h4 class="sub-title">任职要求</h4>
+      </div>
+      <div class="content">
+        <table  class="table-addjob">
+          <tr>
+            <td class="a">学历要求:</td>
+            <td ><select name="qualification" id="qualification" class="selectbox">
+              </select></td>
+            <td class="c">工作经验:</td>
+            <td ><select name="workexp"  id="workexp" class="selectbox" >
+              </select></td>
+          </tr>
+          <tr>
+            <td class="a">语言要求:</td>
+            <td class"b"><select name="language" id="language" class="selectbox">
+              </select></td>
+            <td class="c">性别要求：</td>
+            <td class="d"><input name="sex" type="radio" value="不限" checked="checked"  />
+              不限
+              <input name="sex" type="radio" value="男" />
+              男
+              <input name="sex" type="radio" value="女" />
+              女</td>
+          </tr>
+          <tr>
+            <td class="a"><span class="cred">*</span>任职要求:</td>
+            <td colspan="3"><textarea id="responsibility" name="responsibility" style="display:none;"></textarea>
+              <script type="text/javascript">
+			var newsContent = CKEDITOR.replace('responsibility',
+			{
+				height	:	'300',
+				width	:	'99%',
+				skin	:	'kama',
+			});
+		    </script></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="3"><em id="d_responsibility"></em></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="main">
+      <div class=sub-tit>
+        <h4 class="sub-title">薪资待遇</h4>
+      </div>
+      <div class="content">
+        <table class="table-addjob">
+          <tr>
+            <td class="a">职位月薪：</td>
+            <td><select name="salary" id="salary" class="selectbox">
+              </select></td>
+          </tr>
+          <tr>
+            <td class="a">其它福利：</td>
+            <td><textarea id="others" name="others" style="display:none;"></textarea>
+              <script type="text/javascript">
+			var newsContent = CKEDITOR.replace('others',
+			{
+				height	:	'200',
+				width	:	'99%',
+				skin	:	'kama',
+			});
+		</script></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="main">
+      <div class=sub-tit>
+        <h4 class="sub-title">联系方式</h4>
+      </div>
+      <div class="content">
+        <table class="table-addjob">
+          <tr>
+            <td class="a"><span class="cred">*</span>联系人:</td>
+            <td colspan="3"><input  type="text" name="contacter"  id="contact"   size="40"  class="txtpostbox"/>
+              <em id="d_contact"></em></td>
+          </tr>
+          <tr>
+            <td class="a">电子邮箱:</td>
+            <td colspan="3"><input  type="text" name="email"  id="email"  size="40" class="txtpostbox"/>
+              </select></td>
+          </tr>
+          <tr>
+            <td class="a">移动电话:</td>
+            <td class"b"><input  type="text" name="mobile"  id="mobile"  size="30" class="txtpostbox" >
+              </select></td>
+            <td class="c">固定电话求：</td>
+            <td class="d"><input  type="text" name="tel"  id="tel"  size="25" class="txtpostbox">
+              </select>
+              <em id="d_phone"> <span class="cred">*</span><span class="tips">固话和手机至少填写一项</span></em></td>
+          </tr>
+          <tr>
+            <td class="a">公司地址:</td>
+            <td colspan="3"><input  type="text"  name="add"  id="add"  size="60" class="txtpostbox">
+              </select></td>
+          </tr>
+          <tr>
+            <td class="a">公司网站:</td>
+            <td colspan="3"><input  type="text" name="web"  id="web"  size="40" class="txtpostbox">
+              </select></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="main">
+      <div class=sub-tit></div>
+      <div class="content">
+        <table class="table-addjob">
+          <tr>
+            <td class="a">开始时间:</td>
+            <td class"b"><input  type="text"  name="begindate"  id="begindate" size="30" class="txtpostbox"  onfocus="HS_setDate(this)" />
+              </select></td>
+            <td class="a">结束时间:</td>
+            <td class="d"><input  type="text" name="enddate"  id="enddate"  size="30" class="txtpostbox"  onfocus="HS_setDate(this)" />
+              </select></td>
+          </tr>
+          <tr>
+            <td class="a"></td>
+            <td colspan="3" ><input  type="button"  id="posing"  value="" class="posting" /></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>
+<!--职位发布结束-->
+<!--地区选择弹出框开始-->
+<div id="maskLayer" style="display:none">
+  <div id="drag">
+    <h3 id="drag_h"></h3>
+    <div id="drag_con"></div>
+    <!-- drag_con end -->
+  </div>
+</div>
+<!-- maskLayer end -->
+</div>
+<div id="sublist" style="display:none"></div>
+<!--地区选择弹出框结束-->
+<!--版权开始-->
+<{include file="footer.html" name="footer"}>
+<!--版权结束-->
+</body>
+</html>

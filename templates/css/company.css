@@ -1,0 +1,688 @@
+﻿@charset "utf-8";
+/*职位发布*/
+.position-item {
+	background:#fff;
+	margin-top:50px;
+}
+.position-item .title {
+	background:url(../images/post1.jpg) 10px 20px no-repeat;
+	height:70px;
+	padding-left:75px;
+	padding-top:45px;
+	font-family:"微软雅黑";
+	font-size:20px;
+}
+.main {
+	width:1000px;
+	margin-left:145px;
+	margin-top:0px;
+}
+.position-item .content {
+	margin-top:30px;
+	font-size:14px;
+}
+.sub-tit {
+	width:1000px;
+	height:25px;
+	border-bottom:solid;
+	border-bottom-color:#b7b6b6;
+	border-bottom-width:thin;
+}
+.sub-title {
+	background:url(../images/postit-bg.jpg) no-repeat;
+	height:30px;
+	font-family:"微软雅黑";
+	font-size:14px;
+	color:#FFF;
+	padding-left:20px;
+	padding-top:5px;
+}
+.sub-title span {
+	float:right;
+	font-size:12px;
+	color:#5d5d5d;
+	font-weight:normal;
+	font-family:"宋体";
+}
+.table-addjob {
+	border-collapse:collapse;
+	width:100%;
+	margin:15px 0px 10px;
+	line-height:45px;
+}
+.table-addjob em {
+	display:inline-block;
+	height:30px;
+	padding-left:20px;
+	font-size:12px;
+	margin-left:15px;
+	font-style:normal;
+}
+.table-addjob .a {
+	width:100px;
+	text-align:right;
+	padding-right:10px;
+}
+.table-addjob .b {
+	width:400px;
+}
+.table-addjob .c {
+	width:100px;
+}
+.table-addjob .d {
+	width:400px;
+}
+.table-addjob .tips {
+	font-size:12px;
+	color:#5d5d5d;
+}
+.preview {
+	background:url(../images/preview.jpg) no-repeat;
+	width:149px;
+	height:45px;
+	border:0px;
+	margin:30px 30px 10px 350px;
+}
+.posting {
+	background:url(../images/posting.jpg) no-repeat;
+	width:149px;
+	height:45px;
+	border:0px;
+	margin-top:30px;
+}
+.txtpostbox {
+	border:1px solid #d0d0d0;
+	height:26px;
+	display:inline-block;
+	margin-left:5px;
+	margin-top:2px;
+	line-height:26px;
+	color:#868686;
+}
+.inputbox {
+	height:26px;
+	line-height:26px;
+	border:1px solid #d0d0d0;
+}
+.selectbox {
+	width:150px;
+	border:1px solid #d0d0d0;
+	color:#868686;
+	padding:3px 0px;
+}
+.selectbox * {
+	vertical-align:middle;
+}
+/*简历管理*/
+.resume-search {
+	width:1300px;
+	margin:35px auto;
+	background:#FFF;
+}
+.resume-search .title {
+	background:url(../images/ad-search.jpg) repeat-x;
+	height:38px;
+	line-height:38px;
+	font-family:"微软雅黑";
+	color:#22649e;
+	font-size:14px;
+	border-bottom:1px solid #d0d0d0;
+}
+.resume-search .title span {
+	display:inline-block;
+	height:38px;
+	padding:0px 10px;
+}
+.resume-search .title .current {
+	display:inline-block;
+	height:38px;
+	padding:0px 10px;
+	background:url(../images/globalstyle.gif) repeat-x 0px -351px;
+	color:#fff;
+}
+.resume-search .table {
+	padding:20px 10px;
+}
+.resume-search .table td * {
+	vertical-align:middle;
+}
+.resume-search .table .content {
+	border-collapse:collapse;
+	width:100%;
+	margin:5px 0px 0px 0px;
+}
+.resume-search .table .content .a {
+	width:180px;
+	text-align:left;
+	padding-left:10px;
+}
+.resume-search .table .content .b {
+	width:180px;
+	text-align:left;
+}
+.resume-search .table .content .c {
+	width:180px;
+	text-align:left;
+}
+.resume-search .table .content .d {
+	width:200px;
+	text-align:left;
+}
+.resume-search .table .content .e {
+	width:200px;
+	text-align:left;
+}
+.resume-search .table .content .f {
+	width:180px;
+	text-align:left;
+}
+.resume-search .search-btn {
+	background:url(../images/submit.jpg) no-repeat;
+	width:131px;
+	height:42px;
+	border:0px;
+	margin:15px 0px 15px 0px;
+}
+.search-btn .btn-h {
+	height:75px;
+	line-height:75px;
+}
+.search-btn .btn-h * {
+	vertical-align:middle;
+}
+.resume-list {
+	width:1300px;
+	margin:35px auto;
+	background:#FFF;
+	padding-bottom:20px;
+}
+.resume-list .tips {
+	background:url(../images/accounticon.jpg) 10px 10px no-repeat;
+	height:30px;
+	border-bottom:1px solid #d0d0d0;
+	padding-left:60px;
+	padding-top:30px;
+	font-size:12px;
+}
+.resume-list .list {
+	padding:0px 0px 20px;
+}
+.resume-list .list .content {
+	border-collapse:collapse;
+	width:100%;
+	line-height:40px;
+}
+.resume-list .list .content td {
+	padding-left:5px;
+	font-size:12px;
+	border-bottom:1px solid #d0d0d0;
+}
+.resume-list .list .content th {
+	background:url(../images/ad-search.jpg) repeat-x;
+	height:30px;
+	font-family:"微软雅黑";
+	color:#333;
+	font-size:12px;
+	padding-top:5px;
+	padding-left:5px;
+	text-align:left;
+}
+.resume-list .content .checkbox {
+	width:20px;
+	padding-left:20px;
+}
+.resume-list .content .source {
+	width:70px;
+}
+.resume-list .content .postname {
+	width:180px;
+}
+.resume-list .content .poster {
+	width:90px;
+}
+.resume-list .content .sex {
+	width:50px;
+}
+.resume-list .content .school {
+	width:115px;
+}
+.resume-list .content .education {
+	width:60px;
+}
+.resume-list .content .workexp {
+	width:70px;
+}
+.resume-list .content .location {
+	width:106px;
+}
+.resume-list .content .posttime {
+	width:120px;
+}
+.resume-list .content .contact {
+	width:120px;
+}
+.read {
+	background:url(../images/read.jpg) no-repeat;
+	width:58px;
+	height:25px;
+	border:0px;
+}
+.like {
+	background:url(../images/like.jpg) no-repeat;
+	width:28px;
+	height:21px;
+	border:0px;
+}
+.delete {
+	background:url(../images/delete.jpg) no-repeat;
+	width:35px;
+	height:25px;
+	border:0px;
+}
+.resume-list .content .q {
+	background:url(../images/cv-q.jpg) no-repeat;
+	width:58px;
+	height:24px;
+	margin-right:5px;
+	border:0px;
+}
+.resume-list .content .r {
+	background:url(../images/cv-r.jpg) no-repeat;
+	width:58px;
+	height:24px;
+	padding-right:5px;
+	border:0px;
+}
+.resume-list .content .s {
+	background:url(../images/cv-s.jpg) no-repeat;
+	width:58px;
+	height:24px;
+	margin-left:5px;
+	border:0px;
+}
+.resume-list .content .t {
+	background:url(../images/cv-t.jpg) no-repeat;
+	width:58px;
+	height:24px;
+	margin-left:5px;
+	border:0px;
+}
+#pager {
+	height:30px;
+	padding-top:20px;
+}
+/*企业基本信息*/
+.baseinfo {
+	height:100%;
+	background:#fff;
+	padding: 20px 10px;
+	margin-bottom:50px;
+}
+.baseinfo .companylogo {
+	float:left;
+	width:180px;
+}
+.baseinfo .companylogo img {
+	width:180px;
+	height:180px;
+}
+.baseinfo .list-info {
+	float:right;
+	width:600px;
+	font-size:14px;
+}
+/*企业信息列表布局*/
+.menu-nav{
+	margin-top:30px;
+	}
+.baseinfo .list-info table {
+	line-height:26px;
+	border-collapse:collapse;
+	width:100%;
+}
+.baseinfo .list-info td {
+	padding:1px 5px;
+}
+.baseinfo .list-info .companyname {
+	height:40px;
+	font-family:微软雅黑;
+	font-size:20px;
+}
+.baseinfo .list-info .a {
+	width:80px;
+	color:#717171;
+	text-align:right;
+}
+
+.baseinfo h1 {
+	font-family:微软雅黑;
+	font-size:20px;
+	height:35px;
+	line-height:35px;
+	font-weight:normal;
+	margin-bottom:15px;
+	padding-left:260px;
+}
+.baseinfo .list-info .tip-info {
+	line-height:26px;
+}
+.baseinfo .btn-wrapper {
+	height:30px;
+}
+.list-info .btn-edit {
+	border:0px;
+	display:inline-block;
+	width:114px;
+	height:30px;
+	background:url(../images/btn.gif) no-repeat 0px -503px;
+	color:#fff;
+}
+/*企业中心首页信息提示*/
+.layout-company-tips{
+	width:100%;
+	text-align:center;
+	font-size:14px;
+	}
+.layout-company-tips td{
+	width:33%;
+	}
+.layout-company-tips .num{
+	font-weight:bold;
+	color:#ff6600;
+	}
+.layout-company-tips .btn-addpost,.layout-company-tips .btn-addproject,.layout-company-tips .btn-viewresume{
+	display:inline-block;
+	width:150px;
+	height:43px;
+	border:0px;
+	margin-top:10px;
+	}
+.layout-company-tips .btn-addpost{
+	background:url(../images/btn.gif) no-repeat 0px -363px;
+	}
+		
+.layout-company-tips .btn-addproject{
+	background:url(../images/btn.gif) no-repeat 0px -409px;
+	}
+.layout-company-tips .btn-viewresume{
+	background:url(../images/btn.gif) no-repeat 0px -363px;
+	}
+/*中心首页记录列表*/
+.base-content{
+	clear:both;
+	background:#fff;
+	}
+.base-content .list-record {
+	line-height:35px;
+	width:99%;
+	border-collapse:collapse;
+	margin:0px auto;
+}
+.base-content .list-record th {
+	height:33px;
+	text-align:left;
+	padding-left:15px;
+	background:url(../images/globalstyle.gif) repeat-x 0px -275px;
+}
+.base-content .list-record td {
+	padding-left:15px;
+}
+.base-content .list-tit {
+	clear:both;
+	height:50px;
+	line-height:50px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:60px;
+	margin:15px 0px;
+}
+.base-content .tit-1 {
+	background:url(../images/per-icon-1.jpg) no-repeat 15px 8px;
+}
+/*公司介绍页*/
+.company-header {
+	clear:both;
+	margin:20px auto;
+	height:100px;
+	width:1300px;
+	background:#fff;
+}
+.company-header .logo {
+	float:left;
+	width:160px;
+	height:100px;
+}
+.company-header .logo .wrap {
+	float:none;
+	width:160px;
+	height:100px;
+	display: table-cell;
+	vertical-align:middle;
+	/*设置水平居中*/
+	text-align:center;
+	/* 针对IE的Hack */
+	*display: block;
+ 	*font-size: 88px;/*约为高度的0.873，200*0.873 约为175*/
+ 	*font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+}
+.company-header .logo img {
+	vertical-align:middle;
+}
+.company-header .companyname {
+	float:left;
+	width:1000px;
+	height:100px;
+	line-height:100px;
+	font-size:22px;
+	font-family:微软雅黑;
+}
+.company-banner img {
+	width:850px;
+	height:280px;
+}
+h2.introduce-tit,h2.position-tit{
+	clear:both;
+	height:60px;
+	line-height:60px;
+	background:url(../images/companytit.jpg) no-repeat 15px 20px;
+	padding-left:45px;
+	}
+.company-introduce,.product-introduce{
+	padding:20px;
+	line-height:22px;
+	text-indent:24px;
+	}
+.product-introduce{
+	padding:10px;
+	}
+/*公司评论列表*/
+.list-comment {
+	clear:both;
+	padding-bottom:10px;
+	height:60px;
+	padding-top:20px;
+	border-bottom:1px dotted #d0d0d0;
+}
+.list-comment dt {
+	float:left;
+	width:70px;
+}
+.list-comment dd {
+	float:right;
+	width:320px;
+}
+/*相关公司*/
+.list-related {
+	padding-left:25px;
+}
+.list-related li {
+	float:left;
+	width:180px;
+	text-align:left;
+}
+.list-related li img {
+	width:160px;
+	height:60px;
+	border:1px solid #d0d0d0;
+	padding:2px;
+}
+.list-related li span {
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+}
+/*我关注的求职者*/
+.list-attention {
+	padding-left:25px;
+	padding-top:10px;
+	height:70px;
+	border-bottom:1px  dotted #d0d0d0;
+}
+.list-attention .avatar {
+	float:left;
+	width:70px;
+	text-align:left;
+}
+.list-attention .avatar img {
+	width:60px;
+	height:60px;
+}
+.list-attention dl {
+	float:right;
+	width:290px;
+}
+.list-attention dl dt{
+	font-weight:bold;
+	margin-bottom:10px;
+}
+/*资料完整度*/
+.ziliao-complete{
+	width:100%;
+	}
+.ziliao-complete .go{
+	display:inline-block;
+	font-size:14px;
+	font-weight:bold;
+	padding:20px 0px 0px;
+	}
+/*设置个人账号*/
+.main-body {
+	background:#fff;
+	min-height:400px;
+	_height:400px;
+	padding:20px;
+	margin:50px 0px;
+}
+.main-body h2 {
+	clear:both;
+	height:70px;
+	line-height:70px;
+	padding-left:92px;
+	font-size:14px;
+	font-weight:bold;
+}
+.main-body h2.account-tit {
+	background:url(../images/accounticon.jpg) no-repeat 50px 0px;
+	height:40px;
+	line-height:40px;
+}
+/*企业资料编辑切换*/
+.switch-edit{
+	clear:both;
+	height:40px;
+	line-height:40px;
+	font-family:微软雅黑;
+	font-size:20px;
+	padding-left:30px;
+	margin-bottom:20px;
+	}
+.switch-edit *{
+	vertical-align:middle;
+	}
+.switch-edit span.line{
+	font-size:12px;
+	display:inline-block;
+	height:28px;
+	width:2px;
+	background:url(../images/line1.jpg) no-repeat;
+	}
+.switch-edit  .current{
+	color:#53823a;
+	}
+/*账号设置布局*/
+.btn-ac-edit {
+	border:0px;
+	display:inline-block;
+	width:104px;
+	height:38px;
+	background:url(../images/btn.gif) no-repeat 0px -136px;
+}
+.btn-ac-reset {
+	border:0px;
+	display:inline-block;
+	width:104px;
+	height:38px;
+	background:url(../images/btn.gif) no-repeat 0px -177px;
+}
+.lay-account {
+	line-height:50px;
+	width:800px;
+	border-collapse:collapse;
+}
+.lay-account .a {
+	width:120px;
+	text-align:right;
+	padding-right:10px;
+}
+.lay-account .b {
+	width:300px;
+	text-align:right;
+	padding-right:10px;
+}
+.lay-account .c {
+	color:#b0b0b0;
+}
+.lay-account .pd-left {
+	padding-left:15px;
+}
+.lay-account .mar-right {
+	margin-right:10px;
+}
+.lay-account .wd-300 {
+	width:300px;
+}
+.lay-account .btn {
+	height:65px;
+}
+/*编写企业资料*/
+.lay-editcompany{
+	width:100%;
+	font-size:14px;
+	line-height:40px;
+	}
+.lay-editcompany em{
+	display:inline-block;
+	font-style:normal;
+	margin-left:15px;
+	font-size:12px;
+	}
+.lay-editcompany .a{
+	width:15%;
+	text-align:right;
+	}
+.lay-editcompany .b{
+	width:35%;
+	}
+.btn-com-edit{
+	clear:both;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+	}
+.btn-editcomsave{
+	border:0px;
+	display:inline-block;
+	width:104px;
+	height:38px;
+	background:url(../images/btn.gif) no-repeat 0px -136px;
+	}

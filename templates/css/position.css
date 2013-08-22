@@ -1,0 +1,214 @@
+@charset "utf-8";
+/*职位列表页*/
+.position-list .main{
+	float:left;
+	width:880px;
+	background:#fff;
+	}
+.position-list .sub-col{
+	float:right;
+	width:360px;
+	background:#fff;
+	}
+.position-list .main h2{
+	height:50px;
+	line-height:70px;
+	border-bottom:1px solid #d0d0d0;
+	background:url(../images/per-icon-3.jpg) no-repeat 15px 8px;
+	font-size:12px;
+	font-weight:normal;
+	padding-left:55px;
+	}
+.position-list .main h2 span{
+	float:right;
+	padding-right:20px;
+	}
+.list-position{
+	clear:both;
+	margin:0px auto;
+	width:95%;
+	height:80px;
+	padding-top:15px;
+	border-bottom:1px dotted #d0d0d0;
+	}
+.list-position .companylogo{
+	float:left;
+	width:110px;
+	}
+.list-position .companylogo img{
+	width:75px;
+	height:65px;
+	text-align:center;
+	}
+.list-position .position-info{
+	float:left;
+	width:480px;
+	}
+.list-position .position-info .position-name{
+	font-weight:bold;
+	}
+.list-position .view{
+	float:right;
+	width:115px;
+	}
+.list-position  .btn-veiw{
+	display:inline-block;
+	width:84px;
+	height:28px;
+	background:url(../images/btn.gif) no-repeat 0px -330px;
+	}
+.position-page{
+	margin-top:15px;
+	margin-bottom:10px;
+	}
+/*侧栏样式*/
+.position-list .sub-col .sub-tit{
+	clear:both;
+	height:32px;
+	line-height:32px;
+	background:url(../images/globalstyle.gif)  repeat-x 0px  -242px;
+	padding-left:15px;
+	font-size:14px;
+	font-weight:bold;
+	}
+.position-list .itemsort{
+	width:90%;
+	margin:0px auto;
+	padding-top:15px;
+	}
+.position-list .itemsort dt.down{
+	background:url(../images/globalicon.gif) no-repeat 0px 7px;
+	}
+.position-list .itemsort dt{
+	height:30px;
+	line-height:30px;
+	border-bottom:1px solid  #d0d0d0;
+	font-weight:bold;
+	padding-left:15px;
+	background:url(../images/globalicon.gif) no-repeat 0px -15px;
+	padding-left:15px;
+	}
+.position-list .itemsort dd{
+	padding:10px 0px;
+	}
+/* 职位详细页*/
+.position-wrapper {
+	background:#fff;
+	margin-top:50px;
+	padding:20px;
+	height:100%;
+}
+.position-wrapper h2 {
+	height:40px;
+	line-height:40px;
+	font-family:微软雅黑;
+	font-size:24px;
+	font-weight:normal;
+	margin:30px 0px;
+	padding-left:250px;
+}
+.position-wrapper .position-main {
+	float:left;
+	width:960px;
+}
+.position-wrapper .position-main .col-1 {
+	float:left;
+	width:285px;
+	min-height:740px;
+	background:url(../images/posleftbg.jpg) no-repeat;
+}
+.position-wrapper .position-main .col-2 {
+	float:right;
+	width:675px;
+}
+.position-wrapper .sub-col {
+	float:right;
+	width:300px;
+}
+.position-wrapper .col-1 .content {
+	width:200px;
+	margin:0px auto;
+}
+.position-wrapper .col-1 .tit {
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	margin-top:40px;
+}
+.position-wrapper .col-1 dl {
+	line-height:22px;
+	margin-top:15px;
+}
+.position-wrapper .col-1 dt {
+	font-weight:bold;
+	font-size:14px;
+}
+.position-wrapper .col-1 dd {
+	margin-bottom:15px;
+}
+.position-wrapper .col-2 .content {
+	padding:0px 20px;
+}
+.position-wrapper .col-2 h1 {
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:30px;
+}
+.position-wrapper .col-2 .position-note {
+	line-height:26px;
+}
+.btn-applyjob {
+	border:0px;
+	display:inline-block;
+	width:116px;
+	height:40px;
+	background:url(../images/btn.gif) no-repeat 0px -285px;
+}
+.btn-div{
+	text-align:center;
+	margin-top:30px;
+	}
+.sub-col .btn-div{
+	text-align:left;
+	margin-top:30px;
+	}
+.sub-col .list-items{
+	width:95%;
+	}
+.sub-col .list-items li{
+	height:50px;
+	line-height:50px;
+	font-size:14px;
+	border-bottom:1px solid  #d0d0d0;
+	padding-left:50px;
+	}
+.sub-col .list-items .a{
+	background:url(../images/posfav.jpg) no-repeat 0px 15px;
+	}
+.sub-col .list-items .b{
+	background:url(../images/posprint.jpg) no-repeat 0px 15px;
+	}
+.sub-col .list-items .c{
+	background:url(../images/posemail.jpg) no-repeat 0px 15px;
+	}
+.sub-col .list-items .d{
+	background:url(../images/posshare.jpg) no-repeat 0px 15px;
+	}
+.sub-col .list-view{
+	line-height:30px;
+	margin-top:20px;
+	}
+.company-info{
+	border-top:1px solid  #d0d0d0;
+	margin-top:30px;
+	padding-top:20px;
+	}
+.company-info table{
+	width:100%;
+	line-height:26px;
+	}
+.company-info .a{
+	width:100px;
+	text-align:right;
+	}

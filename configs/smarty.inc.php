@@ -2,9 +2,6 @@
 chdir(dirname(__FILE__));
 require_once 'path.inc.php';
 require_once $config["webpath"].'/libs/Smarty.class.php';
-
-
-//
 //模板路径
 $temp_path = "/templates";
 //Smarty实例生成

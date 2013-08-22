@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账户修改-密码修改-<{$webtitle}></title>
+<meta name="keywords" content="<{$webkeywords}>" />
+<meta name="description" content="<{$webdesp}>" />
+<meta name="Copyright" content="<{$copyright}>" />
+<meta name="author" content="<{$author}>" />
+<link href="/templates/css/globalLayout.css"  rel="stylesheet" type="text/css" />
+<link href="/templates/css/globalStyle.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/popselect.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/company.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/position.css" rel="stylesheet" type="text/css" />
+<script language="javaScript" type="text/javascript" src="/templates/scripts/jquery.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/globalsearch.js"></script>
+<meta content="all" name="robots" />
+</head>
+<body>
+<!--头部开始-->
+<{include file="header2.html" name="header2"}>
+<!--头部结束-->
+<!--账户设置开始-->
+<div class="wrapper"> 
+  <div class="main-body clearfix">
+    <div class="switch-edit"><a href="account.php"><span class="current">设置账户</span></a> <span class="line"></span> <a href="editcompany.php">编写企业资料</a></div>
+    <h2 class="account-tit">修改账号</h2>
+    <form id="form1" method='post' action='/percenter/account.php?act=account'>
+      <table class="lay-account">
+        <tr>
+          <td class="a">旧账号：</td>
+          <td class="b"><input type="text"  name="oldusername" id="oldusername" class="txtbox wd-300" /></td>
+          <td class="c"  id="d_oldusername"></td>
+        </tr>
+        <tr>
+          <td class="a">密码：</td>
+          <td class="b"><input type="password" name="password"  id="password"  class="txtbox wd-300" /></td>
+          <td class="c" id="d_password"></td>
+        </tr>
+        <tr>
+          <td class="a">新账号：</td>
+          <td class="b"><input  type="text"  name="newusername" id="newusername"  class="txtbox wd-300"/></td>
+          <td id="d_newusername"></td>
+        </tr>
+        <tr>
+          <td class="btn"></td>
+          <td class="txt-right"><input type="submit" id="btn-submit"  value="" onclick="checkAccount()" class="btn-ac-edit mar-right"/></td>
+          <td class="pd-left"><input  type="reset"  id="btn-reseet"  value="" class="btn-ac-reset" /></td>
+        </tr>
+      </table>
+    </form>
+    <br />
+    <h2 class="account-tit">修改密码</h2>
+    <form id="form2" method='post' action='/percenter/account.php?act=pwd'>
+      <table class="lay-account">
+        <tr>
+          <td class="a">旧密码：</td>
+          <td class="b"><input type="text"  name="oldpassword" id="oldpassword"  class="txtbox wd-300"/></td>
+          <td class="c" id="d_oldpassword"></td>
+        </tr>
+        <tr>
+          <td class="a">新密码：</td>
+          <td class="b"><input type="text"  name="newpassword" id="newpassword"  class="txtbox wd-300"/></td>
+          <td class="c" id="d_newpassword"></td>
+        </tr>
+        <tr>
+          <td class="a">确定新密码：</td>
+          <td class="b"><input type="text"  name="newpassword2" id="newpassword2"  class="txtbox wd-300"/></td>
+          <td class="c" id="d_newpassword2"></td>
+        </tr>
+        <tr>
+          <td class="btn"></td>
+          <td class="txt-right"><input type="submit" id="btn-submit"  value="" class="btn-ac-edit mar-right"  /></td>
+          <td class="pd-left"><input type="reset"  id="btn-reseet"  value="" class="btn-ac-reset" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+<!--账户设置结束-->
+<!--版权开始-->
+<{include file="footer.html" name="footer"}>
+<!--版权结束-->
+</body>
+</html>

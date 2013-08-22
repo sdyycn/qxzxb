@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>企业信息修改-<{$webtitle}></title>
+<meta name="keywords" content="<{$webkeywords}>" />
+<meta name="description" content="<{$webdesp}>" />
+<meta name="Copyright" content="<{$copyright}>" />
+<meta name="author" content="<{$author}>" />
+<link href="/templates/css/globalLayout.css"  rel="stylesheet" type="text/css" />
+<link href="/templates/css/globalStyle.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/popselect.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/company.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/position.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/templates/css/validation.css" />
+<script language="javaScript" type="text/javascript" src="/templates/scripts/jquery.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/globalsearch.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/formcheck.js"></script>
+<script language="javaScript" type="text/javascript" src="/configs/ckeditor/ckeditor.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/drag.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/calendar.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/industry_arr.js" ></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/industry_func.js" ></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/config_arr.js" ></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/com-edit.js" ></script>
+<meta content="all" name="robots" />
+</head>
+<body>
+<!--头部开始-->
+<{include file="header2.html" name="header2"}>
+<!--头部结束-->
+<!--企业资料编辑开始-->
+<div class="wrapper">
+  <div class="main-body clearfix">
+    <div class="switch-edit"><a href="account.php">设置账户</a> <span class="line"></span> <a href="editcompany.php"><span class="current">编写企业资料</span></a></div>
+    <form  id="comedit"  method="post">
+      <h2 class="account-tit">基本资料</h2>
+      <table class="lay-editcompany">
+        <tr>
+          <td class="a"><span class="cred">*</span>公司名称：</td>
+          <td class="b"><input type="text"  name="comname" id="comname" class="txtbox"  size="40" />
+            <em id="d_comname"></em></td>
+          <td class="a">公司性质：</td>
+          <td class="b"><select name="comnature" id="comnature">
+            </select></td>
+        </tr>
+        <tr>
+          <td class="a">公司规模：</td>
+          <td class="b"><select name="employeenum" id="employeenum">
+            </select></td>
+          <td class="a">公司行业：</td>
+          <td  class="b"><input id="btn_IndustryID_2" type="button" value="请选择行业" onclick="IndustrySelect_2()" />
+            <input id="IndustryID_2" type="hidden" name="IndustryID_2" value="" />
+            <em id="d_Industry"></em></td>
+        </tr>
+        <tr>
+          <td class="a">注册资金：</td>
+          <td class="b"><input  type="text"  name="regfunds" id="regfunds"  class="txtbox wd-300"/>
+            万元<em id="d_regfunds"></em></td>
+          <td class="a">成立时间：</td>
+          <td class="b" ><input  type="text"  name="comformation" id="comformation"  class="txtbox wd-300" onfocus="HS_setDate(this)"/>
+            <em id="d_comformation"></em></td>
+        </tr>
+        <tr>
+          <td class="a">公司简介：</td>
+          <td  colspan="3"><textarea id="comcontent" name="comcontent" style="display:none;"></textarea>
+            <script type="text/javascript">
+			var newsContent = CKEDITOR.replace('comcontent',
+			{
+				height	:	'300',
+				width	:	'80%',
+				skin	:	'kama',
+			});
+		    </script></td>
+        </tr>
+      </table>
+      <br />
+      <h2 class="account-tit">联系方式</h2>
+      <table class="lay-editcompany">
+        <tr>
+          <td class="a"><span class="cred">*</span>联系人：</td>
+          <td class="b"><input type="text"  name="contact" id="contact" class="txtbox"  size="20" />
+            <em id="d_contact"></em></td>
+          <td class="a"><span class="cred">*</span>电子信箱：</td>
+          <td class="b"><input type="text"  name="email" id="email" class="txtbox"  size="20" />
+            <em id="d_email"></em></td>
+        </tr>
+        <tr>
+          <td class="a">固定电话：</td>
+          <td class="b"><input  type="text"  name="tel" id="tel"  class="txtbox wd-300"/>
+            <em id="d_tel"></em></td>
+          <td class="a">手机：</td>
+          <td class="b" ><input  type="text"  name="mobile" id="mobile"  class="txtbox wd-300"/>
+            <em id="d_phone">电话和手机至少得输入一项</em></td>
+        </tr>
+        <tr>
+          <td class="a">传真：</td>
+          <td class="b"><input  type="text"  name="fax" id="fax"  class="txtbox wd-300"/></td>
+          <td class="a">邮编：</td>
+          <td class="b" ><input  type="text"  name="postcode" id="postcode"  class="txtbox wd-300"/></td>
+        </tr>
+        <tr>
+          <td class="a">地址：</td>
+          <td  colspan="3"><input  type="text"  name="address" id="address"  class="txtbox" size="60"/></td>
+        </tr>
+        <tr>
+          <td class="a">网址：</td>
+          <td  colspan="3"><input  type="text"  name="weburl" id="weburl"  class="txtbox" size="60"/></td>
+        </tr>
+      </table>
+      <h2 class="account-tit">相关附件</h2>
+      <table class="lay-editcompany">
+        <tr>
+          <td class="a">企业logo：</td>
+          <td  colspan="3"><input type="file"  name="compic" id="compic"  class="txtbox"  /></td>
+        </tr>
+        <tr>
+          <td class="a"></td>
+          <td  colspan="3">/pic/2013/8/19/7299567547494D369F9D66B7E781A491.jpg&nbsp;&nbsp;
+            <input class="btn3" value="删除附件" name="delFileButton" onclick="delFile('1','2');" type="button"></td>
+        </tr>
+        <tr>
+          <td class="a">Banner：</td>
+          <td  colspan="3"><input type="file"  name="comlogo" id="comlogo"  class="txtbox"  /></td>
+        </tr>
+        <tr>
+          <td class="a">营业执照：</td>
+          <td  colspan="3"><input type="file"  name="compic" id="compic"  class="txtbox"  /></td>
+        </tr>
+      </table>
+      <div class="btn-com-edit">
+        <input  type="button" name="btn-editcomsave" id="btn-editcomsave"  value=""  class="btn-editcomsave"   />
+      </div>
+    </form>
+  </div>
+</div>
+<!--企业资料编辑结束-->
+<!--行业选择弹出层开始-->
+<div id="maskLayer" style="display:none">
+  <div id="drag">
+    <h3 id="drag_h"></h3>
+    <div id="drag_con"></div>
+    <!-- drag_con end -->
+  </div>
+</div>
+<!-- maskLayer end -->
+</div>
+<!-- alpha div end -->
+<div id="sublist" style="display:none"></div>
+<!--行业选择弹出层结束-->
+<!--版权开始-->
+<{include file="footer.html" name="footer"}>
+<!--版权结束-->
+</body>
+</html>

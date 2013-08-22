@@ -28,7 +28,7 @@ $(".btn-delall").click(function(){
 		strid += $(this).val()+",";
 	});
 //ajax向后台传递要删除的收藏记录的ID
-
+alert("删除"+strid+"的记录");
 //相关请求代码
 	alert('deleteAll');
 })
@@ -50,7 +50,7 @@ $("#apply-body .btn-del").click(function(){
 	var index = $("#apply-body .btn-del").index($(this));
 	var strid = $('[name=items]:checkbox').eq(index).val();
 	//ajax向后台请求相关代码
-	
+	alert("删除"+strid+"的记录");
 	
 	
 	//相关请求代码
@@ -62,5 +62,5 @@ $("#apply-body .btn-del").click(function(){
 	
 	
 	
-})
+
 })                  

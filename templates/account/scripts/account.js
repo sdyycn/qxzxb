@@ -7,10 +7,40 @@
 注册登录界面的各类函数
 */
 
+/*ajax 处理*/
+function error_handler(XMLHttpRequest, textStatus, errorThrown) {
+	alert(" responseText:\t"+XMLHttpRequest.responseText
+		  + "\n status:\t"+XMLHttpRequest.status
+		  + "\n readyState\t"+ XMLHttpRequest.readyState
+		  + "\n textStatus\t"+ textStatus);
+}
+
+function run_ajax(url, dataString, success_handler, method){
+	if (method == 'json') {
+		$.getJSON(url, dataString, success_handler);		
+	} else if (method == 'post'){
+		$.post(url, dataString, success_handler);		
+	} else if (method == 'get') {
+		$.get(url, dataString, success_handler);		
+	} else { 	
+		$.ajax({cache:false,
+			   type : 'POST',
+			   url : url,
+			   data : dataString,
+			   dataType: "json",
+//			   contentType: "application/json; charset=utf-8",
+			   success : success_handler,
+			   error : error_handler,
+		});
+	}
+}
+
 /*文本框获取焦点时的处理*/
 function focused(object){
     if(object.value=="请在此处输入您的邮箱/手机/SS号"
 	|| object.value=="请在此处输入您的用户名"
+	|| object.value=="您输入的认证号已经存在"
+    || object.value=="您输入的用户名已经存在"	
 	|| object.value=="请在此处输入您的邮箱/手机/SS号/用户名"
 	|| object.value=="请在此处输入您的密码"
 	|| object.value=="请在此处输入您的新密码"
@@ -64,11 +94,29 @@ function rAcotCheck(object){
 	}else if(checkedOne==2&&!checkQQ(object.value)){
 		object.value = "请输入正确的SS帐号";
 		object.className = "styleThi";
-	}else {
+	}else {	
+		var way = document.getElementsByName("reWay");
+		var regWay = "email";
+		for ( var i = 0; i < way.length; i++) {
+	        if (way[i].checked==true) {
+			   regWay = way[i].value;
+	        }
+	    }
+		var account = document.getElementById("reAcot").value;
+		var dataString = "regWay=" + regWay +"&account=" +　account;
+ 		run_ajax("../index_login.php?act=chkUnique", dataString, accountHandler);			
 		return false;
 	}
 	
 	return true;
+}
+
+function accountHandler($res){
+	if($res['status'] == 'false'){
+		var txtAcot = document.getElementById("reAcot");
+		txtAcot.value = "您输入的认证号已经存在";
+		txtAcot.className = "styleThi";
+	}
 }
 /*填写注册昵称时的处理*/
 function nameCheck(object){
@@ -76,11 +124,23 @@ function nameCheck(object){
 		object.value = "请在此处输入您的用户名";
 		object.className = "styleFir";
 	}else {
+		var username = document.getElementById("reName").value;
+		var dataString = "username=" + username;
+		run_ajax("../index_login.php?act=chkUnique", dataString, usernameHandler);	
 		return false;
 	}
 	
 	return true;
 }
+
+function usernameHandler($res){
+	if($res['status'] == 'false'){
+		var txtAcot = document.getElementById("reName");
+		txtAcot.value = "您输入的用户名已经存在";
+		txtAcot.className = "styleThi";
+	}
+}
+
 /*填写密码时的处理*/
 function psWdCheck(object){
 	if(object.value==""){
@@ -120,17 +180,43 @@ function regSubmit(){
 	var passWord = document.getElementById("rePsWd");
 	var rePassWord = document.getElementById("reRePW");
 	var Ero = document.getElementById("reEro");
+	
 	if(account.className=="styleSec"&&name.className=="styleSec"
 	&&passWord.className=="styleSec"&&rePassWord.className=="styleSec"){
-		Ero.textContent="注册成功";
-		Ero.style.color = "#0F0";	
+		var role = document.getElementsByName("reRole");
+		var regRole = "jobHunter"  ;	
+		for ( var i = 0; i < role.length; i++) {
+	        if (role[i].checked==true) {
+			   regRole = role[i].value;
+	        }
+	    }	
+		var way = document.getElementsByName("reWay");
+		var regWay = "email";
+		for ( var i = 0; i < way.length; i++) {
+	        if (way[i].checked==true) {
+			   regWay = way[i].value;
+	        }
+	    }		
+		var dataString = "account=" + account.value + "&username=" + name.value + "&password=" + passWord.value + "&regRole=" + regRole + "&regWay=" + regWay;		
+		run_ajax("../index_login.php?act=register", dataString, registerHandler);			
 	}else{
 		Ero.textContent="请正确填写您的注册信息，再尝试提交！";
 	} 
 	var e = window.event || arguments.callee.caller.arguments[0];
     stopBubble(e);
-
+    
 	return true;
+}
+/*注册处理*/
+function registerHandler($res){		
+	var txtEro = document.getElementById("reEro");		
+ 	if($res['status']=='true'){			
+ 		txtEro.textContent = "注册成功";
+ 		txtEro.style.color = "#0F0";
+ 		alert($res['msg']);
+ 	}else{ 		
+		txtEro.textContent=$res['msg'];		
+	}
 }
 /*填写帐号时的处理*/
 function acotCheck(object){
@@ -154,19 +240,48 @@ function freshVeCd(){
 }
 
 /*提交登录信息时的处理*/
-function sigSubmit(){
-	var account = document.getElementById("siAcot").value;
-	var passWord = document.getElementById("siPsWd").value;
-	if(checkEmail(account)){//邮箱登录户
-	}else if(checkMobilePhone(account)){//手机登录户
-	}else if(checkQQ(account)){//SS登录户
-	}else {//昵称登录户
-	}
+function sigSubmit(){	
+	var accountid = document.getElementById("siAcot");
+	var passwordid = document.getElementById("siPsWd");
+	var account = document.getElementById("siAcot").value;	
+	var password = document.getElementById("siPsWd").value;
 	
+	if(account == "请在此处输入您的邮箱/手机/SS号/用户名" || trim(account) == ""){
+		accountid.value = "请在此处输入您的邮箱/手机/SS号/用户名";	
+		accountid.className = "styleThi";	
+		return;
+	}
+	if(password == "" || password == "请在此处输入您的密码"){
+		password = "请在此处输入您的密码";	
+		passwordid.className = "styleThi";		
+		return;
+	}		
+	var sigway = "";
+	if(checkEmail(account)){//邮箱登录户
+		sigway = "email";
+	}else if(checkMobilePhone(account)){//手机登录户
+		sigway = "mobile";
+	}else if(checkQQ(account)){//SS登录户
+		sigway = "ss";
+	}else {//昵称登录户
+		sigway = "username";
+	}	
+	var isChecked = document.getElementById("atoSign").checked;
+	alert("ischecked="+isChecked);
+    var dataString = "sigWay=" + sigway + "&account=" + account + "&password=" + password + "&isChecked=" + isChecked;	
+	alert("Login Info: "+dataString);
+	run_ajax("../index_login.php?act=login", dataString, loginHandler);	
 	var e = window.event || arguments.callee.caller.arguments[0];
     stopBubble(e);
-	
 	return true;
+}
+function loginHandler($res){
+	if($res['status']==true){		
+		alert($res['msg']+'SUCCESS LOGIN!!!');	
+		window.location= "../jobuser/user_index.php";
+	}else{
+		alert($res['msg']);
+	}	
 }
 
 

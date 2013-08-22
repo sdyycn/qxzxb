@@ -44,6 +44,9 @@ img {
 	clear: both;
 	visibility: hidden;
 }
+.cred{
+	color:#f00;
+	}
 .txt-left{
 	text-align:left;
 	}
@@ -73,8 +76,8 @@ img {
 /*文本输入框*/
 .txtbox{
 	clear:both;
-	height:32px;
-	line-height:32px;
+	height:26px;
+	line-height:26px;
 	border:1px solid  #b9b9b9;
 	}
 .txtarea,.txtselect{

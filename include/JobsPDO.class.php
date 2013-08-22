@@ -13,7 +13,8 @@ chdir(dirname(__FILE__));
 $table['ejob_newssort'] = "ejob_newssort";		// 资讯类别 
 $table['ejob_news'] 	= "ejob_news";			// 资讯信息
 $table['ejob_admin'] 	= "ejob_admin";			// 系统管理员账户
-
+$table['ejob_uperson'] 	= "ejob_uperson";       //jobs个人用户
+$table['ejob_ucompany'] = "ejob_ucompany";      //jobs企业用户
 
 $table['eth_ucenter']	= 'eth_ucenter';		// ucenter.eth_ucenter;
 

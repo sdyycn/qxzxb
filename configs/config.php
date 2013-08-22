@@ -1,11 +1,11 @@
 <?php
-//±ÕÆÁ°²È«ÌáÊ¾´íÎó
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 //error_reporting(0);
-//´ò¿ª»á»°
+//ï¿½ò¿ª»á»°
 session_start();
-//ÉèÖÃÍøÕ¾Â·¾¶
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾Â·ï¿½ï¿½
 $config["mypath"]	=	"" ;
-//È¡µÃÍøÕ¾¾ø¶ÔÎ»ÖÃ
+//È¡ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 if($config["mypath"]=="")
 {
 	$config["webpath"]	=	$_SERVER['DOCUMENT_ROOT'] ;
@@ -13,15 +13,15 @@ if($config["mypath"]=="")
 else{
 	$config["webpath"]	=	$_SERVER['DOCUMENT_ROOT'].$config["mypath"] ;
 }
-//¼ÓÔØÊý¾Ý¿âÖ´ÐÐÀà
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ö´ï¿½ï¿½ï¿½ï¿½
 require_once($config["webpath"]."/configs/db.class.php");
-//¼ÓÔØ·ÖÒ³Àà
+//ï¿½ï¿½ï¿½Ø·ï¿½Ò³ï¿½ï¿½
 require_once($config["webpath"]."/configs/page.class.php");
-//µ÷ÕûÊ±Çø
+//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 if(function_exists('date_default_timezone_set')){
 	date_default_timezone_set('Hongkong');
 }
-//½¨Á¢Êý¾Ý¿âÁ¬½Ó
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
 global $db;
-$db = new limidb("localhost","root","root","limijobs","utf8","conn");
+$db = new limidb("192.168.10.86","limijobs","123456","limijobs","utf8","conn");
 ?>

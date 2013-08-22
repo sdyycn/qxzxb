@@ -10,6 +10,9 @@
 <link href="../css/globalLayout.css"  rel="stylesheet" type="text/css" />
 <link href="../css/globalStyle.css" rel="stylesheet" type="text/css" />
 <link href="../css/person.css" rel="stylesheet" type="text/css" />
+<link href="../css/popselect.css" rel="stylesheet" type="text/css" />
+<script language="javaScript" type="text/javascript" src="../scripts/jquery.js"></script>
+<script language="javaScript" type="text/javascript" src="../scripts/globalsearch.js"></script>
 <meta content="all" name="robots" />
 </head>
 <body>
@@ -19,8 +22,16 @@
     <div class="row-1">
       <div class="logo"><img src="../images/logo.jpg" /></div>
       <div class="search-bar">
-        <div class="global-search-input"><span class="select"></span>
-          <input type="text"  class="keyword" name="keyword" id="keyword" />
+        <div class="global-search-input">
+          <div class="pos-abs"><span class="select">职位</span>
+            <input type="text"  class="keyword" name="keyword" id="keyword" />
+            <div class="downselect">
+              <ul>
+                <li>职位</li>
+                <li>简历</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="global-btn">
           <input  class="btn-search" type="submit" value="" />
@@ -39,25 +50,50 @@
   <div class="menu-nav"><a href="#">MyEtherJobs</a><span class="line"></span><a href="#">简历管理</a> <span class="line"></span><a href="#">职位收藏夹</a> <span class="line"></span><a href="#">申请与反馈</a><span class="line"></span> <a href="#">账户管理</a></div>
   <!--  左右布局开始-->
   <div class="left-container">
-    <div class="baseinfo">
-      <div class="avatar"><img src="../images/personpic.jpg" /></div>
+    <div class="baseinfo clearfix">
+      <h1 class="realname">奥巴马</h1>
+      <div class="avatar"><img src="../images/tx2.jpg" /></div>
       <div class="list-info">
-        <h1>奥巴马</h1>
-        <div class="tip-info">北京微赛思技术有限公司   软件开发工程师<br />
-          计算机软件| 合肥</div>
         <table class="list-table">
           <tr>
-            <td class="a">工作经验</td>
-            <td>科大迅飞</td>
+            <td class="a">出生日期：</td>
+            <td class="b birth" > 1984-6-25 </td>
+            <td class="a">性别:</td>
+            <td class="b sex" > 男 </td>
           </tr>
           <tr>
-            <td class="a">教育背景</td>
-            <td>安徽师范大学</td>
+            <td class="a" > 政治面貌 </td>
+            <td class="political">党员</td>
+            <td class="a" > 婚姻状况 </td>
+            <td  class="marriage">未婚</td>
+          </tr>
+          <tr>
+            <td class="a">现居住地</td>
+            <td class="nowaddr" >绍兴</td>
+            <td class="a">户口所在地</td>
+            <td class="residenceaddr" >绍兴</td>
+          </tr>
+          <tr>
+            <td class="a">联系地址</td>
+            <td colspan="3" class="address">绍兴县柯桥金汇大厦301</td>
+          </tr>
+          <tr>
+            <td class="a">固定电话:</td>
+            <td class="tel">0575-88374461</td>
+            <td class="a">手机号码:</td>
+            <td class="mobile">13989563578</td>
+          </tr>
+          <tr>
+            <td class="a">Email:</td>
+            <td class="email">limiton@limiton.cn</td>
+            <td class="a">目前年薪:</td>
+            <td class="yearsalary">10万</td>
+          </tr>
+          <tr>
+            <td class="a">求职状态:</td>
+            <td colspan="3" class="workingstate">目前正在找工作</td>
           </tr>
         </table>
-        <div class="btn-wrapper">
-          <input type="submit"  class="btn-edit" value="修改基本信息"/>
-        </div>
       </div>
     </div>
     <div class="base-content">
@@ -304,13 +340,7 @@
   </div>
 </div>
 <!--版权开始-->
-<div class="footer">
-  <div class="wrapper">
-    <div class="foot-logo"><img src="../images/footlogo.jpg" /></div>
-    <div class="foot-copyright"> Powered by Limiton Inc 保留所有权利。 Email:limi@limiton.cn   contact us<br />
-      浙ICP:12030668 备2 </div>
-  </div>
-</div>
+<{include file="footer.html" name="footer"}>
 <!--版权结束-->
 </body>
 </html>

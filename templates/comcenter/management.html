@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简历管理-<{$webtitle}></title>
+<meta name="keywords" content="<{$webkeywords}>" />
+<meta name="description" content="<{$webdesp}>" />
+<meta name="Copyright" content="<{$copyright}>" />
+<meta name="author" content="<{$author}>" />
+<link href="/templates/css/globalLayout.css"  rel="stylesheet" type="text/css" />
+<link href="/templates/css/globalStyle.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/pager.css" rel="stylesheet" type="text/css" />
+<link href="/templates/css/company.css" rel="stylesheet" type="text/css" />
+<script language="javaScript" type="text/javascript" src="/templates/scripts/jquery.js"></script>
+<script language="javaScript" type="text/javascript" src="/templates/scripts/globalsearch.js"></script>
+<script language="javaScript" src="/templates/scripts/config_arr.js" type="text/javascript"></script>
+<script language="javaScript" src="/templates/scripts/com-management.js" type="text/javascript"></script>
+<meta content="all" name="robots" />
+</head>
+<body>
+<!--头部开始-->
+<{include file="header2.html" name="header2"}>
+<!--头部结束-->
+<!--简历管理开始-->
+<div class="wrapper">
+</div>
+<div class="resume-search">
+  <div class="title"><span class="current">我的简历</span> <span>已收藏</span> <span>已下载</span><span> 已删除</span></div>
+  <div class="table">
+    <table class="content">
+      <tr>
+        <td width="243" class="a"> 学历:
+          <select name="qualification"  id="qualification"  class="selectbox">
+          </select></td>
+        <td width="230" class="b">工作经验:
+          <select name="workexp"  id="workexp" class="selectbox">
+          </select></td>
+        <td width="230" class="c">应聘职位:
+          <select name="position"  id="position" class="selectbox">
+            <option>本公司发布的职位</option>
+            <option>本公司发布的职位</option>
+            <option>本公司发布的职位</option>
+            <option>本公司发布的职位</option>
+          </select></td>
+        <td width="229" class="d">期望月薪:
+          <select name="salary" id="salary" class="selectbox">
+          </select></td>
+        <td width="324" class="f"></td>
+      </tr>
+      <tr>
+        <td class="a"> 性别:
+          <input name="" type="radio" value="" checked="checked" />
+          不限
+          <input name="" type="radio" value="" />
+          男
+          <input name="" type="radio" value="" />
+          女</td>
+        <td colspan="2" class="a">关键词:
+          <input name="keywords" type="text" class="inputbox" size="50"/></td>
+        <td class="d btn-h"><input type="submit" id="search-btn"  value="" class="search-btn"/></td>
+        <td class="e"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!--简历列表开始-->
+<div class="resume-list clearfix">
+  <div class="tips">当前共55份简历</div>
+  <div class="list">
+    <table class="content">
+      <thead>
+        <tr>
+          <th class="checkbox"></th>
+          <th class="postname">应聘职位</th>
+          <th class="poster">姓名</th>
+          <th class="sex">性别</th>
+          <th class="school">学校</th>
+          <th class="education">学历</th>
+          <th class="major">专业</th>
+          <th  class="workexp">工作经验</th>
+          <th class="location">现居住地</th>
+          <th class="posttime">投递时间</th>
+          <th class="contact">联系方式</th>
+          <th>管理</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="checkbox"><input name="" type="checkbox" value="" style="border:0px;"/></td>
+        <td>招聘职位302：项目经理</td>
+        <td>小四</td>
+        <td>男</td>
+        <td>上海交通大学</td>
+        <td>本科</td>
+        <td>电影</td>
+        <td>5</td>
+        <td>上海</td>
+        <td>2013-07-19</td>
+        <td>15158819691</td>
+        <td><input type="submit" id="read"  value="" class="read"/></td>
+        <td><input type="submit" id="like"  value="" class="like"/></td>
+        <td><input type="submit" id="delete"  value="" class="delete"/></td>
+      </tr>
+            <tr>
+        <td class="checkbox"><input name="" type="checkbox" value="" style="border:0px;"/></td>
+        <td>招聘职位302：项目经理</td>
+        <td>小四</td>
+        <td>男</td>
+        <td>上海交通大学</td>
+        <td>本科</td>
+        <td>电影</td>
+        <td>5</td>
+        <td>上海</td>
+        <td>2013-07-19</td>
+        <td>15158819691</td>
+        <td><input type="submit" id="read"  value="" class="read"/></td>
+        <td><input type="submit" id="like"  value="" class="like"/></td>
+        <td><input type="submit" id="delete"  value="" class="delete"/></td>
+      </tr>
+            <tr>
+        <td class="checkbox"><input name="" type="checkbox" value="" style="border:0px;"/></td>
+        <td>招聘职位302：项目经理</td>
+        <td>小四</td>
+        <td>男</td>
+        <td>上海交通大学</td>
+        <td>本科</td>
+        <td>电影</td>
+        <td>5</td>
+        <td>上海</td>
+        <td>2013-07-19</td>
+        <td>15158819691</td>
+        <td><input type="submit" id="read"  value="" class="read"/></td>
+        <td><input type="submit" id="like"  value="" class="like"/></td>
+        <td><input type="submit" id="delete"  value="" class="delete"/></td>
+      </tr>
+            <tr>
+        <td class="checkbox"><input name="" type="checkbox" value="" style="border:0px;"/></td>
+        <td>招聘职位302：项目经理</td>
+        <td>小四</td>
+        <td>男</td>
+        <td>上海交通大学</td>
+        <td>本科</td>
+        <td>电影</td>
+        <td>5</td>
+        <td>上海</td>
+        <td>2013-07-19</td>
+        <td>15158819691</td>
+        <td><input type="submit" id="read"  value="" class="read"/></td>
+        <td><input type="submit" id="like"  value="" class="like"/></td>
+        <td><input type="submit" id="delete"  value="" class="delete"/></td>
+      </tr>
+            <tr>
+        <td class="checkbox"><input name="" type="checkbox" value="" style="border:0px;"/></td>
+        <td>招聘职位302：项目经理</td>
+        <td>小四</td>
+        <td>男</td>
+        <td>上海交通大学</td>
+        <td>本科</td>
+        <td>电影</td>
+        <td>5</td>
+        <td>上海</td>
+        <td>2013-07-19</td>
+        <td>15158819691</td>
+        <td><input type="submit" id="read"  value="" class="read"/></td>
+        <td><input type="submit" id="like"  value="" class="like"/></td>
+        <td><input type="submit" id="delete"  value="" class="delete"/></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr class="p">
+        <td><input name="" type="checkbox" value="" style="border:0px;"/></td>
+        <td>全选</td>
+        <td colspan="13"><input type="submit" id=""  value="" class="q"/>
+          <input type="submit" id=""  value="" class="r"/>
+          <input type="submit" id=""  value="" class="s"/>
+          <input type="submit" id=""  value="" class="t"/></td>
+      </tr>
+      </tfoot>
+    </table>
+    <div id="pager">
+      <ul class="pages">
+        <li class="pgNext">首页</li>
+        <li class="pgNext">上一页</li>
+        <li class="page-number">1</li>
+        <li class="page-number">2</li>
+        <li class="page-number">3</li>
+        <li class="pgNext">下一页</li>
+        <li class="pgNext">尾页</li>
+        <li class="total">共3页</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--简历列表结束-->
+<!--版权开始-->
+<{include file="footer.html" name="footer"}>
+<!--版权结束-->
+</body>
+</html>

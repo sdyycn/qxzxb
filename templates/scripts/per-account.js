@@ -107,8 +107,21 @@ $(document).ready(function() {
 		on_input("d_newusername");
 	}) 
 	$("#newusername").blur(function() {
-		out_newusername()
+		out_newusername();
 	})
+	$(".btn-ac-edit").click(function(){
+			if(str=="true"){
+				document.form1.submit();
+				}
+				return false;
+								 })
+
+	
+	
+	
+	
+	
+	
 	//=============================================================密码修改检测
 	//旧密码输入检测
 	function out_oldpassword() {
@@ -138,14 +151,14 @@ $(document).ready(function() {
 		}
 		if (chk) {
 			obj.className = "d_ok";
-			obj.innerHTML = '旧密码已经输入!';
+			obj.innerHTML = '新密码已经输入!';
 			if (strlen < 6) {
 				obj.className = "d_err";
 				obj.innerHTML = '密码长度不能小于6位!';
 			}
 		} else {
 			obj.className = "d_err";
-			obj.innerHTML = '旧密码输入错误!';
+			obj.innerHTML = '新密码输入错误!';
 		}
 		return chk;
 	}

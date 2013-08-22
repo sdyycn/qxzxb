@@ -57,17 +57,18 @@ companysize_a["5"]="1000-9999人";
 companysize_a["6"]="10000人以上";
 //学历学位
 var degree_a=[];
-degree_a["1"]="初中";
-degree_a["2"]="中技";
-degree_a["3"]="高中";
-degree_a["4"]="中专";
-degree_a["5"]="大专";
-degree_a["6"]="本科";
-degree_a["7"]="硕士";
-degree_a["8"]="MBA";
-degree_a["9"]="EMBA";
-degree_a["10"]="博士";
-degree_a["11"]="其他";
+degree_a["1"]="不限";
+degree_a["2"]="初中";
+degree_a["3"]="中技";
+degree_a["4"]="高中";
+degree_a["5"]="中专";
+degree_a["6"]="大专";
+degree_a["7"]="本科";
+degree_a["8"]="硕士";
+degree_a["9"]="MBA";
+degree_a["10"]="EMBA";
+degree_a["11"]="博士";
+degree_a["12"]="其他";
 //语言
 var language_a=[];
 language_a["1"]="无";
@@ -87,10 +88,20 @@ var  skill_a=[];
 skill_a["1"]="一般";
 skill_a["2"]="良好";
 skill_a["3"]="熟练";
-skill_a["4"]="-精通";
+skill_a["4"]="精通";
+//工作经验
+var workexp_a=[];
+workexp_a["1"]="不限";
+workexp_a["2"]="1年以下 ";
+workexp_a["3"]="1-3年";
+workexp_a["4"]="3-5年";
+workexp_a["5"]="5-8年";
+workexp_a["6"]="8-10年";
+workexp_a["7"]="10年以上";
+
 //获取选项列表函数
 function getSelectitems(selectid, array_name) {
-	outstr = "<option value=''>请选择</option>";
+	outstr = "";
 	for (var i in array_name) {
 		outstr += "<option value='" + array_name[i] + "'>" + array_name[i] + "</option>";
 	}

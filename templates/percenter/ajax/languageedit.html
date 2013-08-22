@@ -1,0 +1,29 @@
+﻿<div class="btn-wrapper"><span class="btn btnlangeditsave">保存</span></div>
+<script language="javascript" type="text/javascript">
+	$(document).ready(function() {
+		getSelectitems("#languagename", language_a);
+		getSelectitems("#master", skill_a);
+		getSelectitems("#readandwrite", skill_a);
+		getSelectitems("#listenandtalk", skill_a);
+	})
+</script>
+<table>
+  <tbody>
+    <tr>
+      <td  class="a">语言类别：</td>
+      <td  class="b languagename"><input  type="text"  class="txtresume" name="langindex" id="langindex" value=""  style="display:none;" size="6" /><select name="languagename" id="languagename">
+        </select></td>
+      <td  class="a">掌握程度：</td>
+      <td  class="b master"><select name="master" id="master">
+        </select></td>
+    </tr>
+    <tr>
+      <td class="a">读写能力：</td>
+      <td  class="readandwrite"><select name="readandwrite" id="readandwrite">
+        </select></td>
+      <td class="a">听说能力：</td>
+      <td  class="listenandtalk"><select name="listenandtalk" id="listenandtalk">
+        </select></td>
+    </tr>
+  </tbody>
+</table>
